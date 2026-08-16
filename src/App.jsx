@@ -3,7 +3,8 @@ import { saveMarketingLead } from './db';
 import { 
   ArrowUpRight, CheckCircle2, Phone, Mail, MapPin, 
   X, Building, ArrowRight, Compass, Paintbrush, 
-  ShieldCheck, LayoutGrid, Briefcase, Contact, User
+  ShieldCheck, LayoutGrid, Briefcase, Contact, User,
+  CalendarPlus
 } from 'lucide-react';
 
 export default function App() {
@@ -103,32 +104,27 @@ export default function App() {
       {/* Google Fonts Import for Plus Jakarta Sans */}
       <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-      {/* --- ICON-ONLY FLOATING LEFT-CENTER DOCK (WIDER PILL SHAPE) --- */}
-      <aside className="w-full lg:w-16 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-6 bg-white text-[#B45309] rounded-full py-4 flex lg:flex-col items-center justify-between shadow-xl z-40 border border-[#B45309]/30">
+      {/* --- ICON-ONLY FLOATING LEFT-CENTER DOCK (SHORT PILL SHAPE) --- */}
+      <aside className="w-full lg:w-16 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-6 bg-white text-[#B45309] rounded-full py-4 flex lg:flex-col items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.08)] z-40 border border-[#E7E5E4]">
         
-        {/* Logo / Custom Icon (Teak Background, White Image) */}
-        <a href="#" className="w-12 h-12 bg-[#B45309] rounded-full flex items-center justify-center shadow-sm shrink-0 overflow-hidden hover:scale-105 transition-transform p-2.5">
-          <img src="/jyanipur.png" alt="Jyanipur Logo" className="w-full h-full object-contain brightness-0 invert" />
-        </a>
-
         {/* Navigation Icons Only */}
-        <nav className="flex lg:flex-col items-center gap-2 my-4">
+        <nav className="flex lg:flex-col items-center gap-2">
           <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <LayoutGrid className="w-5 h-5" strokeWidth={2} />
+            <LayoutGrid className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <a href="#services" title="Capabilities" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <Briefcase className="w-5 h-5" strokeWidth={2} />
+            <Briefcase className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <a href="#process" title="Methodology" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <Compass className="w-5 h-5" strokeWidth={2} />
+            <Compass className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <a href="#contact" title="Contact" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <Contact className="w-5 h-5" strokeWidth={2} />
+            <Contact className="w-5 h-5" strokeWidth={1.75} />
           </a>
         </nav>
 
         {/* Action Icons */}
-        <div className="flex lg:flex-col items-center gap-2 shrink-0">
+        <div className="flex lg:flex-col items-center gap-2 mt-2 pt-4 border-t border-[#E7E5E4] shrink-0">
           <a 
             href="https://www.jyanipur.org.in" 
             target="_blank" 
@@ -136,20 +132,20 @@ export default function App() {
             title="Client Portal"
             className="w-12 h-12 flex items-center justify-center text-[#B45309] hover:bg-amber-50 transition-colors rounded-full"
           >
-            <User className="w-5 h-5" strokeWidth={2} />
+            <User className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <button 
             onClick={() => setIsEstimateModalOpen(true)}
             title="Book Consultation"
-            className="w-12 h-12 bg-[#B45309] text-white hover:bg-amber-700 rounded-full transition-all shadow-sm flex items-center justify-center"
+            className="w-12 h-12 bg-[#B45309] text-white hover:bg-[#92400E] rounded-full transition-all shadow-sm flex items-center justify-center"
           >
-            <ArrowUpRight className="w-5 h-5" strokeWidth={2.5} />
+            <CalendarPlus className="w-5 h-5" strokeWidth={2} />
           </button>
         </div>
       </aside>
 
       {/* --- MAIN CONTENT AREA --- */}
-      <main className="flex-1 lg:ml-28 p-6 lg:p-12 relative bg-white min-h-screen">
+      <main className="flex-1 lg:ml-28 p-6 lg:p-10 relative bg-white min-h-screen max-w-[1600px] mx-auto w-full">
         
         {/* Subtle Architectural Grid Effect */}
         <div 
@@ -160,43 +156,47 @@ export default function App() {
           }}
         ></div>
 
-        {/* HERO SHOWCASE */}
-        <section className="relative z-10 mb-20">
-          <div className="max-w-4xl space-y-6 mb-12">
-            <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-[#B45309]/20">
-              <Compass className="w-3.5 h-3.5 text-[#B45309]" strokeWidth={2} /> Architectural Portfolio Studio
-            </div>
-
-            <h1 className="text-4xl lg:text-6xl font-light text-[#1C1917] leading-[1.15] tracking-tight">
-              Bespoke Spaces. <br /><span className="font-semibold text-[#B45309]">Uncompromising Precision.</span>
-            </h1>
-
-            <p className="text-[#57534E] text-base lg:text-lg font-normal leading-relaxed max-w-2xl">
-              Jyanipur is a premier turnkey construction and luxury interior studio based in Hyderabad. We turn structural blueprints into living architectural artwork.
-            </p>
+        {/* --- BRAND HEADER --- */}
+        <header className="relative z-10 mb-8 flex items-center gap-4">
+          <div className="w-12 h-12 bg-[#B45309] rounded-xl flex items-center justify-center shadow-sm p-2.5">
+            <img src="/jyanipur.png" alt="Jyanipur Logo" className="w-full h-full object-contain brightness-0 invert" />
           </div>
+          <h1 className="text-2xl lg:text-3xl font-light tracking-[0.15em] text-[#B45309] uppercase">
+            Jyanipur
+          </h1>
+        </header>
 
-          {/* Featured Project Banner Box */}
-          <div className="relative rounded-2xl overflow-hidden shadow-md border border-[#E7E5E4] h-[450px] lg:h-[550px] group">
+        {/* --- NARSI-STYLE HERO SHOWCASE --- */}
+        <section className="relative z-10 mb-16">
+          <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#E7E5E4] h-[500px] lg:h-[700px] w-full group">
+            
             <img 
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" 
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=80" 
               alt="Featured Architecture" 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#B45309]/95 via-[#B45309]/30 to-transparent flex items-end p-8 lg:p-12">
-              <div className="text-white max-w-2xl">
-                <span className="bg-white text-[#B45309] text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block shadow-sm tracking-wide">
-                  Featured Masterpiece
-                </span>
-                <h2 className="text-3xl lg:text-4xl font-normal tracking-tight">The Glass Monolith Villa</h2>
-                <p className="text-amber-100 mt-2 text-sm lg:text-base font-light">Kondapur, Hyderabad • 3,400 Sq.Ft. Structural Glazing & Modern Interiors</p>
-              </div>
+            
+            {/* Elegant Translucent Band Overlay */}
+            <div className="absolute bottom-12 left-0 right-0 w-full bg-[#B45309]/90 backdrop-blur-md py-5 flex flex-col items-center justify-center text-white shadow-xl">
+              <h2 className="text-xl lg:text-2xl font-bold tracking-[0.2em] uppercase">The Glass Monolith Villa</h2>
+              <p className="text-sm lg:text-base font-light tracking-wide mt-1 text-amber-50">Kondapur, Hyderabad</p>
             </div>
+
           </div>
         </section>
 
+        {/* --- BESPOKE SPACES INTRO --- */}
+        <section className="relative z-10 max-w-4xl mb-24 lg:pl-4">
+          <h2 className="text-4xl lg:text-5xl font-light text-[#B45309] leading-[1.2] tracking-tight mb-6">
+            The Roots of Jyanipur.
+          </h2>
+          <p className="text-[#57534E] text-lg lg:text-xl font-light leading-relaxed">
+            We are a premier turnkey construction and luxury interior studio based in Hyderabad. We turn structural blueprints into living architectural artwork with uncompromising precision.
+          </p>
+        </section>
+
         {/* PORTFOLIO GALLERY */}
-        <section id="portfolio" className="relative z-10 mb-20 pt-8 border-t border-[#E7E5E4]">
+        <section id="portfolio" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8">
             <div>
               <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Curated Works</span>
@@ -222,7 +222,7 @@ export default function App() {
             {filteredProjects.map((p) => (
               <div 
                 key={p.id} 
-                className="group bg-white text-[#292524] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer border border-[#E7E5E4]"
+                className="group bg-white text-[#292524] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer border border-[#E7E5E4]"
                 onClick={() => setSelectedProject(p)}
               >
                 <div className="h-72 overflow-hidden relative border-b border-[#E7E5E4]">
@@ -253,7 +253,7 @@ export default function App() {
         </section>
 
         {/* CAPABILITIES SECTION */}
-        <section id="services" className="relative z-10 mb-20 pt-8 border-t border-[#E7E5E4]">
+        <section id="services" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="mb-12">
             <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Our Capabilities</span>
             <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">End-to-End Execution</h2>
@@ -261,24 +261,24 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
-              <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mb-6 border border-[#B45309]/20">
-                <Building className="w-6 h-6 text-[#B45309]" strokeWidth={2} />
+              <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
+                <Building className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
               </div>
               <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Civil Construction</h3>
               <p className="text-[#57534E] text-sm font-light leading-relaxed">Structural RCC framing, masonry, and civil engineering built to last generations.</p>
             </div>
 
             <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
-              <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mb-6 border border-[#B45309]/20">
-                <Paintbrush className="w-6 h-6 text-[#B45309]" strokeWidth={2} />
+              <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
+                <Paintbrush className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
               </div>
               <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Bespoke Interiors</h3>
               <p className="text-[#57534E] text-sm font-light leading-relaxed">Factory-finished modular woodwork, marble flooring, and custom furniture fitting.</p>
             </div>
 
             <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
-              <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mb-6 border border-[#B45309]/20">
-                <ShieldCheck className="w-6 h-6 text-[#B45309]" strokeWidth={2} />
+              <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
+                <ShieldCheck className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
               </div>
               <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Turnkey Management</h3>
               <p className="text-[#57534E] text-sm font-light leading-relaxed">Single point of accountability coordinating labor, vendors, and precise handovers.</p>
@@ -287,7 +287,7 @@ export default function App() {
         </section>
 
         {/* METHODOLOGY / PROCESS */}
-        <section id="process" className="relative z-10 mb-20 pt-8 border-t border-[#E7E5E4]">
+        <section id="process" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="mb-12">
             <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Methodology</span>
             <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">How We Build</h2>
@@ -304,15 +304,15 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- FOOTER CONTAINER (Teak background, White Image) --- */}
-        <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4]">
+        {/* --- FOOTER CONTAINER --- */}
+        <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4] mb-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-[#B45309] rounded-full overflow-hidden flex items-center justify-center shadow-sm p-1.5">
                   <img src="/jyanipur.png" alt="Jyanipur Logo" className="w-full h-full object-contain brightness-0 invert" />
                 </div>
-                <span className="text-2xl font-semibold tracking-wider uppercase text-[#1C1917]">Jyanipur</span>
+                <span className="text-2xl font-light tracking-[0.15em] uppercase text-[#1C1917]">Jyanipur</span>
               </div>
               <p className="text-xs text-[#57534E] font-light max-w-sm leading-relaxed">
                 Turnkey Construction & Bespoke Luxury Interiors. Building high-end architectural residences in Hyderabad.
