@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { saveMarketingLead } from './db';
 import { 
-  ArrowUpRight, CheckCircle2, Phone, Mail, MapPin, 
+  ArrowUpRight, CheckCircle, Phone, Mail, MapPin, 
   X, Building, ArrowRight, Compass, Paintbrush, 
-  ShieldCheck, LayoutGrid, Briefcase, Contact, User
+  ShieldCheck, Grid, Briefcase, User
 } from 'lucide-react';
 
 export default function App() {
@@ -103,7 +103,7 @@ export default function App() {
         
         <nav className="flex lg:flex-col items-center gap-2">
           <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <LayoutGrid className="w-5 h-5" strokeWidth={1.75} />
+            <Grid className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <a href="#services" title="Capabilities" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <Briefcase className="w-5 h-5" strokeWidth={1.75} />
@@ -112,7 +112,7 @@ export default function App() {
             <Compass className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <a href="#contact" title="Contact" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <Contact className="w-5 h-5" strokeWidth={1.75} />
+            <Phone className="w-5 h-5" strokeWidth={1.75} />
           </a>
         </nav>
 
@@ -147,7 +147,6 @@ export default function App() {
           }}
         ></div>
 
-        {/* --- BRAND HEADER --- */}
         <header className="relative z-10 mb-10 flex items-center gap-4 lg:gap-6 pt-4">
           <div className="h-20 sm:h-24 lg:h-28 w-auto flex items-center justify-start shrink-0">
             <img 
@@ -162,7 +161,6 @@ export default function App() {
           </h1>
         </header>
 
-        {/* --- HERO SHOWCASE --- */}
         <section className="relative z-10 mb-16">
           <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#E7E5E4] h-[500px] lg:h-[700px] w-full group">
             <img 
@@ -177,7 +175,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- INTRO --- */}
         <section className="relative z-10 max-w-4xl mb-24 lg:pl-4">
           <h2 className="text-4xl lg:text-5xl font-light text-[#B45309] leading-[1.2] tracking-tight mb-6">
             The Roots of Jyanipur.
@@ -187,7 +184,6 @@ export default function App() {
           </p>
         </section>
 
-        {/* PORTFOLIO GALLERY */}
         <section id="portfolio" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8">
             <div>
@@ -242,7 +238,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* CAPABILITIES SECTION */}
         <section id="services" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="mb-12">
             <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Our Capabilities</span>
@@ -273,7 +268,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* METHODOLOGY */}
         <section id="process" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="mb-12">
             <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Methodology</span>
@@ -290,7 +284,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- FOOTER --- */}
         <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4] mb-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
@@ -355,7 +348,7 @@ export default function App() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {selectedProject.features.map((feat, i) => (
                   <div key={i} className="flex items-center gap-3 bg-amber-50/50 p-4 rounded-xl border border-amber-200/60">
-                    <CheckCircle2 className="w-4 h-4 text-[#B45309] shrink-0" strokeWidth={2} />
+                    <CheckCircle className="w-4 h-4 text-[#B45309] shrink-0" strokeWidth={2} />
                     <span className="text-xs font-semibold text-[#292524]">{feat}</span>
                   </div>
                 ))}
@@ -418,7 +411,7 @@ export default function App() {
             ) : (
               <div className="py-10 text-center space-y-4">
                 <div className="w-16 h-16 bg-[#B45309] text-white flex items-center justify-center mx-auto rounded-full mb-6 shadow-md">
-                  <CheckCircle2 className="w-8 h-8" strokeWidth={2} />
+                  <CheckCircle className="w-8 h-8" strokeWidth={2} />
                 </div>
                 <h3 className="text-2xl font-normal text-[#292524]">Consultation Requested</h3>
                 <p className="text-[#57534E] text-sm font-light">
