@@ -3,7 +3,7 @@ import { saveMarketingLead } from './db';
 import { 
   ArrowUpRight, CheckCircle2, Phone, Mail, MapPin, 
   HardHat, X, Ruler, Building, Construction, 
-  Paintbrush, ShieldCheck, ChevronRight, Star
+  Paintbrush, ShieldCheck, ChevronRight, Star, ArrowRight
 } from 'lucide-react';
 
 export default function App() {
@@ -122,11 +122,11 @@ export default function App() {
       <div className="bg-[#9A3412] text-white py-2 px-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-xs font-medium tracking-wide">
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-2"><Phone className="w-3.5 h-3.5 text-blue-300" /> +91 9246546742</span>
-            <span className="hidden sm:flex items-center gap-2"><Mail className="w-3.5 h-3.5 text-blue-300" /> accounts@jyanipur.in</span>
+            <span className="flex items-center gap-2"><Phone className="w-3.5 h-3.5 text-orange-200" /> +91 9246546742</span>
+            <span className="hidden sm:flex items-center gap-2"><Mail className="w-3.5 h-3.5 text-orange-200" /> accounts@jyanipur.in</span>
           </div>
           <div className="flex items-center gap-2">
-            <MapPin className="w-3.5 h-3.5 text-blue-300" /> Hyderabad, Telangana
+            <MapPin className="w-3.5 h-3.5 text-orange-200" /> Hyderabad, Telangana
           </div>
         </div>
       </div>
@@ -162,7 +162,7 @@ export default function App() {
             </a>
             <button 
               onClick={() => setIsEstimateModalOpen(true)}
-              className="bg-[#9A3412] hover:bg-blue-900 text-white font-bold px-6 py-2.5 rounded-full text-sm transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
+              className="bg-[#9A3412] hover:bg-[#7c290e] text-white font-bold px-6 py-2.5 rounded-full text-sm transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
             >
               Get Free Estimate <ArrowUpRight className="w-4 h-4" />
             </button>
@@ -175,7 +175,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <div className="space-y-8 z-10">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#9A3412] bg-blue-50 px-4 py-2 rounded-full">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#9A3412] bg-orange-50 px-4 py-2 rounded-full">
               <Star className="w-4 h-4 fill-current" /> Premium Builders in Hyderabad
             </div>
 
@@ -190,7 +190,7 @@ export default function App() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button 
                 onClick={() => setIsEstimateModalOpen(true)}
-                className="bg-[#9A3412] hover:bg-blue-900 text-white font-bold px-8 py-4 rounded-full text-sm transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 text-center"
+                className="bg-[#9A3412] hover:bg-[#7c290e] text-white font-bold px-8 py-4 rounded-full text-sm transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 text-center"
               >
                 Start Your Project
               </button>
@@ -237,7 +237,7 @@ export default function App() {
                 </div>
 
                 <div className="bg-[#9A3412] text-white p-6 rounded-2xl">
-                  <span className="text-xs text-blue-200 uppercase tracking-widest font-bold block mb-1">Estimated Budget</span>
+                  <span className="text-xs text-orange-200 uppercase tracking-widest font-bold block mb-1">Estimated Budget</span>
                   <span className="text-3xl font-black block mb-4">₹{(heroSqft * 1500).toLocaleString('en-IN')}*</span>
                   <button 
                     onClick={() => {
@@ -268,7 +268,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {capabilities.map((cap, i) => (
               <div key={i} className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-zinc-100">
-                <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mb-6">
                   {cap.icon}
                 </div>
                 <h3 className="text-xl font-black text-zinc-900 mb-3">{cap.title}</h3>
@@ -323,7 +323,7 @@ export default function App() {
                     <h3 className="text-2xl font-black text-zinc-900 mb-2 group-hover:text-[#9A3412] transition-colors">{p.title}</h3>
                     <p className="text-sm text-zinc-500 flex items-center gap-1"><MapPin className="w-4 h-4" /> {p.location}</p>
                   </div>
-                  <span className="bg-blue-50 text-[#9A3412] text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="bg-orange-50 text-[#9A3412] text-xs font-bold px-3 py-1 rounded-full">
                     {p.area}
                   </span>
                 </div>
@@ -375,7 +375,7 @@ export default function App() {
                 ))}
               </div>
 
-              <div className="bg-blue-50 p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="bg-orange-50 p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
                   <h4 className="font-bold text-[#9A3412]">Want to build something similar?</h4>
                   <p className="text-sm text-zinc-600 mt-1">Get a transparent, detailed BOQ for your plot today.</p>
@@ -385,7 +385,7 @@ export default function App() {
                     setSelectedProject(null);
                     setIsEstimateModalOpen(true);
                   }}
-                  className="w-full sm:w-auto bg-[#9A3412] hover:bg-blue-900 text-white px-6 py-3 rounded-full text-sm font-bold transition-all whitespace-nowrap"
+                  className="w-full sm:w-auto bg-[#9A3412] hover:bg-[#7c290e] text-white px-6 py-3 rounded-full text-sm font-bold transition-all whitespace-nowrap"
                 >
                   Get Free Estimate
                 </button>
@@ -437,7 +437,7 @@ export default function App() {
                     </select>
                   </div>
 
-                  <button type="submit" disabled={loading} className="w-full py-4 bg-[#9A3412] hover:bg-blue-900 text-white font-bold rounded-full transition-all mt-4 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                  <button type="submit" disabled={loading} className="w-full py-4 bg-[#9A3412] hover:bg-[#7c290e] text-white font-bold rounded-full transition-all mt-4 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                     {loading ? 'Processing...' : 'Get My Quote'}
                   </button>
                 </form>
@@ -462,7 +462,7 @@ export default function App() {
       <section className="py-24 bg-[#9A3412] px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-6">Ready to break ground?</h2>
-          <p className="text-blue-200 text-lg mb-10">Stop worrying about hidden costs and delayed timelines. Let Jyanipur handle everything from architectural blueprints to the final coat of paint.</p>
+          <p className="text-orange-100 text-lg mb-10">Stop worrying about hidden costs and delayed timelines. Let Jyanipur handle everything from architectural blueprints to the final coat of paint.</p>
           <button 
             onClick={() => setIsEstimateModalOpen(true)}
             className="bg-white text-[#9A3412] font-black px-10 py-5 rounded-full text-lg shadow-2xl hover:scale-105 transition-transform"
