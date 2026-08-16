@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { saveMarketingLead } from './db';
 import { 
   ArrowUpRight, CheckCircle2, Phone, Mail, MapPin, 
-  X, Building, Home, Hammer, ArrowRight, Star
+  X, Building, Home, Hammer, ArrowRight, Star,
+  Paintbrush, ShieldCheck
 } from 'lucide-react';
 
 export default function App() {
@@ -76,12 +77,12 @@ export default function App() {
       desc: "End-to-end structural execution including excavation, RCC framing, and masonry, built to last generations."
     },
     {
-      icon: <Home className="w-8 h-8 text-[#57534E]" />,
+      icon: <Paintbrush className="w-8 h-8 text-[#57534E]" />,
       title: "Luxury Interiors",
       desc: "Bespoke interior design and execution featuring factory-finished modular woodwork and premium material sourcing."
     },
     {
-      icon: <Hammer className="w-8 h-8 text-[#57534E]" />,
+      icon: <ShieldCheck className="w-8 h-8 text-[#57534E]" />,
       title: "Turnkey Execution",
       desc: "A seamless experience. We handle architectural compliance, labor management, material procurement, and final handover."
     }
