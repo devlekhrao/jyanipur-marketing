@@ -103,53 +103,53 @@ export default function App() {
       {/* Google Fonts Import for Plus Jakarta Sans */}
       <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-      {/* --- ICON-ONLY FLOATING LEFT-CENTER DOCK --- */}
-      <aside className="w-full lg:w-12 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-4 bg-white text-[#B45309] rounded-2xl p-2 flex lg:flex-col items-center justify-between shadow-xl z-40 border border-[#B45309]/30">
+      {/* --- ICON-ONLY FLOATING LEFT-CENTER DOCK (WIDER PILL SHAPE) --- */}
+      <aside className="w-full lg:w-16 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-6 bg-white text-[#B45309] rounded-full py-4 flex lg:flex-col items-center justify-between shadow-xl z-40 border border-[#B45309]/30">
         
         {/* Logo */}
-        <a href="#" className="w-8 h-8 bg-[#B45309] text-white font-semibold rounded-xl flex items-center justify-center text-sm shadow-sm shrink-0">
+        <a href="#" className="w-12 h-12 bg-[#B45309] text-white font-semibold rounded-full flex items-center justify-center text-base shadow-sm shrink-0">
           J
         </a>
 
         {/* Navigation Icons Only */}
-        <nav className="flex lg:flex-col items-center gap-1.5 my-3">
-          <a href="#portfolio" title="Portfolio" className="w-8 h-8 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-lg transition-colors">
-            <LayoutGrid className="w-4 h-4" strokeWidth={2} />
+        <nav className="flex lg:flex-col items-center gap-2 my-4">
+          <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
+            <LayoutGrid className="w-5 h-5" strokeWidth={2} />
           </a>
-          <a href="#services" title="Capabilities" className="w-8 h-8 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-lg transition-colors">
-            <Briefcase className="w-4 h-4" strokeWidth={2} />
+          <a href="#services" title="Capabilities" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
+            <Briefcase className="w-5 h-5" strokeWidth={2} />
           </a>
-          <a href="#process" title="Methodology" className="w-8 h-8 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-lg transition-colors">
-            <Compass className="w-4 h-4" strokeWidth={2} />
+          <a href="#process" title="Methodology" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
+            <Compass className="w-5 h-5" strokeWidth={2} />
           </a>
-          <a href="#contact" title="Contact" className="w-8 h-8 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-lg transition-colors">
-            <Contact className="w-4 h-4" strokeWidth={2} />
+          <a href="#contact" title="Contact" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
+            <Contact className="w-5 h-5" strokeWidth={2} />
           </a>
         </nav>
 
         {/* Action Icons */}
-        <div className="flex lg:flex-col items-center gap-1.5 shrink-0">
+        <div className="flex lg:flex-col items-center gap-2 shrink-0">
           <a 
             href="https://www.jyanipur.org.in" 
             target="_blank" 
             rel="noreferrer"
             title="Client Portal"
-            className="w-8 h-8 flex items-center justify-center text-[#B45309] hover:opacity-70 transition-opacity"
+            className="w-12 h-12 flex items-center justify-center text-[#B45309] hover:bg-amber-50 transition-colors rounded-full"
           >
-            <User className="w-4 h-4" strokeWidth={2} />
+            <User className="w-5 h-5" strokeWidth={2} />
           </a>
           <button 
             onClick={() => setIsEstimateModalOpen(true)}
             title="Book Consultation"
-            className="w-8 h-8 bg-[#B45309] text-white hover:bg-amber-700 rounded-lg transition-all shadow-sm flex items-center justify-center"
+            className="w-12 h-12 bg-[#B45309] text-white hover:bg-amber-700 rounded-full transition-all shadow-sm flex items-center justify-center"
           >
-            <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
+            <ArrowUpRight className="w-5 h-5" strokeWidth={2.5} />
           </button>
         </div>
       </aside>
 
       {/* --- MAIN CONTENT AREA --- */}
-      <main className="flex-1 lg:ml-20 p-6 lg:p-12 relative bg-white min-h-screen">
+      <main className="flex-1 lg:ml-28 p-6 lg:p-12 relative bg-white min-h-screen">
         
         {/* Subtle Architectural Grid Effect */}
         <div 
@@ -236,7 +236,7 @@ export default function App() {
                   <div className="flex justify-between items-start mb-4">
                     <div>
                       <h3 className="text-2xl font-normal text-[#1C1917] mb-2 tracking-tight group-hover:text-[#B45309] transition-colors">{p.title}</h3>
-                      <p className="text-xs text-[#78716C] font-medium flex items-center gap-1 tracking-wide"><MapPin className="w-3.5 h-3.5 text-[#B45309]" strokeWidth={1.75} /> {p.location}</p>
+                      <p className="text-xs text-[#78716C] font-medium flex items-center gap-1 tracking-wide"><MapPin className="w-3.5 h-3.5 text-[#B45309]" /> {p.location}</p>
                     </div>
                     <span className="bg-amber-50 border border-[#B45309]/20 text-[#B45309] text-xs font-medium px-3 py-1 rounded-full">
                       {p.area}
@@ -244,7 +244,7 @@ export default function App() {
                   </div>
                   <p className="text-[#57534E] text-sm font-light mb-6 line-clamp-2 leading-relaxed">{p.description}</p>
                   <div className="flex items-center text-[#B45309] font-semibold text-xs tracking-wider uppercase group-hover:translate-x-2 transition-transform">
-                    View Case Study <ArrowRight className="w-4 h-4 ml-2" strokeWidth={2} />
+                    View Case Study <ArrowRight className="w-4 h-4 ml-2" />
                   </div>
                 </div>
               </div>
@@ -261,24 +261,24 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
-              <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
-                <Building className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
+              <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mb-6 border border-[#B45309]/20">
+                <Building className="w-6 h-6 text-[#B45309]" />
               </div>
               <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Civil Construction</h3>
               <p className="text-[#57534E] text-sm font-light leading-relaxed">Structural RCC framing, masonry, and civil engineering built to last generations.</p>
             </div>
 
             <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
-              <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
-                <Paintbrush className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
+              <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mb-6 border border-[#B45309]/20">
+                <Paintbrush className="w-6 h-6 text-[#B45309]" />
               </div>
               <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Bespoke Interiors</h3>
               <p className="text-[#57534E] text-sm font-light leading-relaxed">Factory-finished modular woodwork, marble flooring, and custom furniture fitting.</p>
             </div>
 
             <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
-              <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
-                <ShieldCheck className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
+              <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mb-6 border border-[#B45309]/20">
+                <ShieldCheck className="w-6 h-6 text-[#B45309]" />
               </div>
               <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Turnkey Management</h3>
               <p className="text-[#57534E] text-sm font-light leading-relaxed">Single point of accountability coordinating labor, vendors, and precise handovers.</p>
@@ -304,12 +304,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- FOOTER --- */}
+        {/* --- FOOTER CONTAINER --- */}
         <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4]">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-[#B45309] text-white font-semibold rounded-xl flex items-center justify-center text-xl shadow-sm">
+                <div className="w-10 h-10 bg-[#B45309] text-white font-semibold rounded-full flex items-center justify-center text-xl shadow-sm">
                   J
                 </div>
                 <span className="text-2xl font-semibold tracking-wider uppercase text-[#1C1917]">Jyanipur</span>
@@ -320,9 +320,9 @@ export default function App() {
             </div>
 
             <div className="flex flex-col gap-3 text-xs font-medium text-[#292524]">
-              <span className="flex items-center gap-3"><MapPin className="w-4 h-4 text-[#B45309]" strokeWidth={1.75} /> 302 Amrutha Lakshmi Residency, Kondapur, Hyderabad, 500084</span>
-              <span className="flex items-center gap-3"><Mail className="w-4 h-4 text-[#B45309]" strokeWidth={1.75} /> accounts@jyanipur.in</span>
-              <span className="flex items-center gap-3"><Phone className="w-4 h-4 text-[#B45309]" strokeWidth={1.75} /> +91 9246546742</span>
+              <span className="flex items-center gap-3"><MapPin className="w-4 h-4 text-[#B45309]" /> 302 Amrutha Lakshmi Residency, Kondapur, Hyderabad, 500084</span>
+              <span className="flex items-center gap-3"><Mail className="w-4 h-4 text-[#B45309]" /> accounts@jyanipur.in</span>
+              <span className="flex items-center gap-3"><Phone className="w-4 h-4 text-[#B45309]" /> +91 9246546742</span>
             </div>
           </div>
 
@@ -345,7 +345,7 @@ export default function App() {
               onClick={() => setSelectedProject(null)} 
               className="absolute top-4 right-4 z-10 bg-white text-[#B45309] p-2 rounded-full shadow-md border border-[#E7E5E4] hover:bg-[#B45309] hover:text-white transition-colors"
             >
-              <X className="w-6 h-6" strokeWidth={2} />
+              <X className="w-6 h-6" />
             </button>
 
             <div className="h-64 sm:h-80 relative shrink-0">
@@ -356,7 +356,7 @@ export default function App() {
                     {selectedProject.status}
                   </span>
                   <h2 className="text-3xl sm:text-4xl font-normal tracking-tight">{selectedProject.title}</h2>
-                  <p className="text-amber-100 font-light text-sm mt-2 flex items-center gap-2"><MapPin className="w-4 h-4" strokeWidth={1.75} /> {selectedProject.location} • {selectedProject.area}</p>
+                  <p className="text-amber-100 font-light text-sm mt-2 flex items-center gap-2"><MapPin className="w-4 h-4" /> {selectedProject.location} • {selectedProject.area}</p>
                 </div>
               </div>
             </div>
@@ -369,7 +369,7 @@ export default function App() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {selectedProject.features.map((feat, i) => (
                   <div key={i} className="flex items-center gap-3 bg-amber-50/50 p-4 rounded-xl border border-amber-200/60">
-                    <CheckCircle2 className="w-4 h-4 text-[#B45309] shrink-0" strokeWidth={2} />
+                    <CheckCircle2 className="w-4 h-4 text-[#B45309] shrink-0" />
                     <span className="text-xs font-semibold text-[#292524]">{feat}</span>
                   </div>
                 ))}
@@ -403,7 +403,7 @@ export default function App() {
               onClick={() => { setIsEstimateModalOpen(false); setIsLeadSaved(false); }} 
               className="absolute top-6 right-6 text-[#78716C] hover:text-[#292524] transition-colors"
             >
-              <X className="w-6 h-6" strokeWidth={2} />
+              <X className="w-6 h-6" />
             </button>
             
             {!isLeadSaved ? (
@@ -439,7 +439,7 @@ export default function App() {
             ) : (
               <div className="py-10 text-center space-y-4">
                 <div className="w-16 h-16 bg-[#B45309] text-white flex items-center justify-center mx-auto rounded-full mb-6 shadow-md">
-                  <CheckCircle2 className="w-8 h-8" strokeWidth={2} />
+                  <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-normal text-[#292524]">Consultation Requested</h3>
                 <p className="text-[#57534E] text-sm font-light">
