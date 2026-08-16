@@ -106,9 +106,9 @@ export default function App() {
       {/* --- ICON-ONLY FLOATING LEFT-CENTER DOCK (WIDER PILL SHAPE) --- */}
       <aside className="w-full lg:w-16 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-6 bg-white text-[#B45309] rounded-full py-4 flex lg:flex-col items-center justify-between shadow-xl z-40 border border-[#B45309]/30">
         
-        {/* Logo / Custom Icon */}
-        <a href="#" className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm shrink-0 overflow-hidden border border-[#B45309]/20 hover:scale-105 transition-transform">
-          <img src="/icon.png" alt="Jyanipur Logo" className="w-full h-full object-cover" />
+        {/* Logo / Custom Icon (Teak Background, White Image) */}
+        <a href="#" className="w-12 h-12 bg-[#B45309] rounded-full flex items-center justify-center shadow-sm shrink-0 overflow-hidden hover:scale-105 transition-transform p-2.5">
+          <img src="/jyanipur.png" alt="Jyanipur Logo" className="w-full h-full object-contain brightness-0 invert" />
         </a>
 
         {/* Navigation Icons Only */}
@@ -304,13 +304,13 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- FOOTER CONTAINER --- */}
+        {/* --- FOOTER CONTAINER (Teak background, White Image) --- */}
         <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4]">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-white rounded-full overflow-hidden flex items-center justify-center shadow-sm border border-[#B45309]/20">
-                  <img src="/icon.png" alt="Jyanipur Logo" className="w-full h-full object-cover" />
+                <div className="w-10 h-10 bg-[#B45309] rounded-full overflow-hidden flex items-center justify-center shadow-sm p-1.5">
+                  <img src="/jyanipur.png" alt="Jyanipur Logo" className="w-full h-full object-contain brightness-0 invert" />
                 </div>
                 <span className="text-2xl font-semibold tracking-wider uppercase text-[#1C1917]">Jyanipur</span>
               </div>
