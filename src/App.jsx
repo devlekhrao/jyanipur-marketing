@@ -98,70 +98,60 @@ export default function App() {
     : projects.filter(p => p.category === activeFilter);
 
   return (
-    <div className="min-h-screen bg-white text-[#292524] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#B45309] selection:text-white flex flex-col lg:flex-row antialiased relative">
+    <div className="min-h-screen bg-white text-[#292524] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#B45309] selection:text-white flex flex-col antialiased relative">
       
       {/* Google Fonts Import for Plus Jakarta Sans */}
       <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-      {/* --- POLISHED SIDEBAR NAVIGATION --- */}
-      <aside className="w-full lg:w-64 lg:fixed lg:h-[calc(100vh-2rem)] lg:m-4 bg-white text-[#292524] rounded-2xl p-6 flex flex-col justify-between shadow-lg z-40 border border-[#E7E5E4]">
-        <div>
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-3 mb-8">
-            <div className="w-9 h-9 bg-[#B45309] text-white font-semibold rounded-xl flex items-center justify-center text-lg shadow-sm shrink-0">
-              J
-            </div>
-            <div>
-              <span className="font-semibold text-base tracking-wider text-[#1C1917] block leading-none">JYANIPUR</span>
-              <span className="text-[9px] font-medium tracking-widest text-[#B45309] uppercase block mt-1">Studio & Works</span>
-            </div>
+      {/* --- ICON-ONLY FLOATING LEFT-CENTER DOCK --- */}
+      <aside className="w-full lg:w-12 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-4 bg-white text-[#B45309] rounded-2xl p-2 flex lg:flex-col items-center justify-between shadow-xl z-40 border border-[#B45309]/30">
+        
+        {/* Logo */}
+        <a href="#" className="w-8 h-8 bg-[#B45309] text-white font-semibold rounded-xl flex items-center justify-center text-sm shadow-sm shrink-0">
+          J
+        </a>
+
+        {/* Navigation Icons Only */}
+        <nav className="flex lg:flex-col items-center gap-1.5 my-3">
+          <a href="#portfolio" title="Portfolio" className="w-8 h-8 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-lg transition-colors">
+            <LayoutGrid className="w-4 h-4" strokeWidth={2} />
           </a>
+          <a href="#services" title="Capabilities" className="w-8 h-8 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-lg transition-colors">
+            <Briefcase className="w-4 h-4" strokeWidth={2} />
+          </a>
+          <a href="#process" title="Methodology" className="w-8 h-8 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-lg transition-colors">
+            <Compass className="w-4 h-4" strokeWidth={2} />
+          </a>
+          <a href="#contact" title="Contact" className="w-8 h-8 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-lg transition-colors">
+            <Contact className="w-4 h-4" strokeWidth={2} />
+          </a>
+        </nav>
 
-          {/* Sidebar Links */}
-          <nav className="space-y-1.5">
-            <a href="#portfolio" className="flex items-center gap-3 px-3.5 py-2.5 bg-amber-50 text-[#B45309] font-medium text-xs rounded-xl border border-[#B45309]/20 transition-all">
-              <LayoutGrid className="w-4 h-4 text-[#B45309]" strokeWidth={1.75} /> 
-              <span>Portfolio</span>
-            </a>
-            <a href="#services" className="flex items-center gap-3 px-3.5 py-2.5 text-[#57534E] hover:text-[#B45309] hover:bg-amber-50/50 font-medium text-xs rounded-xl transition-all">
-              <Briefcase className="w-4 h-4 text-[#B45309]" strokeWidth={1.75} /> 
-              <span>Capabilities</span>
-            </a>
-            <a href="#process" className="flex items-center gap-3 px-3.5 py-2.5 text-[#57534E] hover:text-[#B45309] hover:bg-amber-50/50 font-medium text-xs rounded-xl transition-all">
-              <Compass className="w-4 h-4 text-[#B45309]" strokeWidth={1.75} /> 
-              <span>Methodology</span>
-            </a>
-            <a href="#contact" className="flex items-center gap-3 px-3.5 py-2.5 text-[#57534E] hover:text-[#B45309] hover:bg-amber-50/50 font-medium text-xs rounded-xl transition-all">
-              <Contact className="w-4 h-4 text-[#B45309]" strokeWidth={1.75} /> 
-              <span>Contact</span>
-            </a>
-          </nav>
-        </div>
-
-        {/* Sidebar Footer Actions */}
-        <div className="pt-6 border-t border-[#E7E5E4] space-y-3">
+        {/* Action Icons */}
+        <div className="flex lg:flex-col items-center gap-1.5 shrink-0">
           <a 
             href="https://www.jyanipur.org.in" 
             target="_blank" 
             rel="noreferrer"
-            className="flex items-center justify-center gap-2 text-center text-xs font-semibold text-[#78716C] hover:text-[#B45309] transition-colors uppercase tracking-wider"
+            title="Client Portal"
+            className="w-8 h-8 flex items-center justify-center text-[#B45309] hover:opacity-70 transition-opacity"
           >
-            <User className="w-3.5 h-3.5 text-[#B45309]" strokeWidth={1.75} />
-            Client Portal
+            <User className="w-4 h-4" strokeWidth={2} />
           </a>
           <button 
             onClick={() => setIsEstimateModalOpen(true)}
-            className="w-full bg-[#B45309] hover:bg-[#92400E] text-white font-semibold py-3 px-4 rounded-xl text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2"
+            title="Book Consultation"
+            className="w-8 h-8 bg-[#B45309] text-white hover:bg-amber-700 rounded-lg transition-all shadow-sm flex items-center justify-center"
           >
-            Book Meeting <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
+            <ArrowUpRight className="w-4 h-4" strokeWidth={2.5} />
           </button>
         </div>
       </aside>
 
       {/* --- MAIN CONTENT AREA --- */}
-      <main className="flex-1 lg:ml-72 p-6 lg:p-12 relative bg-white min-h-screen">
+      <main className="flex-1 lg:ml-20 p-6 lg:p-12 relative bg-white min-h-screen">
         
-        {/* Subtle Grid Effect */}
+        {/* Subtle Architectural Grid Effect */}
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
@@ -314,8 +304,8 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- FOOTER CONTAINER --- */}
-        <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4] mb-8">
+        {/* --- FOOTER --- */}
+        <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4]">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
               <div className="flex items-center gap-3 mb-4">
