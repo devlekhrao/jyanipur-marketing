@@ -3,7 +3,7 @@ import { saveMarketingLead } from './db';
 import { 
   ArrowUpRight, CheckCircle2, Phone, Mail, MapPin, 
   X, Building, ArrowRight, Compass, Paintbrush, 
-  ShieldCheck, Home, LayoutGrid, Briefcase, Contact
+  ShieldCheck, LayoutGrid, Briefcase, Contact, User
 } from 'lucide-react';
 
 export default function App() {
@@ -100,58 +100,53 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-[#292524] font-sans selection:bg-[#B45309] selection:text-white flex flex-col lg:flex-row">
       
-      {/* --- SIDEBAR NAVIGATION (SOFT CIRCULAR EDGES) --- */}
-      <aside className="w-full lg:w-72 lg:fixed lg:h-[calc(100vh-2rem)] lg:m-4 bg-[#B45309] text-white rounded-3xl p-6 flex flex-col justify-between shadow-2xl z-40 border border-amber-600/30">
-        <div>
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-3 mb-10">
-            <div className="w-10 h-10 bg-white text-[#B45309] font-black rounded-2xl flex items-center justify-center text-xl shadow-md">
-              J
-            </div>
-            <div>
-              <span className="font-black text-lg tracking-wider block leading-none">JYANIPUR</span>
-              <span className="text-[9px] font-bold tracking-widest text-amber-200 uppercase block mt-1">Studio & Works</span>
-            </div>
+      {/* --- SLIM COMPACT SIDEBAR --- */}
+      <aside className="w-full lg:w-20 lg:fixed lg:h-[calc(100vh-2rem)] lg:m-4 bg-[#B45309] text-white rounded-3xl p-4 flex lg:flex-col justify-between items-center shadow-2xl z-40 border border-amber-600/30">
+        
+        {/* Compact Logo */}
+        <a href="#" className="w-12 h-12 bg-white text-[#B45309] font-black rounded-2xl flex items-center justify-center text-xl shadow-md shrink-0">
+          J
+        </a>
+
+        {/* Compact Navigation Icons with Hover Labels */}
+        <nav className="flex lg:flex-col items-center gap-4">
+          <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center bg-amber-800/40 hover:bg-white hover:text-[#B45309] rounded-2xl transition-all">
+            <LayoutGrid className="w-5 h-5" />
           </a>
+          <a href="#services" title="Capabilities" className="w-12 h-12 flex items-center justify-center hover:bg-amber-800/40 text-amber-100 hover:text-white rounded-2xl transition-all">
+            <Briefcase className="w-5 h-5" />
+          </a>
+          <a href="#process" title="Methodology" className="w-12 h-12 flex items-center justify-center hover:bg-amber-800/40 text-amber-100 hover:text-white rounded-2xl transition-all">
+            <Compass className="w-5 h-5" />
+          </a>
+          <a href="#contact" title="Contact" className="w-12 h-12 flex items-center justify-center hover:bg-amber-800/40 text-amber-100 hover:text-white rounded-2xl transition-all">
+            <Contact className="w-5 h-5" />
+          </a>
+        </nav>
 
-          {/* Navigation Links */}
-          <nav className="space-y-3">
-            <a href="#portfolio" className="flex items-center gap-3 px-4 py-3 bg-amber-800/40 hover:bg-white hover:text-[#B45309] font-bold text-sm rounded-2xl transition-all">
-              <LayoutGrid className="w-4 h-4" /> Portfolio
-            </a>
-            <a href="#services" className="flex items-center gap-3 px-4 py-3 hover:bg-amber-800/40 font-bold text-sm rounded-2xl transition-all text-amber-100 hover:text-white">
-              <Briefcase className="w-4 h-4" /> Capabilities
-            </a>
-            <a href="#process" className="flex items-center gap-3 px-4 py-3 hover:bg-amber-800/40 font-bold text-sm rounded-2xl transition-all text-amber-100 hover:text-white">
-              <Compass className="w-4 h-4" /> Methodology
-            </a>
-            <a href="#contact" className="flex items-center gap-3 px-4 py-3 hover:bg-amber-800/40 font-bold text-sm rounded-2xl transition-all text-amber-100 hover:text-white">
-              <Contact className="w-4 h-4" /> Contact
-            </a>
-          </nav>
-        </div>
-
-        {/* Sidebar Bottom Action & Client Login */}
-        <div className="pt-6 border-t border-amber-700/50 space-y-4">
+        {/* Compact Actions */}
+        <div className="flex lg:flex-col items-center gap-3 shrink-0">
           <a 
             href="https://www.jyanipur.org.in" 
             target="_blank" 
             rel="noreferrer"
-            className="block text-center text-xs font-bold text-amber-200 hover:text-white transition-colors"
+            title="Client Login"
+            className="w-10 h-10 flex items-center justify-center text-amber-200 hover:text-white transition-colors"
           >
-            Client Login Portal
+            <User className="w-5 h-5" />
           </a>
           <button 
             onClick={() => setIsEstimateModalOpen(true)}
-            className="w-full bg-white text-[#B45309] hover:bg-amber-50 font-black py-3.5 px-4 rounded-2xl text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2"
+            title="Book Consultation"
+            className="w-12 h-12 bg-white text-[#B45309] hover:bg-amber-50 rounded-2xl transition-all shadow-md flex items-center justify-center"
           >
-            Book Consultation <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-5 h-5" />
           </button>
         </div>
       </aside>
 
-      {/* --- MAIN CONTENT AREA WITH ARCHITECTURAL CARPET/BLUEPRINT TEXTURE --- */}
-      <main className="flex-1 lg:ml-80 p-6 lg:p-12 relative overflow-hidden">
+      {/* --- MAIN CONTENT AREA --- */}
+      <main className="flex-1 lg:ml-28 p-6 lg:p-12 relative overflow-hidden">
         
         {/* Subtle Architectural Carpet Grid Effect */}
         <div 
@@ -164,7 +159,7 @@ export default function App() {
 
         {/* HERO SHOWCASE */}
         <section className="relative z-10 mb-20">
-          <div className="max-w-3xl space-y-6 mb-12">
+          <div className="max-w-4xl space-y-6 mb-12">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-amber-200">
               <Compass className="w-4 h-4 text-[#B45309]" /> Architectural Portfolio Studio
             </div>
@@ -173,13 +168,13 @@ export default function App() {
               Bespoke Spaces. <br /><span className="text-[#B45309]">Uncompromising Precision.</span>
             </h1>
 
-            <p className="text-[#57534E] text-base lg:text-lg leading-relaxed">
+            <p className="text-[#57534E] text-base lg:text-lg leading-relaxed max-w-2xl">
               Jyanipur is a premier turnkey construction and luxury interior studio based in Hyderabad. We turn structural blueprints into living architectural artwork.
             </p>
           </div>
 
           {/* Featured Project Banner Box */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-amber-100 h-[450px] group">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-amber-100 h-[450px] lg:h-[550px] group">
             <img 
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" 
               alt="Featured Architecture" 
