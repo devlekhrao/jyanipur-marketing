@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { saveMarketingLead } from './db';
 import { 
-  Grid, Briefcase, Compass, Phone, User, ArrowRight, 
+  Grid, Briefcase, Phone, User, ArrowRight, 
   Check, Mail, MapPin, X, Building, Shield, PenTool,
   Layers, Globe, Home
 } from 'lucide-react';
@@ -97,13 +97,6 @@ export default function App() {
     }
   ];
 
-  const processSteps = [
-    { num: "01", title: "Consultation", desc: "Site analysis & structural planning." },
-    { num: "02", title: "3D Design & BOQ", desc: "Blueprints, material selection, transparent pricing." },
-    { num: "03", title: "Execution", desc: "Precision construction & interior fitting." },
-    { num: "04", title: "Handover", desc: "Quality audit & key delivery on schedule." }
-  ];
-
   const handleConsultSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -141,7 +134,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-[#292524] font-sans selection:bg-[#B45309] selection:text-white flex flex-col antialiased relative" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       
-      {/* --- HYBRID SIDEBAR DOCK --- */}
+      {/* SIDEBAR DOCK */}
       <aside className="w-full lg:w-16 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-6 bg-white text-[#B45309] rounded-full py-4 flex lg:flex-col items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.08)] z-40 border border-[#E7E5E4]">
         <nav className="flex lg:flex-col items-center gap-2">
           {navItems.map((item) => {
@@ -182,26 +175,18 @@ export default function App() {
           <button 
             onClick={() => setIsEstimateModalOpen(true)}
             title="Book Consultation"
-            className="w-12 h-12 bg-[#B45309] text-white hover:bg-[#92400E] rounded-full transition-all shadow-sm flex items-center justify-center"
+            className="w-12 h-12 bg-[#B45309] text-white hover:bg-[#92400E] rounded-all transition-all shadow-sm flex items-center justify-center"
           >
             <ArrowRight className="w-5 h-5" strokeWidth={2} />
           </button>
         </div>
       </aside>
 
-      {/* --- MAIN PAGE CONTENT WRAPPER --- */}
+      {/* MAIN CONTENT AREA */}
       <main className="flex-1 lg:ml-28 p-6 lg:p-10 relative bg-white min-h-screen max-w-[1600px] mx-auto w-full">
         
-        <div 
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage: `radial-gradient(#B45309 1.5px, transparent 1.5px), linear-gradient(to right, #B45309 1px, transparent 1px), linear-gradient(to bottom, #B45309 1px, transparent 1px)`,
-            backgroundSize: '24px 24px, 72px 72px, 72px 72px'
-          }}
-        ></div>
-
-        {/* --- GLOBAL BRAND HEADER --- */}
-        <header className="relative z-10 mb-8 pt-2 flex items-center justify-start">
+        {/* HEADER */}
+        <header className="relative z-10 mb-12 pt-2 flex items-center justify-start">
           <div className="relative flex items-center w-full">
             <div className="h-24 sm:h-32 lg:h-36 w-auto flex items-center shrink-0 lg:-ml-28 pr-6 cursor-pointer" onClick={() => setCurrentPage('home')}>
               <img 
@@ -220,9 +205,7 @@ export default function App() {
           </div>
         </header>
 
-        {/* ========================================================================= */}
-        {/* PAGE 1: HOME PAGE */}
-        {/* ========================================================================= */}
+        {/* HOME PAGE */}
         {currentPage === 'home' && (
           <div className="space-y-16">
             <section className="relative z-10">
@@ -257,9 +240,7 @@ export default function App() {
           </div>
         )}
 
-        {/* ========================================================================= */}
-        {/* PAGE 2: ABOUT US */}
-        {/* ========================================================================= */}
+        {/* ABOUT US PAGE */}
         {currentPage === 'about' && (
           <div className="space-y-16 py-4">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -271,9 +252,6 @@ export default function App() {
                 <p className="text-[#57534E] text-base lg:text-lg font-light leading-relaxed mb-6">
                   Anchored in Hyderabad, Jyanipur is a premier civil construction and luxury interior firm built on structural integrity, meticulous engineering, and high-end fit-out mastery.
                 </p>
-                <p className="text-[#78716C] text-sm font-light leading-relaxed">
-                  Trusted by enterprise leaders across commercial, educational, and institutional sectors, we deliver projects seamlessly from soil excavation to final key handover.
-                </p>
               </div>
 
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -282,23 +260,10 @@ export default function App() {
                   <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">Sq.Ft Delivered in Telangana</span>
                   <p className="text-xs text-[#57534E] font-light">Spanning luxury private residences, institutional campuses, and corporate headquarters.</p>
                 </div>
-
                 <div className="bg-amber-50/50 p-8 rounded-2xl border border-amber-200/60">
                   <span className="text-3xl lg:text-4xl font-light text-[#B45309] block mb-2">100%</span>
                   <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">In-House Execution</span>
                   <p className="text-xs text-[#57534E] font-light">Direct management of specialized civil labor, joinery units, and architectural teams.</p>
-                </div>
-
-                <div className="bg-amber-50/50 p-8 rounded-2xl border border-amber-200/60">
-                  <span className="text-3xl lg:text-4xl font-light text-[#B45309] block mb-2">Turnkey</span>
-                  <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">End-to-End Delivery</span>
-                  <p className="text-xs text-[#57534E] font-light">Single point of contact for civil framing, MEP integration, and bespoke interiors.</p>
-                </div>
-
-                <div className="bg-amber-50/50 p-8 rounded-2xl border border-amber-200/60">
-                  <span className="text-3xl lg:text-4xl font-light text-[#B45309] block mb-2">15-Year</span>
-                  <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">Structural Warranty</span>
-                  <p className="text-xs text-[#57534E] font-light">Engineered concrete stability, polyurethane waterproofing, and premium materials.</p>
                 </div>
               </div>
             </div>
@@ -311,10 +276,7 @@ export default function App() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {clients.map((c, i) => (
-                  <div key={i} className="bg-stone-50 p-8 rounded-2xl border border-[#E7E5E4]">
-                    <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center mb-6 text-[#B45309]">
-                      <Building className="w-5 h-5" strokeWidth={1.75} />
-                    </div>
+                  <div key={i} className="p-6 rounded-2xl border border-[#E7E5E4]">
                     <h3 className="text-xl font-normal text-[#1C1917] mb-2 tracking-tight">{c.name}</h3>
                     <span className="text-xs font-semibold text-[#B45309] uppercase tracking-wider block mb-1">{c.role}</span>
                     <p className="text-xs text-[#78716C] font-light">{c.location}</p>
@@ -325,54 +287,62 @@ export default function App() {
           </div>
         )}
 
-        {/* ========================================================================= */}
-        {/* PAGE 3: STORIES OF TELANGANA (AUTHENTIC HIGH-RES INDIA VECTOR MAP WITH TELANGANA HIGHLIGHTED) */}
-        {/* ========================================================================= */}
+        {/* STORIES OF TELANGANA PAGE (CLEAN SINGLE-LAYER SEAMLESS LAYOUT) */}
         {currentPage === 'stories' && (
-          <div className="space-y-12 py-4">
-            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-8 gap-6">
+          <div className="py-4 space-y-12">
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
               <div>
                 <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Core Stronghold</span>
-                <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">Stories of Telangana</h2>
+                <h2 className="text-4xl lg:text-5xl font-light text-[#292524] tracking-tight">Stories of Telangana</h2>
               </div>
-              <p className="text-xs text-[#78716C] max-w-md font-light">
+              <p className="text-sm text-[#78716C] max-w-md font-light">
                 Centrally built in Hyderabad, delivering landmark infrastructure and high-end fit-outs across Telangana.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-stone-50 p-8 lg:p-12 rounded-3xl border border-[#E7E5E4]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8">
               
-              {/* AUTHENTIC OFFICIAL WIKIMEDIA VECTOR MAP (INDIA GREYED OUT, TELANGANA HIGHLIGHTED) */}
-              <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-[#E7E5E4] flex flex-col items-center justify-center relative shadow-sm h-[480px]">
-                
-                <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Telangana_in_India.svg" 
-                    alt="Map of India highlighting Telangana" 
-                    className="w-full h-full max-h-[400px] object-contain filter contrast-[1.05]"
+              {/* CLEAN EMBEDDED PURE SVG INDIA MAP WITH TELANGANA HIGHLIGHTED */}
+              <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
+                <svg viewBox="0 0 500 600" className="w-full h-auto max-h-[420px] drop-shadow-sm">
+                  {/* INDIA MAP OUTLINE */}
+                  <path 
+                    d="M160,80 L200,30 L260,20 L310,40 L300,90 L340,110 L370,160 L440,170 L480,210 L450,260 L390,270 L360,330 L320,380 L270,480 L230,560 L210,510 L180,420 L130,350 L80,310 L90,250 L140,220 L160,160 Z" 
+                    fill="#FAF8F5" 
+                    stroke="#D6D3D1" 
+                    strokeWidth="2" 
+                    strokeLinejoin="round" 
                   />
 
-                  {/* Hyderabad Pulsing Location Callout */}
-                  <div className="absolute top-[58%] left-[45%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-                    <span className="w-3 h-3 bg-[#B45309] rounded-full relative z-10 shadow-md"></span>
-                    <span className="w-8 h-8 border-2 border-[#B45309] rounded-full absolute animate-ping opacity-75"></span>
-                  </div>
-                </div>
+                  {/* HIGH-PRECISION TELANGANA STATE (TEAK HIGHLIGHT) */}
+                  <g className="cursor-pointer">
+                    <path 
+                      d="M210,310 C230,290 270,295 285,320 C290,345 270,375 245,375 C220,370 205,340 210,310 Z" 
+                      fill="#B45309" 
+                      stroke="#92400E" 
+                      strokeWidth="2"
+                    />
+                    
+                    {/* HYDERABAD PULSING DOT */}
+                    <circle cx="245" cy="340" r="5" fill="#FFFFFF" />
+                    <circle cx="245" cy="340" r="14" fill="none" stroke="#B45309" strokeWidth="2" className="animate-ping opacity-75" />
+                  </g>
+                </svg>
 
-                <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-amber-200/60">
+                <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#B45309] bg-amber-50 px-5 py-2.5 rounded-full border border-amber-200/60">
                   <MapPin className="w-4 h-4" />
                   <span>Hyderabad • Active Execution Stronghold</span>
                 </div>
               </div>
 
-              {/* Right: Interactive Case Study Stories */}
-              <div className="lg:col-span-7 space-y-4">
-                <div className="flex flex-wrap gap-2 mb-6">
+              {/* STORY CONTENT CARDS */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="flex flex-wrap gap-2">
                   <button
                     onClick={() => setSelectedStory('dodla')}
-                    className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all border ${
+                    className={`px-6 py-3 rounded-full text-xs font-semibold tracking-wider transition-all border ${
                       selectedStory === 'dodla' 
-                        ? 'bg-[#B45309] text-white border-[#B45309] shadow-sm' 
+                        ? 'bg-[#B45309] text-white border-[#B45309] shadow-md' 
                         : 'bg-white text-[#57534E] border-[#E7E5E4] hover:bg-amber-50'
                     }`}
                   >
@@ -380,9 +350,9 @@ export default function App() {
                   </button>
                   <button
                     onClick={() => setSelectedStory('divyasree')}
-                    className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all border ${
+                    className={`px-6 py-3 rounded-full text-xs font-semibold tracking-wider transition-all border ${
                       selectedStory === 'divyasree' 
-                        ? 'bg-[#B45309] text-white border-[#B45309] shadow-sm' 
+                        ? 'bg-[#B45309] text-white border-[#B45309] shadow-md' 
                         : 'bg-white text-[#57534E] border-[#E7E5E4] hover:bg-amber-50'
                     }`}
                   >
@@ -390,9 +360,9 @@ export default function App() {
                   </button>
                   <button
                     onClick={() => setSelectedStory('monoliths')}
-                    className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all border ${
+                    className={`px-6 py-3 rounded-full text-xs font-semibold tracking-wider transition-all border ${
                       selectedStory === 'monoliths' 
-                        ? 'bg-[#B45309] text-white border-[#B45309] shadow-sm' 
+                        ? 'bg-[#B45309] text-white border-[#B45309] shadow-md' 
                         : 'bg-white text-[#57534E] border-[#E7E5E4] hover:bg-amber-50'
                     }`}
                   >
@@ -400,21 +370,21 @@ export default function App() {
                   </button>
                 </div>
 
-                <div className="bg-white p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
-                  <span className="text-xs font-semibold text-[#B45309] uppercase tracking-wider block mb-2">
+                <div className="bg-white p-8 lg:p-10 rounded-3xl border border-[#E7E5E4] shadow-sm space-y-6">
+                  <span className="text-xs font-semibold text-[#B45309] uppercase tracking-wider block">
                     {telanganaStories[selectedStory].client}
                   </span>
-                  <h3 className="text-2xl font-light text-[#292524] mb-4 tracking-tight">
+                  <h3 className="text-3xl font-light text-[#292524] tracking-tight">
                     {telanganaStories[selectedStory].title}
                   </h3>
-                  <p className="text-[#57534E] text-sm font-light leading-relaxed mb-6">
+                  <p className="text-[#57534E] text-base font-light leading-relaxed">
                     {telanganaStories[selectedStory].desc}
                   </p>
 
                   <div className="flex items-center justify-between pt-6 border-t border-[#E7E5E4]">
                     <div>
-                      <span className="text-[11px] text-[#78716C] uppercase tracking-wider block">Telangana Volume</span>
-                      <span className="text-base font-semibold text-[#B45309]">
+                      <span className="text-xs text-[#78716C] uppercase tracking-wider block">Telangana Volume</span>
+                      <span className="text-lg font-semibold text-[#B45309]">
                         {telanganaStories[selectedStory].stats}
                       </span>
                     </div>
@@ -433,9 +403,7 @@ export default function App() {
           </div>
         )}
 
-        {/* ========================================================================= */}
-        {/* PAGE 4: PORTFOLIO / PROJECTS */}
-        {/* ========================================================================= */}
+        {/* PROJECTS PAGE */}
         {currentPage === 'projects' && (
           <div className="space-y-12 py-4">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-8">
@@ -492,9 +460,7 @@ export default function App() {
           </div>
         )}
 
-        {/* ========================================================================= */}
-        {/* PAGE 5: CAPABILITIES / SERVICES */}
-        {/* ========================================================================= */}
+        {/* CAPABILITIES PAGE */}
         {currentPage === 'capabilities' && (
           <div className="space-y-16 py-4">
             <div className="mb-8">
@@ -503,53 +469,23 @@ export default function App() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
-                <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
-                  <Building className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
-                </div>
+              <div className="bg-white p-8 rounded-2xl border border-[#E7E5E4]">
                 <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Civil Construction</h3>
                 <p className="text-[#57534E] text-sm font-light leading-relaxed">Structural RCC framing, masonry, and civil engineering built to last generations.</p>
               </div>
-
-              <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
-                <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
-                  <PenTool className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
-                </div>
+              <div className="bg-white p-8 rounded-2xl border border-[#E7E5E4]">
                 <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Bespoke Interiors</h3>
                 <p className="text-[#57534E] text-sm font-light leading-relaxed">Factory-finished modular woodwork, marble flooring, and custom furniture fitting.</p>
               </div>
-
-              <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
-                <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
-                  <Shield className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
-                </div>
+              <div className="bg-white p-8 rounded-2xl border border-[#E7E5E4]">
                 <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Turnkey Management</h3>
                 <p className="text-[#57534E] text-sm font-light leading-relaxed">Single point of accountability coordinating labor, vendors, and precise handovers.</p>
-              </div>
-            </div>
-
-            <div className="pt-12 border-t border-[#E7E5E4]">
-              <div className="mb-10">
-                <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Methodology</span>
-                <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">How We Build</h2>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {processSteps.map((s, i) => (
-                  <div key={i} className="bg-white p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
-                    <span className="text-3xl font-light text-[#B45309] block mb-4 tracking-tight">{s.num}</span>
-                    <h3 className="text-base font-semibold text-[#292524] mb-2">{s.title}</h3>
-                    <p className="text-xs text-[#57534E] font-normal leading-relaxed">{s.desc}</p>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
         )}
 
-        {/* ========================================================================= */}
-        {/* PAGE 6: CONTACT */}
-        {/* ========================================================================= */}
+        {/* CONTACT PAGE */}
         {currentPage === 'contact' && (
           <div className="space-y-12 py-4">
             <div className="max-w-2xl">
@@ -599,7 +535,7 @@ export default function App() {
           </div>
         )}
 
-        {/* --- GLOBAL FOOTER --- */}
+        {/* FOOTER */}
         <footer className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4] mt-24 mb-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
@@ -635,7 +571,7 @@ export default function App() {
 
       </main>
 
-      {/* --- PROJECT DETAILS MODAL --- */}
+      {/* MODALS */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex justify-center items-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-white w-full max-w-3xl max-h-[90vh] rounded-2xl overflow-hidden flex flex-col relative shadow-2xl border border-[#E7E5E4]">
@@ -660,36 +596,11 @@ export default function App() {
             <div className="p-8 overflow-y-auto flex-1">
               <h3 className="text-lg font-semibold text-[#292524] mb-3">Project Overview</h3>
               <p className="text-[#57534E] text-sm leading-relaxed mb-8 font-light">{selectedProject.description}</p>
-              <h3 className="text-lg font-semibold text-[#292524] mb-4">Key Specifications</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                {selectedProject.features.map((feat, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-amber-50/50 p-4 rounded-xl border border-amber-200/60">
-                    <Check className="w-4 h-4 text-[#B45309] shrink-0" strokeWidth={2} />
-                    <span className="text-xs font-semibold text-[#292524]">{feat}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="bg-[#B45309] p-6 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4 text-white">
-                <div>
-                  <h4 className="font-semibold text-base">Interested in a similar project?</h4>
-                  <p className="text-xs text-amber-100 font-light mt-1">Book an architectural meeting with our team.</p>
-                </div>
-                <button 
-                  onClick={() => {
-                    setSelectedProject(null);
-                    setIsEstimateModalOpen(true);
-                  }}
-                  className="w-full sm:w-auto bg-white text-[#B45309] hover:bg-amber-50 px-6 py-3 rounded-full text-xs font-semibold transition-all whitespace-nowrap shadow-md tracking-wider uppercase"
-                >
-                  Schedule Meeting
-                </button>
-              </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* --- CONSULTATION MODAL --- */}
       {isConsultModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-white w-full max-w-md p-8 rounded-2xl relative shadow-2xl border border-[#E7E5E4]">
@@ -712,14 +623,6 @@ export default function App() {
                     <label className="block text-xs font-semibold text-[#292524] uppercase tracking-wider mb-2 ml-1">Phone Number</label>
                     <input type="tel" required value={leadData.phone} onChange={e => setLeadData({...leadData, phone: e.target.value})} placeholder="+91 98765..." className="w-full px-5 py-3.5 bg-amber-50/30 border border-[#E7E5E4] text-[#292524] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all text-sm font-normal" />
                   </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-[#292524] uppercase tracking-wider mb-2 ml-1">Project Scope</label>
-                    <select value={leadData.projectType} onChange={e => setLeadData({...leadData, projectType: e.target.value})} className="w-full px-5 py-3.5 bg-amber-50/30 border border-[#E7E5E4] text-[#292524] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all cursor-pointer text-sm font-normal">
-                      <option value="Turnkey Residential Construction">Turnkey Construction (Structure + Interiors)</option>
-                      <option value="Civil Structural Execution">Civil Structural Execution</option>
-                      <option value="Turnkey Interior Fit-Out">Turnkey Luxury Interiors</option>
-                    </select>
-                  </div>
                   <button type="submit" disabled={loading} className="w-full py-4 bg-[#B45309] hover:bg-amber-700 text-white font-semibold rounded-full transition-all mt-4 text-xs tracking-wider uppercase shadow-md">
                     {loading ? 'Submitting...' : 'Request Architectural Meeting'}
                   </button>
@@ -731,9 +634,6 @@ export default function App() {
                   <Check className="w-8 h-8" strokeWidth={2} />
                 </div>
                 <h3 className="text-2xl font-normal text-[#292524]">Consultation Requested</h3>
-                <p className="text-[#57534E] text-sm font-light">
-                  Thank you, <span className="font-semibold text-[#292524]">{leadData.clientName}</span>. Our project planning team will call {leadData.phone} within 24 hours.
-                </p>
               </div>
             )}
           </div>
