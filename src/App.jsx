@@ -93,7 +93,6 @@ export default function App() {
     }
   };
 
-  // CSS filter to accurately tint images to Warm Teak (#B45309)
   const teakTintFilter = 'brightness(0) saturate(100%) invert(36%) sepia(61%) saturate(2251%) hue-rotate(5deg) brightness(95%) contrast(92%)';
 
   return (
@@ -102,7 +101,6 @@ export default function App() {
       {/* --- ICON-ONLY FLOATING LEFT-CENTER DOCK --- */}
       <aside className="w-full lg:w-16 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-6 bg-white text-[#B45309] rounded-full py-4 flex lg:flex-col items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.08)] z-40 border border-[#E7E5E4]">
         
-        {/* Navigation Icons Only */}
         <nav className="flex lg:flex-col items-center gap-2">
           <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <LayoutGrid className="w-5 h-5" strokeWidth={1.75} />
@@ -118,7 +116,6 @@ export default function App() {
           </a>
         </nav>
 
-        {/* Action Icons */}
         <div className="flex lg:flex-col items-center gap-2 mt-2 pt-4 border-t border-[#E7E5E4] shrink-0">
           <a 
             href="https://www.jyanipur.org.in" 
@@ -142,7 +139,6 @@ export default function App() {
       {/* --- MAIN CONTENT AREA --- */}
       <main className="flex-1 lg:ml-28 p-6 lg:p-10 relative bg-white min-h-screen max-w-[1600px] mx-auto w-full">
         
-        {/* Subtle Architectural Grid Effect */}
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
@@ -151,13 +147,13 @@ export default function App() {
           }}
         ></div>
 
-        {/* --- BRAND HEADER (LOGO + TEXT EXACTLY AS REQUESTED) --- */}
+        {/* --- BRAND HEADER --- */}
         <header className="relative z-10 mb-10 flex items-center gap-4 lg:gap-6 pt-4">
           <div className="h-20 sm:h-24 lg:h-28 w-auto flex items-center justify-start shrink-0">
             <img 
               src="/jyanipur.png" 
               alt="Jyanipur Symbol" 
-              className="h-full w-auto object-contain" 
+              className="h-full w-auto object-contain object-left" 
               style={{ filter: teakTintFilter }} 
             />
           </div>
@@ -166,26 +162,22 @@ export default function App() {
           </h1>
         </header>
 
-        {/* --- NARSI-STYLE HERO SHOWCASE --- */}
+        {/* --- HERO SHOWCASE --- */}
         <section className="relative z-10 mb-16">
           <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#E7E5E4] h-[500px] lg:h-[700px] w-full group">
-            
             <img 
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=80" 
               alt="Featured Architecture" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
             />
-            
-            {/* Elegant Translucent Band Overlay */}
             <div className="absolute bottom-12 left-0 right-0 w-full bg-[#B45309]/90 backdrop-blur-md py-5 flex flex-col items-center justify-center text-white shadow-xl">
               <h2 className="text-xl lg:text-2xl font-bold tracking-[0.2em] uppercase">The Glass Monolith Villa</h2>
               <p className="text-sm lg:text-base font-light tracking-wide mt-1 text-amber-50">Kondapur, Hyderabad</p>
             </div>
-
           </div>
         </section>
 
-        {/* --- BESPOKE SPACES INTRO --- */}
+        {/* --- INTRO --- */}
         <section className="relative z-10 max-w-4xl mb-24 lg:pl-4">
           <h2 className="text-4xl lg:text-5xl font-light text-[#B45309] leading-[1.2] tracking-tight mb-6">
             The Roots of Jyanipur.
@@ -202,7 +194,6 @@ export default function App() {
               <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Curated Works</span>
               <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">Recent Projects</h2>
             </div>
-
             <div className="flex flex-wrap gap-2">
               {['All', 'Residential', 'Civil', 'Interiors'].map(filter => (
                 <button
@@ -231,7 +222,6 @@ export default function App() {
                     {p.category}
                   </div>
                 </div>
-
                 <div className="p-8">
                   <div className="flex justify-between items-start mb-4">
                     <div>
@@ -258,7 +248,6 @@ export default function App() {
             <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Our Capabilities</span>
             <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">End-to-End Execution</h2>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
               <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
@@ -267,7 +256,6 @@ export default function App() {
               <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Civil Construction</h3>
               <p className="text-[#57534E] text-sm font-light leading-relaxed">Structural RCC framing, masonry, and civil engineering built to last generations.</p>
             </div>
-
             <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
               <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
                 <Paintbrush className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
@@ -275,7 +263,6 @@ export default function App() {
               <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Bespoke Interiors</h3>
               <p className="text-[#57534E] text-sm font-light leading-relaxed">Factory-finished modular woodwork, marble flooring, and custom furniture fitting.</p>
             </div>
-
             <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
               <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
                 <ShieldCheck className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
@@ -286,13 +273,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* METHODOLOGY / PROCESS */}
+        {/* METHODOLOGY */}
         <section id="process" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="mb-12">
             <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Methodology</span>
             <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">How We Build</h2>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {processSteps.map((s, i) => (
               <div key={i} className="bg-white p-8 rounded-2xl border border-[#E7E5E4] shadow-sm relative">
@@ -304,7 +290,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- FOOTER CONTAINER --- */}
+        {/* --- FOOTER --- */}
         <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4] mb-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
@@ -323,14 +309,12 @@ export default function App() {
                 Turnkey Construction & Bespoke Luxury Interiors. Building high-end architectural residences in Hyderabad.
               </p>
             </div>
-
             <div className="flex flex-col gap-3 text-xs font-medium text-[#292524]">
               <span className="flex items-center gap-3"><MapPin className="w-4 h-4 text-[#B45309]" strokeWidth={1.75} /> 302 Amrutha Lakshmi Residency, Kondapur, Hyderabad, 500084</span>
               <span className="flex items-center gap-3"><Mail className="w-4 h-4 text-[#B45309]" strokeWidth={1.75} /> accounts@jyanipur.in</span>
               <span className="flex items-center gap-3"><Phone className="w-4 h-4 text-[#B45309]" strokeWidth={1.75} /> +91 9246546742</span>
             </div>
           </div>
-
           <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-light text-[#78716C]">
             <span>© 2026 Jyanipur Construction & Interiors. All rights reserved.</span>
             <div className="flex gap-4">
@@ -342,7 +326,7 @@ export default function App() {
 
       </main>
 
-      {/* --- PROJECT DETAILS MODAL --- */}
+      {/* --- MODALS --- */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex justify-center items-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-white w-full max-w-3xl max-h-[90vh] rounded-2xl overflow-hidden flex flex-col relative shadow-2xl border border-[#E7E5E4]">
@@ -352,7 +336,6 @@ export default function App() {
             >
               <X className="w-6 h-6" strokeWidth={2} />
             </button>
-
             <div className="h-64 sm:h-80 relative shrink-0">
               <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#B45309]/95 via-transparent to-transparent flex items-end p-8">
@@ -365,11 +348,9 @@ export default function App() {
                 </div>
               </div>
             </div>
-
             <div className="p-8 overflow-y-auto flex-1">
               <h3 className="text-lg font-semibold text-[#292524] mb-3">Project Overview</h3>
               <p className="text-[#57534E] text-sm leading-relaxed mb-8 font-light">{selectedProject.description}</p>
-
               <h3 className="text-lg font-semibold text-[#292524] mb-4">Key Specifications</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {selectedProject.features.map((feat, i) => (
@@ -379,7 +360,6 @@ export default function App() {
                   </div>
                 ))}
               </div>
-
               <div className="bg-[#B45309] p-6 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4 text-white">
                 <div>
                   <h4 className="font-semibold text-base">Interested in a similar project?</h4>
@@ -400,7 +380,6 @@ export default function App() {
         </div>
       )}
 
-      {/* --- CONSULTATION MODAL --- */}
       {isConsultModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <div className="bg-white w-full max-w-md p-8 rounded-2xl relative shadow-2xl border border-[#E7E5E4]">
@@ -410,23 +389,19 @@ export default function App() {
             >
               <X className="w-6 h-6" strokeWidth={2} />
             </button>
-            
             {!isLeadSaved ? (
               <>
                 <h3 className="text-2xl font-normal text-[#292524] tracking-tight mb-2">Book Consultation</h3>
                 <p className="text-xs text-[#78716C] font-light mb-8">Share your site details and our principal architect will contact you directly.</p>
-
                 <form onSubmit={handleConsultSubmit} className="space-y-5">
                   <div>
                     <label className="block text-xs font-semibold text-[#292524] uppercase tracking-wider mb-2 ml-1">Full Name</label>
                     <input type="text" required value={leadData.clientName} onChange={e => setLeadData({...leadData, clientName: e.target.value})} placeholder="e.g. Ramesh Varma" className="w-full px-5 py-3.5 bg-amber-50/30 border border-[#E7E5E4] text-[#292524] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all text-sm font-normal" />
                   </div>
-
                   <div>
                     <label className="block text-xs font-semibold text-[#292524] uppercase tracking-wider mb-2 ml-1">Phone Number</label>
                     <input type="tel" required value={leadData.phone} onChange={e => setLeadData({...leadData, phone: e.target.value})} placeholder="+91 98765..." className="w-full px-5 py-3.5 bg-amber-50/30 border border-[#E7E5E4] text-[#292524] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all text-sm font-normal" />
                   </div>
-
                   <div>
                     <label className="block text-xs font-semibold text-[#292524] uppercase tracking-wider mb-2 ml-1">Project Scope</label>
                     <select value={leadData.projectType} onChange={e => setLeadData({...leadData, projectType: e.target.value})} className="w-full px-5 py-3.5 bg-amber-50/30 border border-[#E7E5E4] text-[#292524] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all cursor-pointer text-sm font-normal">
@@ -435,7 +410,6 @@ export default function App() {
                       <option value="Turnkey Interior Fit-Out">Turnkey Luxury Interiors</option>
                     </select>
                   </div>
-
                   <button type="submit" disabled={loading} className="w-full py-4 bg-[#B45309] hover:bg-amber-700 text-white font-semibold rounded-full transition-all mt-4 text-xs tracking-wider uppercase shadow-md">
                     {loading ? 'Submitting...' : 'Request Architectural Meeting'}
                   </button>
