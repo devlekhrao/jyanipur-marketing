@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { saveMarketingLead } from './db';
 import { 
-  ArrowUpRight, CheckCircle2, Phone, Mail, MapPin, 
-  X, Building, ArrowRight, Compass, Paintbrush, 
-  ShieldCheck, LayoutGrid, Briefcase, Contact, User
+  Grid, Briefcase, Compass, Phone, User, ArrowRight, 
+  Check, Mail, MapPin, X, Building, Shield, PenTool
 } from 'lucide-react';
 
 export default function App() {
@@ -103,7 +102,7 @@ export default function App() {
         
         <nav className="flex lg:flex-col items-center gap-2">
           <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <LayoutGrid className="w-5 h-5" strokeWidth={1.75} />
+            <Grid className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <a href="#services" title="Capabilities" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <Briefcase className="w-5 h-5" strokeWidth={1.75} />
@@ -112,7 +111,7 @@ export default function App() {
             <Compass className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <a href="#contact" title="Contact" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <Contact className="w-5 h-5" strokeWidth={1.75} />
+            <Phone className="w-5 h-5" strokeWidth={1.75} />
           </a>
         </nav>
 
@@ -131,7 +130,7 @@ export default function App() {
             title="Book Consultation"
             className="w-12 h-12 bg-[#B45309] text-white hover:bg-[#92400E] rounded-full transition-all shadow-sm flex items-center justify-center"
           >
-            <ArrowUpRight className="w-5 h-5" strokeWidth={2} />
+            <ArrowRight className="w-5 h-5" strokeWidth={2} />
           </button>
         </div>
       </aside>
@@ -201,8 +200,7 @@ export default function App() {
                 >
                   {filter}
                 </button>
-              ))}
-            </div>
+              </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -253,14 +251,14 @@ export default function App() {
             </div>
             <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
               <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
-                <Paintbrush className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
+                <PenTool className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
               </div>
               <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Bespoke Interiors</h3>
               <p className="text-[#57534E] text-sm font-light leading-relaxed">Factory-finished modular woodwork, marble flooring, and custom furniture fitting.</p>
             </div>
             <div className="bg-white text-[#292524] p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
               <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-[#B45309]/20">
-                <ShieldCheck className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
+                <Shield className="w-6 h-6 text-[#B45309]" strokeWidth={1.75} />
               </div>
               <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Turnkey Management</h3>
               <p className="text-[#57534E] text-sm font-light leading-relaxed">Single point of accountability coordinating labor, vendors, and precise handovers.</p>
@@ -348,7 +346,7 @@ export default function App() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {selectedProject.features.map((feat, i) => (
                   <div key={i} className="flex items-center gap-3 bg-amber-50/50 p-4 rounded-xl border border-amber-200/60">
-                    <CheckCircle2 className="w-4 h-4 text-[#B45309] shrink-0" strokeWidth={2} />
+                    <Check className="w-4 h-4 text-[#B45309] shrink-0" strokeWidth={2} />
                     <span className="text-xs font-semibold text-[#292524]">{feat}</span>
                   </div>
                 ))}
@@ -411,7 +409,7 @@ export default function App() {
             ) : (
               <div className="py-10 text-center space-y-4">
                 <div className="w-16 h-16 bg-[#B45309] text-white flex items-center justify-center mx-auto rounded-full mb-6 shadow-md">
-                  <CheckCircle2 className="w-8 h-8" strokeWidth={2} />
+                  <Check className="w-8 h-8" strokeWidth={2} />
                 </div>
                 <h3 className="text-2xl font-normal text-[#292524]">Consultation Requested</h3>
                 <p className="text-[#57534E] text-sm font-light">
