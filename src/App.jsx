@@ -98,13 +98,16 @@ export default function App() {
     ? projects 
     : projects.filter(p => p.category === activeFilter);
 
+  // This CSS filter accurately turns a black/dark image into your Teak (#B45309) hex code
+  const teakTintFilter = 'brightness(0) saturate(100%) invert(36%) sepia(61%) saturate(2251%) hue-rotate(5deg) brightness(95%) contrast(92%)';
+
   return (
     <div className="min-h-screen bg-white text-[#292524] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#B45309] selection:text-white flex flex-col antialiased relative">
       
       {/* Google Fonts Import for Plus Jakarta Sans */}
       <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-      {/* --- ICON-ONLY FLOATING LEFT-CENTER DOCK (SHORT PILL SHAPE) --- */}
+      {/* --- ICON-ONLY FLOATING LEFT-CENTER DOCK --- */}
       <aside className="w-full lg:w-16 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-6 bg-white text-[#B45309] rounded-full py-4 flex lg:flex-col items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.08)] z-40 border border-[#E7E5E4]">
         
         {/* Navigation Icons Only */}
@@ -156,12 +159,17 @@ export default function App() {
           }}
         ></div>
 
-        {/* --- BRAND HEADER --- */}
+        {/* --- BRAND HEADER (LARGE TEAK LOGO) --- */}
         <header className="relative z-10 mb-8 flex items-center gap-4">
-          <div className="w-12 h-12 bg-[#B45309] rounded-xl flex items-center justify-center shadow-sm p-2.5">
-            <img src="/jyanipur.png" alt="Jyanipur Logo" className="w-full h-full object-contain brightness-0 invert" />
+          <div className="w-20 h-20 flex items-center justify-center shrink-0 -ml-2">
+            <img 
+              src="/jyanipur.png" 
+              alt="Jyanipur Logo" 
+              className="w-full h-full object-contain" 
+              style={{ filter: teakTintFilter }} 
+            />
           </div>
-          <h1 className="text-2xl lg:text-3xl font-light tracking-[0.15em] text-[#B45309] uppercase">
+          <h1 className="text-3xl lg:text-4xl font-light tracking-[0.15em] text-[#B45309] uppercase">
             Jyanipur
           </h1>
         </header>
@@ -308,9 +316,14 @@ export default function App() {
         <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4] mb-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-[#B45309] rounded-full overflow-hidden flex items-center justify-center shadow-sm p-1.5">
-                  <img src="/jyanipur.png" alt="Jyanipur Logo" className="w-full h-full object-contain brightness-0 invert" />
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-16 h-16 flex items-center justify-center shrink-0 -ml-2">
+                  <img 
+                    src="/jyanipur.png" 
+                    alt="Jyanipur Logo" 
+                    className="w-full h-full object-contain" 
+                    style={{ filter: teakTintFilter }} 
+                  />
                 </div>
                 <span className="text-2xl font-light tracking-[0.15em] uppercase text-[#1C1917]">Jyanipur</span>
               </div>
