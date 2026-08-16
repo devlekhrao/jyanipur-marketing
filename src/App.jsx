@@ -72,17 +72,17 @@ export default function App() {
 
   const capabilities = [
     {
-      icon: <Building className="w-8 h-8 text-[#57534E]" />,
+      icon: <Building className="w-8 h-8 text-[#0F766E]" />,
       title: "Civil Construction",
       desc: "End-to-end structural execution including excavation, RCC framing, and masonry, built to last generations."
     },
     {
-      icon: <Paintbrush className="w-8 h-8 text-[#57534E]" />,
+      icon: <Paintbrush className="w-8 h-8 text-[#0F766E]" />,
       title: "Luxury Interiors",
       desc: "Bespoke interior design and execution featuring factory-finished modular woodwork and premium material sourcing."
     },
     {
-      icon: <ShieldCheck className="w-8 h-8 text-[#57534E]" />,
+      icon: <ShieldCheck className="w-8 h-8 text-[#0F766E]" />,
       title: "Turnkey Execution",
       desc: "A seamless experience. We handle architectural compliance, labor management, material procurement, and final handover."
     }
@@ -114,7 +114,7 @@ export default function App() {
     : projects.filter(p => p.category.includes(activeFilter));
 
   return (
-    <div className="min-h-screen bg-[#F5F5F4] text-[#44403C] font-sans selection:bg-[#57534E] selection:text-white">
+    <div className="min-h-screen bg-[#F5F5F4] text-[#44403C] font-sans selection:bg-[#0F766E] selection:text-white">
       
       {/* --- TOP CONTACT BAR --- */}
       <div className="bg-[#44403C] text-[#F5F5F4] py-2 px-6">
@@ -134,7 +134,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           
           <a href="#" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#57534E] text-[#F5F5F4] font-black rounded-lg flex items-center justify-center text-xl shadow-md">
+            <div className="w-10 h-10 bg-[#0F766E] text-[#F5F5F4] font-black rounded-lg flex items-center justify-center text-xl shadow-md">
               J
             </div>
             <div>
@@ -143,7 +143,7 @@ export default function App() {
             </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-[#57534E]">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-[#0F766E]">
             <a href="#about" className="hover:text-[#292524] transition-colors">Our Expertise</a>
             <a href="#portfolio" className="hover:text-[#292524] transition-colors">Portfolio</a>
             <a href="#contact" className="hover:text-[#292524] transition-colors">Contact</a>
@@ -160,7 +160,7 @@ export default function App() {
             </a>
             <button 
               onClick={() => setIsEstimateModalOpen(true)}
-              className="bg-[#57534E] hover:bg-[#292524] text-[#F5F5F4] font-bold px-6 py-2.5 rounded-full text-sm transition-all shadow-md"
+              className="bg-[#0F766E] hover:bg-[#292524] text-[#F5F5F4] font-bold px-6 py-2.5 rounded-full text-sm transition-all shadow-md"
             >
               Get Free Estimate
             </button>
@@ -173,7 +173,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <div className="space-y-8 z-10">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#57534E] bg-[#E7E5E4] px-4 py-2 rounded-full border border-[#D6D3D1]">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0F766E] bg-[#E7E5E4] px-4 py-2 rounded-full border border-[#D6D3D1]">
               <Star className="w-4 h-4 text-[#78716C] fill-current" /> Premium Builders in Hyderabad
             </div>
 
@@ -181,14 +181,14 @@ export default function App() {
               Building Spaces That <span className="text-[#78716C]">Inspire.</span>
             </h1>
 
-            <p className="text-[#57534E] text-lg max-w-lg leading-relaxed">
+            <p className="text-[#0F766E] text-lg max-w-lg leading-relaxed">
               From robust civil foundations to breathtaking luxury interiors, Jyanipur delivers turnkey construction excellence with zero compromises on quality.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button 
                 onClick={() => setIsEstimateModalOpen(true)}
-                className="bg-[#57534E] hover:bg-[#292524] text-[#F5F5F4] font-bold px-8 py-4 rounded-full text-sm transition-all shadow-lg hover:-translate-y-0.5"
+                className="bg-[#0F766E] hover:bg-[#292524] text-[#F5F5F4] font-bold px-8 py-4 rounded-full text-sm transition-all shadow-lg hover:-translate-y-0.5"
               >
                 Start Your Project
               </button>
@@ -221,7 +221,7 @@ export default function App() {
               <div className="space-y-6">
                 <div>
                   <div className="flex justify-between text-sm font-bold mb-3">
-                    <span className="text-[#57534E]">Carpet Area</span>
+                    <span className="text-[#0F766E]">Carpet Area</span>
                     <span className="text-[#292524] text-lg font-black">{heroSqft} Sq.Ft.</span>
                   </div>
                   <input 
@@ -229,7 +229,7 @@ export default function App() {
                     min="800" max="8000" step="100" 
                     value={heroSqft} 
                     onChange={(e) => setHeroSqft(parseInt(e.target.value))}
-                    className="w-full h-2 bg-[#E7E5E4] rounded-full appearance-none cursor-pointer accent-[#57534E]"
+                    className="w-full h-2 bg-[#E7E5E4] rounded-full appearance-none cursor-pointer accent-[#0F766E]"
                   />
                 </div>
 
@@ -269,7 +269,7 @@ export default function App() {
                   {cap.icon}
                 </div>
                 <h3 className="text-xl font-black text-[#292524] mb-3">{cap.title}</h3>
-                <p className="text-[#57534E] leading-relaxed">{cap.desc}</p>
+                <p className="text-[#0F766E] leading-relaxed">{cap.desc}</p>
               </div>
             ))}
           </div>
@@ -290,7 +290,7 @@ export default function App() {
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
                 className={`px-5 py-2.5 text-sm font-bold rounded-full transition-all border ${
-                  activeFilter === filter ? 'bg-[#57534E] text-[#F5F5F4] border-[#57534E]' : 'bg-white text-[#57534E] border-[#D6D3D1] hover:bg-[#E7E5E4]'
+                  activeFilter === filter ? 'bg-[#0F766E] text-[#F5F5F4] border-[#0F766E]' : 'bg-white text-[#0F766E] border-[#D6D3D1] hover:bg-[#E7E5E4]'
                 }`}
               >
                 {filter}
@@ -317,14 +317,14 @@ export default function App() {
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h3 className="text-2xl font-black text-[#292524] mb-2">{p.title}</h3>
-                    <p className="text-sm text-[#78716C] font-bold flex items-center gap-1"><MapPin className="w-4 h-4 text-[#57534E]" /> {p.location}</p>
+                    <p className="text-sm text-[#78716C] font-bold flex items-center gap-1"><MapPin className="w-4 h-4 text-[#0F766E]" /> {p.location}</p>
                   </div>
-                  <span className="bg-[#F5F5F4] border border-[#E7E5E4] text-[#57534E] text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="bg-[#F5F5F4] border border-[#E7E5E4] text-[#0F766E] text-xs font-bold px-3 py-1 rounded-full">
                     {p.area}
                   </span>
                 </div>
-                <p className="text-[#57534E] mb-6 line-clamp-2">{p.description}</p>
-                <div className="flex items-center text-[#57534E] font-bold text-sm group-hover:translate-x-2 transition-transform">
+                <p className="text-[#0F766E] mb-6 line-clamp-2">{p.description}</p>
+                <div className="flex items-center text-[#0F766E] font-bold text-sm group-hover:translate-x-2 transition-transform">
                   View Project Details <ArrowRight className="w-4 h-4 ml-2" />
                 </div>
               </div>
@@ -348,7 +348,7 @@ export default function App() {
               <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#292524]/80 via-transparent to-transparent flex items-end p-8">
                 <div className="text-white">
-                  <span className="bg-[#57534E] text-white text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">
+                  <span className="bg-[#0F766E] text-white text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">
                     {selectedProject.status}
                   </span>
                   <h2 className="text-3xl sm:text-4xl font-black">{selectedProject.title}</h2>
@@ -359,13 +359,13 @@ export default function App() {
 
             <div className="p-8 overflow-y-auto flex-1">
               <h3 className="text-xl font-black text-[#292524] mb-3">Project Overview</h3>
-              <p className="text-[#57534E] leading-relaxed mb-8">{selectedProject.description}</p>
+              <p className="text-[#0F766E] leading-relaxed mb-8">{selectedProject.description}</p>
 
               <h3 className="text-xl font-black text-[#292524] mb-4">Key Deliverables</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {selectedProject.features.map((feat, i) => (
                   <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-[#E7E5E4]">
-                    <CheckCircle2 className="w-5 h-5 text-[#57534E] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#0F766E] shrink-0" />
                     <span className="text-sm font-bold text-[#292524]">{feat}</span>
                   </div>
                 ))}
@@ -410,41 +410,41 @@ export default function App() {
                 <form onSubmit={handleEstimateSubmit} className="space-y-5">
                   <div>
                     <label className="block text-xs font-black text-[#292524] uppercase mb-2 ml-1">Full Name</label>
-                    <input type="text" required value={leadData.clientName} onChange={e => setLeadData({...leadData, clientName: e.target.value})} placeholder="e.g. Ramesh Varma" className="w-full px-5 py-4 bg-white border border-[#D6D3D1] text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#57534E] transition-all font-bold" />
+                    <input type="text" required value={leadData.clientName} onChange={e => setLeadData({...leadData, clientName: e.target.value})} placeholder="e.g. Ramesh Varma" className="w-full px-5 py-4 bg-white border border-[#D6D3D1] text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#0F766E] transition-all font-bold" />
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-black text-[#292524] uppercase mb-2 ml-1">Phone</label>
-                      <input type="tel" required value={leadData.phone} onChange={e => setLeadData({...leadData, phone: e.target.value})} placeholder="+91 98765..." className="w-full px-5 py-4 bg-white border border-[#D6D3D1] text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#57534E] transition-all font-bold" />
+                      <input type="tel" required value={leadData.phone} onChange={e => setLeadData({...leadData, phone: e.target.value})} placeholder="+91 98765..." className="w-full px-5 py-4 bg-white border border-[#D6D3D1] text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#0F766E] transition-all font-bold" />
                     </div>
                     <div>
                       <label className="block text-xs font-black text-[#292524] uppercase mb-2 ml-1">Area (Sq.Ft)</label>
-                      <input type="number" required value={leadData.sqft} onChange={e => setLeadData({...leadData, sqft: e.target.value})} placeholder="2500" className="w-full px-5 py-4 bg-white border border-[#D6D3D1] text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#57534E] transition-all font-bold" />
+                      <input type="number" required value={leadData.sqft} onChange={e => setLeadData({...leadData, sqft: e.target.value})} placeholder="2500" className="w-full px-5 py-4 bg-white border border-[#D6D3D1] text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#0F766E] transition-all font-bold" />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-xs font-black text-[#292524] uppercase mb-2 ml-1">Project Type</label>
-                    <select value={leadData.projectType} onChange={e => setLeadData({...leadData, projectType: e.target.value})} className="w-full px-5 py-4 bg-white border border-[#D6D3D1] text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#57534E] transition-all cursor-pointer font-bold">
+                    <select value={leadData.projectType} onChange={e => setLeadData({...leadData, projectType: e.target.value})} className="w-full px-5 py-4 bg-white border border-[#D6D3D1] text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#0F766E] transition-all cursor-pointer font-bold">
                       <option value="Turnkey Residential Construction">Turnkey Residential (Structure + Finish)</option>
                       <option value="Civil Structural Execution">Civil Structural Execution Only</option>
                       <option value="Turnkey Interior Fit-Out">Turnkey Interior Fit-Out Only</option>
                     </select>
                   </div>
 
-                  <button type="submit" disabled={loading} className="w-full py-4 bg-[#57534E] hover:bg-[#292524] text-white font-black rounded-full transition-all mt-4 shadow-md">
+                  <button type="submit" disabled={loading} className="w-full py-4 bg-[#0F766E] hover:bg-[#292524] text-white font-black rounded-full transition-all mt-4 shadow-md">
                     {loading ? 'Processing...' : 'Get My Quote'}
                   </button>
                 </form>
               </>
             ) : (
               <div className="py-10 text-center space-y-4">
-                <div className="w-16 h-16 bg-[#57534E] text-white flex items-center justify-center mx-auto rounded-full mb-6">
+                <div className="w-16 h-16 bg-[#0F766E] text-white flex items-center justify-center mx-auto rounded-full mb-6">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-black text-[#292524]">Request Received!</h3>
-                <p className="text-[#57534E] font-medium">
+                <p className="text-[#0F766E] font-medium">
                   Based on <span className="font-black">{leadData.sqft} Sq.Ft.</span>, your project will range between <span className="font-black">₹{((parseFloat(leadData.sqft) || 1500) * 1500).toLocaleString('en-IN')}</span> and <span className="font-black">₹{((parseFloat(leadData.sqft) || 1500) * 1900).toLocaleString('en-IN')}</span>.
                 </p>
                 <p className="text-sm text-[#78716C] font-bold pt-4 border-t border-[#E7E5E4] mt-6">Our planning team will call {leadData.phone} shortly to discuss precise material specifications.</p>
