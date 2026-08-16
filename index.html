@@ -22,9 +22,8 @@
         
         img.src = '/jyanipur.png';
         img.onload = function() {
-          // 1. Zoom in heavily (negative coordinates and larger width/height) 
-          // to crop out the invisible transparent padding inside your PNG file
-          ctx.drawImage(img, -20, -20, 168, 168); 
+          // 1. Dialed back the zoom slightly so the edges don't chop
+          ctx.drawImage(img, -8, -8, 144, 144); 
           
           // 2. Tint the logo Teak
           ctx.globalCompositeOperation = 'source-in';
