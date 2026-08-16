@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-[#B45309]maps';
+import React, { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
 import { saveMarketingLead } from './db';
 import { 
   Grid, Briefcase, Phone, User, ArrowRight, 
@@ -7,8 +8,13 @@ import {
   Layers, Globe, Home
 } from 'lucide-react';
 
-// Official India GeoJSON topology
-const INDIA_GEO_JSON = "/india-states.json";
+// Custom Hyderabad Teak Pin Icon for Leaflet
+const teakPinIcon = new L.DivIcon({
+  className: 'custom-leaflet-pin',
+  html: `<div style="background-color: #B45309; width: 16px; height: 16px; border-radius: 50%; border: 3px solid #FFFFFF; box-shadow: 0 0 10px rgba(180,83,9,0.8);"></div>`,
+  iconSize: [16, 16],
+  iconAnchor: [8, 8]
+});
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('stories');
@@ -18,6 +24,7 @@ export default function App() {
   const [isLeadSaved, setIsLeadSaved] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedStory, setSelectedStory] = useState('dodla');
+  const [telanganaGeoJson, setTelanganaGeoJson] = useState(null);
 
   const [leadData, setLeadData] = useState({
     clientName: '',
@@ -25,6 +32,14 @@ export default function App() {
     projectType: 'Turnkey Residential Construction',
     notes: ''
   });
+
+  // Load official Telangana GeoJSON
+  useEffect(() => {
+    fetch('/telangana.json')
+      .then(res => res.json())
+      .then(data => setTelanganaGeoJson(data))
+      .catch(err => console.error("Error loading Telangana GeoJSON:", err));
+  }, []);
 
   const clients = [
     { name: 'Dodla Dairy', role: 'Corporate Headquarters & Outlets', location: 'Greater Hyderabad' },
@@ -179,7 +194,7 @@ export default function App() {
           <button 
             onClick={() => setIsEstimateModalOpen(true)}
             title="Book Consultation"
-            className="w-12 h-12 bg-[#B45309] text-white hover:bg-[#92400E] transition-all shadow-sm flex items-center justify-center"
+            className="w-12 h-12 bg-[#B45309] text-white hover:bg-[#92400E] rounded-full transition-all shadow-sm flex items-center justify-center"
           >
             <ArrowRight className="w-5 h-5" strokeWidth={2} />
           </button>
@@ -291,7 +306,7 @@ export default function App() {
           </div>
         )}
 
-        {/* STORIES OF TELANGANA PAGE (REACT SIMPLE MAPS ACCURATE TOPOLOGY) */}
+        {/* STORIES OF TELANGANA PAGE (LEAFLET INTERACTIVE MAP) */}
         {currentPage === 'stories' && (
           <div className="py-4 space-y-12">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
@@ -304,51 +319,44 @@ export default function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-4">
               
-              {/* REAL TOPOLOGY MAP USING REACT-SIMPLE-MAPS */}
-              <div className="lg:col-span-5 flex flex-col items-center justify-center relative min-h-[420px]">
-                <ComposableMap
-                  projection="geoMercator"
-                  projectionConfig={{
-                    scale: 1000,
-                    center: [78.9629, 22.5937]
-                  }}
-                  className="w-full h-auto max-h-[420px]"
+              {/* LEAFLET MAP CONTAINER */}
+              <div className="lg:col-span-5 h-[450px] rounded-3xl overflow-hidden border border-[#E7E5E4] shadow-sm relative z-10">
+                <MapContainer 
+                  center={[17.8748, 78.1000]} 
+                  zoom={7} 
+                  scrollWheelZoom={false} 
+                  className="w-full h-full"
                 >
-                  <Geographies geography={INDIA_GEO_JSON}>
-                    {({ geographies }) =>
-                      geographies.map((geo) => {
-                        const isTelangana = geo.properties.ST_NM === "Telangana" || geo.properties.NAME_1 === "Telangana";
-                        return (
-                          <Geography
-                            key={geo.rsmKey}
-                            geography={geo}
-                            fill={isTelangana ? "#B45309" : "#F5F5F4"}
-                            stroke={isTelangana ? "#78350F" : "#E7E5E4"}
-                            strokeWidth={isTelangana ? 1.5 : 0.8}
-                            style={{
-                              default: { outline: "none" },
-                              hover: { fill: isTelangana ? "#92400E" : "#E7E5E4", outline: "none" },
-                              pressed: { outline: "none" }
-                            }}
-                          />
-                        );
-                      })
-                    }
-                  </Geographies>
+                  <TileLayer
+                    url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                    attribution='&copy; <a href="https://carto.com/">CARTO</a>'
+                  />
+                  
+                  {/* TELANGANA GEOJSON OVERLAY */}
+                  {telanganaGeoJson && (
+                    <GeoJSON 
+                      data={telanganaGeoJson} 
+                      style={{
+                        fillColor: '#B45309',
+                        fillOpacity: 0.35,
+                        color: '#B45309',
+                        weight: 2
+                      }}
+                    />
+                  )}
 
-                  {/* HYDERABAD LOCATION MARKER */}
-                  <Marker coordinates={[78.4867, 17.3850]}>
-                    <circle r={6} fill="#FFFFFF" stroke="#B45309" strokeWidth={2} />
-                    <circle r={14} fill="none" stroke="#B45309" strokeWidth={1.5} className="animate-ping opacity-75" />
+                  {/* HYDERABAD MARKER */}
+                  <Marker position={[17.3850, 78.4867]} icon={teakPinIcon}>
+                    <Popup>
+                      <div className="text-xs font-sans">
+                        <strong className="text-[#B45309] block mb-1">Jyanipur Hyderabad HQ</strong>
+                        <span>350,000+ Sq.Ft Delivered</span>
+                      </div>
+                    </Popup>
                   </Marker>
-                </ComposableMap>
-
-                <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#B45309] bg-amber-50 px-5 py-2.5 rounded-full border border-amber-200/60">
-                  <MapPin className="w-4 h-4" />
-                  <span>Hyderabad • Primary Execution Stronghold</span>
-                </div>
+                </MapContainer>
               </div>
 
               {/* STORY CONTENT CARDS */}
