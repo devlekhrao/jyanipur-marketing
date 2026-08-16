@@ -159,19 +159,16 @@ export default function App() {
           }}
         ></div>
 
-        {/* --- BRAND HEADER (LARGE TEAK LOGO) --- */}
-        <header className="relative z-10 mb-8 flex items-center gap-4">
-          <div className="w-20 h-20 flex items-center justify-center shrink-0 -ml-2">
+        {/* --- BRAND HEADER (MASSIVE LOGO FILLING LEFT SPACE) --- */}
+        <header className="relative z-10 mb-8 flex items-center">
+          <div className="h-24 sm:h-32 lg:h-48 w-full max-w-[500px] lg:max-w-[700px] flex items-center justify-start shrink-0 -ml-2 lg:-ml-6">
             <img 
               src="/jyanipur.png" 
               alt="Jyanipur Logo" 
-              className="w-full h-full object-contain" 
+              className="w-full h-full object-contain object-left" 
               style={{ filter: teakTintFilter }} 
             />
           </div>
-          <h1 className="text-3xl lg:text-4xl font-light tracking-[0.15em] text-[#B45309] uppercase">
-            Jyanipur
-          </h1>
         </header>
 
         {/* --- NARSI-STYLE HERO SHOWCASE --- */}
@@ -316,16 +313,15 @@ export default function App() {
         <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4] mb-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 flex items-center justify-center shrink-0 -ml-2">
+              <div className="flex items-center mb-4">
+                <div className="h-16 lg:h-20 w-auto max-w-[300px] flex items-center justify-start shrink-0 -ml-2 lg:-ml-4">
                   <img 
                     src="/jyanipur.png" 
                     alt="Jyanipur Logo" 
-                    className="w-full h-full object-contain" 
+                    className="w-full h-full object-contain object-left" 
                     style={{ filter: teakTintFilter }} 
                   />
                 </div>
-                <span className="text-2xl font-light tracking-[0.15em] uppercase text-[#1C1917]">Jyanipur</span>
               </div>
               <p className="text-xs text-[#57534E] font-light max-w-sm leading-relaxed">
                 Turnkey Construction & Bespoke Luxury Interiors. Building high-end architectural residences in Hyderabad.
