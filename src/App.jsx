@@ -94,7 +94,6 @@ export default function App() {
 
   const teakTintFilter = 'brightness(0) saturate(100%) invert(36%) sepia(61%) saturate(2251%) hue-rotate(5deg) brightness(95%) contrast(92%)';
 
-  // THIS WAS THE MISSING LINE:
   const filteredProjects = activeFilter === 'All' 
     ? projects 
     : projects.filter(p => p.category === activeFilter);
@@ -151,20 +150,19 @@ export default function App() {
           }}
         ></div>
 
-        <header className="relative z-10 mb-10 flex items-center gap-4 lg:gap-6 pt-4">
-          <div className="h-20 sm:h-24 lg:h-28 w-auto flex items-center justify-start shrink-0">
+        {/* --- BRAND HEADER (LARGE SINGLE LOGO IMAGE FLUSH TO LEFT) --- */}
+        <header className="relative z-10 mb-8 pt-2">
+          <div className="h-28 sm:h-36 lg:h-44 w-auto flex items-center justify-start shrink-0">
             <img 
               src="/jyanipur.png" 
-              alt="Jyanipur Symbol" 
+              alt="Jyanipur" 
               className="h-full w-auto object-contain object-left" 
               style={{ filter: teakTintFilter }} 
             />
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-[0.2em] text-[#B45309] uppercase mt-2">
-            Jyanipur
-          </h1>
         </header>
 
+        {/* --- HERO SHOWCASE --- */}
         <section className="relative z-10 mb-16">
           <div className="relative rounded-3xl overflow-hidden shadow-lg border border-[#E7E5E4] h-[500px] lg:h-[700px] w-full group">
             <img 
@@ -179,6 +177,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- INTRO --- */}
         <section className="relative z-10 max-w-4xl mb-24 lg:pl-4">
           <h2 className="text-4xl lg:text-5xl font-light text-[#B45309] leading-[1.2] tracking-tight mb-6">
             The Roots of Jyanipur.
@@ -188,6 +187,7 @@ export default function App() {
           </p>
         </section>
 
+        {/* PORTFOLIO GALLERY */}
         <section id="portfolio" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8">
             <div>
@@ -242,6 +242,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* CAPABILITIES SECTION */}
         <section id="services" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="mb-12">
             <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Our Capabilities</span>
@@ -272,6 +273,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* METHODOLOGY */}
         <section id="process" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="mb-12">
             <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Methodology</span>
@@ -288,11 +290,12 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- FOOTER --- */}
         <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4] mb-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-10 w-auto flex items-center justify-start shrink-0">
+                <div className="h-12 w-auto flex items-center justify-start shrink-0">
                   <img 
                     src="/jyanipur.png" 
                     alt="Jyanipur Logo" 
@@ -300,7 +303,6 @@ export default function App() {
                     style={{ filter: teakTintFilter }} 
                   />
                 </div>
-                <span className="text-2xl font-light tracking-[0.15em] uppercase text-[#1C1917] mt-1">Jyanipur</span>
               </div>
               <p className="text-xs text-[#57534E] font-light max-w-sm leading-relaxed">
                 Turnkey Construction & Bespoke Luxury Interiors. Building high-end architectural residences in Hyderabad.
