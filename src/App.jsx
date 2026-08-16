@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { saveMarketingLead } from './db';
 import { 
-  ArrowUpRight, CheckCircle, Phone, Mail, MapPin, 
+  ArrowUpRight, CheckCircle2, Phone, Mail, MapPin, 
   X, Building, ArrowRight, Compass, Paintbrush, 
-  ShieldCheck, Grid, Briefcase, User
+  ShieldCheck, LayoutGrid, Briefcase, Contact, User
 } from 'lucide-react';
 
 export default function App() {
@@ -103,7 +103,7 @@ export default function App() {
         
         <nav className="flex lg:flex-col items-center gap-2">
           <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <Grid className="w-5 h-5" strokeWidth={1.75} />
+            <LayoutGrid className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <a href="#services" title="Capabilities" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <Briefcase className="w-5 h-5" strokeWidth={1.75} />
@@ -112,7 +112,7 @@ export default function App() {
             <Compass className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <a href="#contact" title="Contact" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <Phone className="w-5 h-5" strokeWidth={1.75} />
+            <Contact className="w-5 h-5" strokeWidth={1.75} />
           </a>
         </nav>
 
@@ -348,7 +348,7 @@ export default function App() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {selectedProject.features.map((feat, i) => (
                   <div key={i} className="flex items-center gap-3 bg-amber-50/50 p-4 rounded-xl border border-amber-200/60">
-                    <CheckCircle className="w-4 h-4 text-[#B45309] shrink-0" strokeWidth={2} />
+                    <CheckCircle2 className="w-4 h-4 text-[#B45309] shrink-0" strokeWidth={2} />
                     <span className="text-xs font-semibold text-[#292524]">{feat}</span>
                   </div>
                 ))}
@@ -411,7 +411,7 @@ export default function App() {
             ) : (
               <div className="py-10 text-center space-y-4">
                 <div className="w-16 h-16 bg-[#B45309] text-white flex items-center justify-center mx-auto rounded-full mb-6 shadow-md">
-                  <CheckCircle className="w-8 h-8" strokeWidth={2} />
+                  <CheckCircle2 className="w-8 h-8" strokeWidth={2} />
                 </div>
                 <h3 className="text-2xl font-normal text-[#292524]">Consultation Requested</h3>
                 <p className="text-[#57534E] text-sm font-light">
