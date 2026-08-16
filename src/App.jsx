@@ -103,7 +103,6 @@ export default function App() {
       
       {/* --- ICON-ONLY FLOATING LEFT-CENTER DOCK --- */}
       <aside className="w-full lg:w-16 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-6 bg-white text-[#B45309] rounded-full py-4 flex lg:flex-col items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.08)] z-40 border border-[#E7E5E4]">
-        
         <nav className="flex lg:flex-col items-center gap-2">
           <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <Grid className="w-5 h-5" strokeWidth={1.75} />
@@ -150,16 +149,19 @@ export default function App() {
           }}
         ></div>
 
-        {/* --- BRAND HEADER (LARGE SINGLE LOGO IMAGE FLUSH TO LEFT) --- */}
-        <header className="relative z-10 mb-8 pt-2">
-          <div className="h-28 sm:h-36 lg:h-44 w-auto flex items-center justify-start shrink-0">
+        {/* --- BRAND HEADER (PULLED ALL THE WAY TO THE FAR-LEFT CORNER WITH JYANIPUR TEXT) --- */}
+        <header className="relative z-10 mb-8 pt-2 flex items-center gap-6 lg:gap-8 lg:-ml-20">
+          <div className="h-24 sm:h-32 lg:h-36 w-auto flex items-center justify-start shrink-0">
             <img 
               src="/jyanipur.png" 
-              alt="Jyanipur" 
+              alt="Jyanipur Symbol" 
               className="h-full w-auto object-contain object-left" 
               style={{ filter: teakTintFilter }} 
             />
           </div>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-[0.3em] text-[#B45309] uppercase">
+            Jyanipur
+          </h1>
         </header>
 
         {/* --- HERO SHOWCASE --- */}
@@ -295,14 +297,15 @@ export default function App() {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-12 w-auto flex items-center justify-start shrink-0">
+                <div className="h-10 w-auto flex items-center justify-start shrink-0">
                   <img 
                     src="/jyanipur.png" 
-                    alt="Jyanipur Logo" 
+                    alt="Jyanipur Symbol" 
                     className="h-full w-auto object-contain object-left" 
                     style={{ filter: teakTintFilter }} 
                   />
                 </div>
+                <span className="text-2xl font-light tracking-[0.15em] uppercase text-[#1C1917]">Jyanipur</span>
               </div>
               <p className="text-xs text-[#57534E] font-light max-w-sm leading-relaxed">
                 Turnkey Construction & Bespoke Luxury Interiors. Building high-end architectural residences in Hyderabad.
