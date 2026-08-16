@@ -3,7 +3,7 @@ import { saveMarketingLead } from './db';
 import { 
   Grid, Briefcase, Compass, Phone, User, ArrowRight, 
   Check, Mail, MapPin, X, Building, Shield, PenTool,
-  Layers, Award, Sparkles, Globe, Award as Trophy
+  Layers, Globe, Award, Sparkles
 } from 'lucide-react';
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
   const [isConsultModalOpen, setIsEstimateModalOpen] = useState(false);
   const [isLeadSaved, setIsLeadSaved] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [activeRegion, setActiveRegion] = useState('Hyderabad');
+  const [selectedStory, setSelectedStory] = useState('dodla');
 
   const [leadData, setLeadData] = useState({
     clientName: '',
@@ -21,31 +21,38 @@ export default function App() {
     notes: ''
   });
 
+  // Enterprise & Regional Roster
   const clients = [
-    { name: 'Dodla Dairy', type: 'Industrial & Corporate' },
-    { name: 'Dodla Foundation', type: 'Institutional & CSR' },
-    { name: 'Dodla College', type: 'Educational Infrastructure' },
-    { name: 'DivyaSree', type: 'Commercial & Residential' }
+    { name: 'Dodla Dairy', role: 'Corporate Headquarters & Outlets', location: 'Greater Hyderabad' },
+    { name: 'Dodla Foundation', role: 'CSR & Institutional Facilities', location: 'Telangana' },
+    { name: 'Dodla College', role: 'Educational Infrastructure Fit-Outs', location: 'Hyderabad Corridor' },
+    { name: 'DivyaSree', role: 'Commercial & High-End Interiors', location: 'HITEC City Corridor' }
   ];
 
-  const regions = [
-    {
-      id: 'Hyderabad',
-      name: 'Greater Hyderabad HQ',
-      hub: 'Kondapur / HITEC City',
-      projectsCount: 'Core Operations',
-      sqft: '650,000+ Sq.Ft Delivered',
-      highlights: ['Dodla Dairy Outlets & HQ', 'Dodla Educational Campus', 'DivyaSree Commercial Fit-Outs', 'Kondapur Luxury Monoliths']
+  // Telangana Stories
+  const telanganaStories = {
+    dodla: {
+      title: 'The Dodla Corporate & Institutional Footprint',
+      client: 'Dodla Dairy, Foundation & College',
+      scope: 'Multi-Facility Execution',
+      desc: 'Executing specialized commercial fit-outs, educational facilities, and corporate administrative infrastructure across Hyderabad and surrounding districts with heavy structural precision.',
+      stats: '350,000+ Sq.Ft Delivered'
     },
-    {
-      id: 'Expansion',
-      name: 'Telangana & AP Expansion',
-      hub: 'Regional Clusters',
-      projectsCount: 'Turnkey Infrastructure',
-      sqft: '150,000+ Sq.Ft Delivered',
-      highlights: ['Institutional Facilities', 'Corporate Warehousing & Dairy Plants', 'Residential Estates']
+    divyasree: {
+      title: 'High-Density Commercial Fit-Outs',
+      client: 'DivyaSree Commercial',
+      scope: 'Turnkey Modern Interiors',
+      desc: 'Precision acoustic paneling, glass partitions, and large-format flooring fit-outs delivered within premier IT corridors for high-capacity corporate environments.',
+      stats: '220,000+ Sq.Ft Delivered'
+    },
+    monoliths: {
+      title: 'Bespoke Luxury Residential Monoliths',
+      client: 'Private High-Net-Worth Residences',
+      scope: 'Full Structural & Interior Handover',
+      desc: 'Villas built from ground excavation to complete interior handover in 14 months across Kondapur, Jubilee Hills, and Gachibowli.',
+      stats: '150,000+ Sq.Ft Handed Over'
     }
-  ];
+  };
 
   const projects = [
     {
@@ -138,11 +145,11 @@ export default function App() {
           <a href="#clients" title="Key Clients" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <Building className="w-5 h-5" strokeWidth={1.75} />
           </a>
+          <a href="#stories" title="Telangana Presence" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
+            <Globe className="w-5 h-5" strokeWidth={1.75} />
+          </a>
           <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <Grid className="w-5 h-5" strokeWidth={1.75} />
-          </a>
-          <a href="#footprint" title="Presence" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <Globe className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <a href="#contact" title="Contact" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <Phone className="w-5 h-5" strokeWidth={1.75} />
@@ -221,17 +228,17 @@ export default function App() {
                 The Roots of Jyanipur.
               </h2>
               <p className="text-[#57534E] text-base lg:text-lg font-light leading-relaxed mb-6">
-                Based in Hyderabad, Jyanipur is a premier construction and bespoke interior studio built on heavy structural integrity, uncompromising engineering standards, and refined luxury fit-outs.
+                Anchored in Hyderabad, Jyanipur is a premier civil construction and luxury interior firm built on structural integrity, meticulous engineering, and high-end fit-out mastery.
               </p>
               <p className="text-[#78716C] text-sm font-light leading-relaxed">
-                Trusted by industry pioneers across commercial, educational, and institutional sectors, we execute projects seamlessly from foundational ground excavation to final key handover.
+                Trusted by enterprise leaders across commercial, educational, and institutional sectors, we deliver projects seamlessly from soil excavation to final key handover.
               </p>
             </div>
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="bg-amber-50/50 p-8 rounded-2xl border border-amber-200/60">
                 <span className="text-3xl lg:text-4xl font-light text-[#B45309] block mb-2">800,000+</span>
-                <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">Sq.Ft Delivered in Hyderabad</span>
+                <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">Sq.Ft Delivered in Telangana</span>
                 <p className="text-xs text-[#57534E] font-light">Spanning luxury private residences, institutional campuses, and corporate headquarters.</p>
               </div>
 
@@ -256,102 +263,148 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- PROMINENT CLIENT ROSTER SECTION --- */}
+        {/* --- PROMINENT CLIENT ROSTER --- */}
         <section id="clients" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="mb-10">
-            <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Trusted Partners</span>
-            <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">Enterprise & Institutional Portfolio</h2>
+            <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Enterprise Partners</span>
+            <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">Institutional Client Roster</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {clients.map((client, idx) => (
-              <div key={idx} className="bg-stone-50 p-8 rounded-2xl border border-[#E7E5E4] hover:border-[#B45309] transition-all hover:bg-white hover:shadow-md group">
+            {clients.map((c, i) => (
+              <div key={i} className="bg-stone-50 p-8 rounded-2xl border border-[#E7E5E4] hover:border-[#B45309] transition-all hover:bg-white hover:shadow-md group">
                 <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-amber-200/60 text-[#B45309] group-hover:bg-[#B45309] group-hover:text-white transition-colors">
                   <Building className="w-5 h-5" strokeWidth={1.75} />
                 </div>
-                <h3 className="text-xl font-normal text-[#1C1917] mb-2 tracking-tight">{client.name}</h3>
-                <span className="text-xs font-medium text-[#B45309] uppercase tracking-wider block">{client.type}</span>
+                <h3 className="text-xl font-normal text-[#1C1917] mb-2 tracking-tight">{c.name}</h3>
+                <span className="text-xs font-semibold text-[#B45309] uppercase tracking-wider block mb-1">{c.role}</span>
+                <p className="text-xs text-[#78716C] font-light">{c.location}</p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* --- HYDERABAD REGIONAL PRESENCE GRID --- */}
-        <section id="footprint" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
+        {/* --- STORIES OF TELANGANA (INDIA MAP WITH HIGHLIGHTED TELANGANA) --- */}
+        <section id="stories" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 gap-6">
             <div>
-              <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Primary Command</span>
-              <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">Our Operational Footprint</h2>
+              <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Core Stronghold</span>
+              <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">Stories of Telangana</h2>
             </div>
             <p className="text-xs text-[#78716C] max-w-md font-light">
-              Centrally anchored in Hyderabad, executing heavy civil construction and high-end fit-outs across major development corridors.
+              Centrally built in Hyderabad, delivering landmark infrastructure and high-end fit-outs across Telangana.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-50 p-8 lg:p-12 rounded-3xl border border-[#E7E5E4]">
-            <div className="lg:col-span-5 space-y-3">
-              {regions.map((reg) => (
-                <div
-                  key={reg.id}
-                  onClick={() => setActiveRegion(reg.id)}
-                  className={`p-6 rounded-2xl cursor-pointer transition-all border ${
-                    activeRegion === reg.id 
-                      ? 'bg-white border-[#B45309] shadow-md' 
-                      : 'bg-transparent border-transparent hover:bg-white/60'
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-stone-50 p-8 lg:p-12 rounded-3xl border border-[#E7E5E4]">
+            
+            {/* Left: Custom Clean India Map with Highlighted Telangana */}
+            <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-[#E7E5E4] flex flex-col items-center justify-center relative shadow-sm h-[400px]">
+              
+              {/* Minimalist SVG Outline of India with Telangana Highlight */}
+              <svg viewBox="0 0 500 550" className="w-full h-full max-h-[350px] object-contain drop-shadow-sm">
+                
+                {/* Subdued India Outer Bounds Silhouette */}
+                <path 
+                  d="M230,20 L270,40 L310,70 L280,110 L300,150 L340,160 L380,210 L430,220 L480,240 L450,280 L390,300 L340,360 L290,440 L250,520 L220,460 L180,380 L120,310 L80,280 L90,230 L140,200 L180,150 L200,80 Z" 
+                  fill="#F5F5F4" 
+                  stroke="#E7E5E4" 
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                />
+
+                {/* Highlighted Telangana State Region in Warm Teak */}
+                <g className="cursor-pointer group">
+                  <path 
+                    d="M230,300 C250,290 270,300 280,320 C285,340 275,360 260,370 C240,375 225,355 220,330 Z" 
+                    fill="#B45309" 
+                    className="hover:fill-[#92400E] transition-colors"
+                  />
+                  
+                  {/* Hyderabad Pulsing Location Dot */}
+                  <circle cx="250" cy="335" r="5" fill="#FFFFFF" />
+                  <circle cx="250" cy="335" r="12" fill="none" stroke="#B45309" strokeWidth="2" className="animate-ping opacity-75" />
+
+                  {/* Label */}
+                  <text x="250" y="315" textAnchor="middle" fill="#B45309" className="text-[12px] font-semibold tracking-wider uppercase" style={{ fontSize: '13px', fontWeight: 'bold' }}>
+                    Telangana (HQ)
+                  </text>
+                </g>
+              </svg>
+
+              <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-amber-200/60">
+                <MapPin className="w-4 h-4" />
+                <span>Hyderabad • Active Construction Stronghold</span>
+              </div>
+            </div>
+
+            {/* Right: Interactive Story Selector */}
+            <div className="lg:col-span-7 space-y-4">
+              
+              {/* Story Tab Buttons */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                <button
+                  onClick={() => setSelectedStory('dodla')}
+                  className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all border ${
+                    selectedStory === 'dodla' 
+                      ? 'bg-[#B45309] text-white border-[#B45309] shadow-sm' 
+                      : 'bg-white text-[#57534E] border-[#E7E5E4] hover:bg-amber-50'
                   }`}
                 >
-                  <div className="flex justify-between items-center">
-                    <h3 className={`text-lg font-medium ${activeRegion === reg.id ? 'text-[#B45309]' : 'text-[#292524]'}`}>
-                      {reg.name}
-                    </h3>
-                    <span className="text-xs font-semibold px-3 py-1 bg-amber-50 text-[#B45309] rounded-full">
-                      {reg.hub}
-                    </span>
-                  </div>
-                  <p className="text-xs text-[#78716C] mt-2 font-light">{reg.projectsCount}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="lg:col-span-7 bg-white p-8 lg:p-10 rounded-2xl border border-[#E7E5E4] shadow-sm relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-5 text-[#B45309]">
-                <Globe className="w-48 h-48" />
+                  Dodla Group
+                </button>
+                <button
+                  onClick={() => setSelectedStory('divyasree')}
+                  className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all border ${
+                    selectedStory === 'divyasree' 
+                      ? 'bg-[#B45309] text-white border-[#B45309] shadow-sm' 
+                      : 'bg-white text-[#57534E] border-[#E7E5E4] hover:bg-amber-50'
+                  }`}
+                >
+                  DivyaSree
+                </button>
+                <button
+                  onClick={() => setSelectedStory('monoliths')}
+                  className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all border ${
+                    selectedStory === 'monoliths' 
+                      ? 'bg-[#B45309] text-white border-[#B45309] shadow-sm' 
+                      : 'bg-white text-[#57534E] border-[#E7E5E4] hover:bg-amber-50'
+                  }`}
+                >
+                  Luxury Villas
+                </button>
               </div>
 
-              {regions.filter(r => r.id === activeRegion).map((active) => (
-                <div key={active.id} className="relative z-10 space-y-6">
-                  <div className="flex items-center gap-3">
-                    <MapPin className="w-6 h-6 text-[#B45309]" />
-                    <div>
-                      <h4 className="text-2xl font-light text-[#292524]">{active.name}</h4>
-                      <span className="text-xs text-[#78716C]">{active.hub}</span>
-                    </div>
-                  </div>
+              {/* Story Content Card */}
+              <div className="bg-white p-8 rounded-2xl border border-[#E7E5E4] shadow-sm">
+                <span className="text-xs font-semibold text-[#B45309] uppercase tracking-wider block mb-2">
+                  {telanganaStories[selectedStory].client}
+                </span>
+                <h3 className="text-2xl font-light text-[#292524] mb-4 tracking-tight">
+                  {telanganaStories[selectedStory].title}
+                </h3>
+                <p className="text-[#57534E] text-sm font-light leading-relaxed mb-6">
+                  {telanganaStories[selectedStory].desc}
+                </p>
 
-                  <div className="grid grid-cols-2 gap-4 py-4 border-y border-[#E7E5E4]">
-                    <div>
-                      <span className="text-xs text-[#78716C] uppercase tracking-wider block">Completed Scope</span>
-                      <span className="text-lg font-semibold text-[#B45309]">{active.sqft}</span>
-                    </div>
-                    <div>
-                      <span className="text-xs text-[#78716C] uppercase tracking-wider block">Operational Model</span>
-                      <span className="text-lg font-semibold text-[#292524]">{active.projectsCount}</span>
-                    </div>
-                  </div>
-
+                <div className="flex items-center justify-between pt-6 border-t border-[#E7E5E4]">
                   <div>
-                    <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-3">Key Highlights</span>
-                    <div className="flex flex-wrap gap-2">
-                      {active.highlights.map((item, idx) => (
-                        <span key={idx} className="bg-amber-50 text-[#B45309] text-xs font-medium px-3.5 py-1.5 rounded-full border border-amber-200/60">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
+                    <span className="text-[11px] text-[#78716C] uppercase tracking-wider block">Telangana Volume</span>
+                    <span className="text-base font-semibold text-[#B45309]">
+                      {telanganaStories[selectedStory].stats}
+                    </span>
                   </div>
+                  <button 
+                    onClick={() => setIsEstimateModalOpen(true)}
+                    className="flex items-center gap-2 text-xs font-semibold text-[#B45309] hover:underline uppercase tracking-wider"
+                  >
+                    Discuss Telangana Project <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
-              ))}
+              </div>
+
             </div>
+
           </div>
         </section>
 
