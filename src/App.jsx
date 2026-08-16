@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-[#B45309]maps';
 import { saveMarketingLead } from './db';
 import { 
   Grid, Briefcase, Phone, User, ArrowRight, 
   Check, Mail, MapPin, X, Building, Shield, PenTool,
   Layers, Globe, Home
 } from 'lucide-react';
+
+// Official India GeoJSON topology
+const INDIA_GEO_JSON = "/india-states.json";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('stories');
@@ -175,7 +179,7 @@ export default function App() {
           <button 
             onClick={() => setIsEstimateModalOpen(true)}
             title="Book Consultation"
-            className="w-12 h-12 bg-[#B45309] text-white hover:bg-[#92400E] rounded-all transition-all shadow-sm flex items-center justify-center"
+            className="w-12 h-12 bg-[#B45309] text-white hover:bg-[#92400E] transition-all shadow-sm flex items-center justify-center"
           >
             <ArrowRight className="w-5 h-5" strokeWidth={2} />
           </button>
@@ -287,7 +291,7 @@ export default function App() {
           </div>
         )}
 
-        {/* STORIES OF TELANGANA PAGE (CLEAN SINGLE-LAYER SEAMLESS LAYOUT) */}
+        {/* STORIES OF TELANGANA PAGE (REACT SIMPLE MAPS ACCURATE TOPOLOGY) */}
         {currentPage === 'stories' && (
           <div className="py-4 space-y-12">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
@@ -302,36 +306,48 @@ export default function App() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8">
               
-              {/* CLEAN EMBEDDED PURE SVG INDIA MAP WITH TELANGANA HIGHLIGHTED */}
-              <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
-                <svg viewBox="0 0 500 600" className="w-full h-auto max-h-[420px] drop-shadow-sm">
-                  {/* INDIA MAP OUTLINE */}
-                  <path 
-                    d="M160,80 L200,30 L260,20 L310,40 L300,90 L340,110 L370,160 L440,170 L480,210 L450,260 L390,270 L360,330 L320,380 L270,480 L230,560 L210,510 L180,420 L130,350 L80,310 L90,250 L140,220 L160,160 Z" 
-                    fill="#FAF8F5" 
-                    stroke="#D6D3D1" 
-                    strokeWidth="2" 
-                    strokeLinejoin="round" 
-                  />
+              {/* REAL TOPOLOGY MAP USING REACT-SIMPLE-MAPS */}
+              <div className="lg:col-span-5 flex flex-col items-center justify-center relative min-h-[420px]">
+                <ComposableMap
+                  projection="geoMercator"
+                  projectionConfig={{
+                    scale: 1000,
+                    center: [78.9629, 22.5937]
+                  }}
+                  className="w-full h-auto max-h-[420px]"
+                >
+                  <Geographies geography={INDIA_GEO_JSON}>
+                    {({ geographies }) =>
+                      geographies.map((geo) => {
+                        const isTelangana = geo.properties.ST_NM === "Telangana" || geo.properties.NAME_1 === "Telangana";
+                        return (
+                          <Geography
+                            key={geo.rsmKey}
+                            geography={geo}
+                            fill={isTelangana ? "#B45309" : "#F5F5F4"}
+                            stroke={isTelangana ? "#78350F" : "#E7E5E4"}
+                            strokeWidth={isTelangana ? 1.5 : 0.8}
+                            style={{
+                              default: { outline: "none" },
+                              hover: { fill: isTelangana ? "#92400E" : "#E7E5E4", outline: "none" },
+                              pressed: { outline: "none" }
+                            }}
+                          />
+                        );
+                      })
+                    }
+                  </Geographies>
 
-                  {/* HIGH-PRECISION TELANGANA STATE (TEAK HIGHLIGHT) */}
-                  <g className="cursor-pointer">
-                    <path 
-                      d="M210,310 C230,290 270,295 285,320 C290,345 270,375 245,375 C220,370 205,340 210,310 Z" 
-                      fill="#B45309" 
-                      stroke="#92400E" 
-                      strokeWidth="2"
-                    />
-                    
-                    {/* HYDERABAD PULSING DOT */}
-                    <circle cx="245" cy="340" r="5" fill="#FFFFFF" />
-                    <circle cx="245" cy="340" r="14" fill="none" stroke="#B45309" strokeWidth="2" className="animate-ping opacity-75" />
-                  </g>
-                </svg>
+                  {/* HYDERABAD LOCATION MARKER */}
+                  <Marker coordinates={[78.4867, 17.3850]}>
+                    <circle r={6} fill="#FFFFFF" stroke="#B45309" strokeWidth={2} />
+                    <circle r={14} fill="none" stroke="#B45309" strokeWidth={1.5} className="animate-ping opacity-75" />
+                  </Marker>
+                </ComposableMap>
 
                 <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#B45309] bg-amber-50 px-5 py-2.5 rounded-full border border-amber-200/60">
                   <MapPin className="w-4 h-4" />
-                  <span>Hyderabad • Active Execution Stronghold</span>
+                  <span>Hyderabad • Primary Execution Stronghold</span>
                 </div>
               </div>
 
