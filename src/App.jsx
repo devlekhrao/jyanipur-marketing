@@ -3,7 +3,7 @@ import { saveMarketingLead } from './db';
 import { 
   Grid, Briefcase, Compass, Phone, User, ArrowRight, 
   Check, Mail, MapPin, X, Building, Shield, PenTool,
-  Layers, Award, Sparkles, Globe
+  Layers, Award, Sparkles, Globe, Award as Trophy
 } from 'lucide-react';
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
   const [isConsultModalOpen, setIsEstimateModalOpen] = useState(false);
   const [isLeadSaved, setIsLeadSaved] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [activeRegion, setActiveRegion] = useState('Telangana');
+  const [activeRegion, setActiveRegion] = useState('Hyderabad');
 
   const [leadData, setLeadData] = useState({
     clientName: '',
@@ -21,38 +21,29 @@ export default function App() {
     notes: ''
   });
 
+  const clients = [
+    { name: 'Dodla Dairy', type: 'Industrial & Corporate' },
+    { name: 'Dodla Foundation', type: 'Institutional & CSR' },
+    { name: 'Dodla College', type: 'Educational Infrastructure' },
+    { name: 'DivyaSree', type: 'Commercial & Residential' }
+  ];
+
   const regions = [
     {
-      id: 'Telangana',
-      name: 'Telangana & AP',
-      hub: 'Hyderabad HQ',
-      projectsCount: '24+ Active Projects',
-      sqft: '420,000 Sq.Ft Delivered',
-      highlights: ['Kondapur Modern Villa', 'HITEC Commercial Hub', 'Jubilee Hills Fit-outs']
+      id: 'Hyderabad',
+      name: 'Greater Hyderabad HQ',
+      hub: 'Kondapur / HITEC City',
+      projectsCount: 'Core Operations',
+      sqft: '650,000+ Sq.Ft Delivered',
+      highlights: ['Dodla Dairy Outlets & HQ', 'Dodla Educational Campus', 'DivyaSree Commercial Fit-Outs', 'Kondapur Luxury Monoliths']
     },
     {
-      id: 'Karnataka',
-      name: 'Karnataka',
-      hub: 'Bengaluru Operations',
-      projectsCount: '12 Luxury Projects',
-      sqft: '180,000 Sq.Ft Delivered',
-      highlights: ['Indiranagar Duplexes', 'Whitefield Tech Towers', 'Koramangala Residences']
-    },
-    {
-      id: 'Maharashtra',
-      name: 'Maharashtra',
-      hub: 'Mumbai & Pune',
-      projectsCount: '8 Bespoke Projects',
-      sqft: '120,000 Sq.Ft Delivered',
-      highlights: ['Bandra Modern Penthouses', 'BKC Corporate Suites', 'Koregaon Park Villas']
-    },
-    {
-      id: 'NCR',
-      name: 'North India Hub',
-      hub: 'Delhi NCR',
-      projectsCount: '6 Flagship Sites',
-      sqft: '95,000 Sq.Ft Delivered',
-      highlights: ['Golf Course Road Estates', 'South Delhi Heritage Refits']
+      id: 'Expansion',
+      name: 'Telangana & AP Expansion',
+      hub: 'Regional Clusters',
+      projectsCount: 'Turnkey Infrastructure',
+      sqft: '150,000+ Sq.Ft Delivered',
+      highlights: ['Institutional Facilities', 'Corporate Warehousing & Dairy Plants', 'Residential Estates']
     }
   ];
 
@@ -144,14 +135,14 @@ export default function App() {
           <a href="#about" title="About Us" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <Layers className="w-5 h-5" strokeWidth={1.75} />
           </a>
+          <a href="#clients" title="Key Clients" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
+            <Building className="w-5 h-5" strokeWidth={1.75} />
+          </a>
           <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <Grid className="w-5 h-5" strokeWidth={1.75} />
           </a>
-          <a href="#footprint" title="Pan-India Presence" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
+          <a href="#footprint" title="Presence" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <Globe className="w-5 h-5" strokeWidth={1.75} />
-          </a>
-          <a href="#services" title="Capabilities" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
-            <Briefcase className="w-5 h-5" strokeWidth={1.75} />
           </a>
           <a href="#contact" title="Contact" className="w-12 h-12 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-full transition-colors">
             <Phone className="w-5 h-5" strokeWidth={1.75} />
@@ -222,63 +213,82 @@ export default function App() {
         </section>
 
         {/* --- ABOUT US & ROOTS OF JYANIPUR --- */}
-        <section id="about" className="relative z-10 mb-24 pt-4">
+        <section id="about" className="relative z-10 mb-20 pt-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
-              <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-3 block">Corporate Legacy</span>
+              <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-3 block">Hyderabad Headquarters</span>
               <h2 className="text-4xl lg:text-5xl font-light text-[#B45309] leading-[1.15] tracking-tight mb-6">
                 The Roots of Jyanipur.
               </h2>
               <p className="text-[#57534E] text-base lg:text-lg font-light leading-relaxed mb-6">
-                Founded on the uncompromising principles of structural engineering and acoustic perfection, Jyanipur has evolved from a foundational civil contractor into one of South India's premier turnkey construction and bespoke interior studios.
+                Based in Hyderabad, Jyanipur is a premier construction and bespoke interior studio built on heavy structural integrity, uncompromising engineering standards, and refined luxury fit-outs.
               </p>
               <p className="text-[#78716C] text-sm font-light leading-relaxed">
-                We bridge the critical gap between heavy architectural engineering and refined interior craftsmanship—delivering unified residential monoliths and luxury corporate fit-outs under a single roof.
+                Trusted by industry pioneers across commercial, educational, and institutional sectors, we execute projects seamlessly from foundational ground excavation to final key handover.
               </p>
             </div>
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="bg-amber-50/50 p-8 rounded-2xl border border-amber-200/60">
                 <span className="text-3xl lg:text-4xl font-light text-[#B45309] block mb-2">800,000+</span>
-                <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">Square Feet Handed Over</span>
-                <p className="text-xs text-[#57534E] font-light">Engineered across high-end villas, multi-family towers, and modern workspace hubs.</p>
+                <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">Sq.Ft Delivered in Hyderabad</span>
+                <p className="text-xs text-[#57534E] font-light">Spanning luxury private residences, institutional campuses, and corporate headquarters.</p>
               </div>
 
               <div className="bg-amber-50/50 p-8 rounded-2xl border border-amber-200/60">
                 <span className="text-3xl lg:text-4xl font-light text-[#B45309] block mb-2">100%</span>
-                <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">In-House Quality Control</span>
-                <p className="text-xs text-[#57534E] font-light">Factory-pressed joinery, specialized masonry teams, and zero vendor dependency.</p>
+                <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">In-House Execution</span>
+                <p className="text-xs text-[#57534E] font-light">Direct management of specialized civil labor, joinery units, and architectural teams.</p>
               </div>
 
               <div className="bg-amber-50/50 p-8 rounded-2xl border border-amber-200/60">
-                <span className="text-3xl lg:text-4xl font-light text-[#B45309] block mb-2">14 Months</span>
-                <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">Average Villa Turnaround</span>
-                <p className="text-xs text-[#57534E] font-light">From soil excavation and RCC casting to soft furnishings and turnkey key handover.</p>
+                <span className="text-3xl lg:text-4xl font-light text-[#B45309] block mb-2">Turnkey</span>
+                <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">End-to-End Delivery</span>
+                <p className="text-xs text-[#57534E] font-light">Single point of contact for civil framing, MEP integration, and bespoke interiors.</p>
               </div>
 
               <div className="bg-amber-50/50 p-8 rounded-2xl border border-amber-200/60">
                 <span className="text-3xl lg:text-4xl font-light text-[#B45309] block mb-2">15-Year</span>
                 <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-2">Structural Warranty</span>
-                <p className="text-xs text-[#57534E] font-light">Guaranteed concrete integrity, polyurethane waterproofing, and termite-proof woodwork.</p>
+                <p className="text-xs text-[#57534E] font-light">Engineered concrete stability, polyurethane waterproofing, and premium materials.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* --- PAN-INDIA FOOTPRINT (CREATIVE INTERACTIVE MAP APPROACH) --- */}
+        {/* --- PROMINENT CLIENT ROSTER SECTION --- */}
+        <section id="clients" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
+          <div className="mb-10">
+            <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Trusted Partners</span>
+            <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">Enterprise & Institutional Portfolio</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {clients.map((client, idx) => (
+              <div key={idx} className="bg-stone-50 p-8 rounded-2xl border border-[#E7E5E4] hover:border-[#B45309] transition-all hover:bg-white hover:shadow-md group">
+                <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center mb-6 border border-amber-200/60 text-[#B45309] group-hover:bg-[#B45309] group-hover:text-white transition-colors">
+                  <Building className="w-5 h-5" strokeWidth={1.75} />
+                </div>
+                <h3 className="text-xl font-normal text-[#1C1917] mb-2 tracking-tight">{client.name}</h3>
+                <span className="text-xs font-medium text-[#B45309] uppercase tracking-wider block">{client.type}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* --- HYDERABAD REGIONAL PRESENCE GRID --- */}
         <section id="footprint" className="relative z-10 mb-24 pt-12 border-t border-[#E7E5E4]">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 gap-6">
             <div>
-              <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Pan-India Reach</span>
-              <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">Our Regional Footprint</h2>
+              <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Primary Command</span>
+              <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">Our Operational Footprint</h2>
             </div>
             <p className="text-xs text-[#78716C] max-w-md font-light">
-              Explore Jyanipur's active engineering hubs and delivered square footage across premier Indian metro zones.
+              Centrally anchored in Hyderabad, executing heavy civil construction and high-end fit-outs across major development corridors.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-50 p-8 lg:p-12 rounded-3xl border border-[#E7E5E4]">
-            {/* Left Column: Interactive Region Tabs */}
             <div className="lg:col-span-5 space-y-3">
               {regions.map((reg) => (
                 <div
@@ -303,7 +313,6 @@ export default function App() {
               ))}
             </div>
 
-            {/* Right Column: Architectural Geo-Card */}
             <div className="lg:col-span-7 bg-white p-8 lg:p-10 rounded-2xl border border-[#E7E5E4] shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-5 text-[#B45309]">
                 <Globe className="w-48 h-48" />
@@ -314,24 +323,24 @@ export default function App() {
                   <div className="flex items-center gap-3">
                     <MapPin className="w-6 h-6 text-[#B45309]" />
                     <div>
-                      <h4 className="text-2xl font-light text-[#292524]">{active.name} Command Hub</h4>
+                      <h4 className="text-2xl font-light text-[#292524]">{active.name}</h4>
                       <span className="text-xs text-[#78716C]">{active.hub}</span>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4 py-4 border-y border-[#E7E5E4]">
                     <div>
-                      <span className="text-xs text-[#78716C] uppercase tracking-wider block">Scope Delivered</span>
+                      <span className="text-xs text-[#78716C] uppercase tracking-wider block">Completed Scope</span>
                       <span className="text-lg font-semibold text-[#B45309]">{active.sqft}</span>
                     </div>
                     <div>
-                      <span className="text-xs text-[#78716C] uppercase tracking-wider block">Active Pipeline</span>
+                      <span className="text-xs text-[#78716C] uppercase tracking-wider block">Operational Model</span>
                       <span className="text-lg font-semibold text-[#292524]">{active.projectsCount}</span>
                     </div>
                   </div>
 
                   <div>
-                    <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-3">Landmark Projects</span>
+                    <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block mb-3">Key Highlights</span>
                     <div className="flex flex-wrap gap-2">
                       {active.highlights.map((item, idx) => (
                         <span key={idx} className="bg-amber-50 text-[#B45309] text-xs font-medium px-3.5 py-1.5 rounded-full border border-amber-200/60">
