@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState('stories');
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isConsultModalOpen, setIsEstimateModalOpen] = useState(false);
@@ -141,7 +141,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-[#292524] font-sans selection:bg-[#B45309] selection:text-white flex flex-col antialiased relative" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       
-      {/* --- HYBRID SIDEBAR DOCK (PULSED ICONS + INSTANT TEXT TOOLTIPS) --- */}
+      {/* --- HYBRID SIDEBAR DOCK --- */}
       <aside className="w-full lg:w-16 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-6 bg-white text-[#B45309] rounded-full py-4 flex lg:flex-col items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.08)] z-40 border border-[#E7E5E4]">
         <nav className="flex lg:flex-col items-center gap-2">
           {navItems.map((item) => {
@@ -160,7 +160,6 @@ export default function App() {
                   <IconComponent className="w-5 h-5" strokeWidth={1.75} />
                 </button>
 
-                {/* Smooth Slide-Out Text Label Tooltip */}
                 <div className="hidden lg:block absolute left-16 top-1/2 -translate-y-1/2 bg-[#292524] text-white text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-xl z-50">
                   {item.label}
                   <div className="absolute -left-1 top-1/2 -translate-y-1/2 border-4 border-transparent border-r-[#292524]"></div>
@@ -304,7 +303,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Enterprise Client Roster Section */}
             <div className="pt-12 border-t border-[#E7E5E4]">
               <div className="mb-10">
                 <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Enterprise Partners</span>
@@ -328,7 +326,7 @@ export default function App() {
         )}
 
         {/* ========================================================================= */}
-        {/* PAGE 3: STORIES OF TELANGANA */}
+        {/* PAGE 3: STORIES OF TELANGANA (PRECISE INDIA MAP + TELANGANA HIGHLIGHT) */}
         {/* ========================================================================= */}
         {currentPage === 'stories' && (
           <div className="space-y-12 py-4">
@@ -344,36 +342,69 @@ export default function App() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-stone-50 p-8 lg:p-12 rounded-3xl border border-[#E7E5E4]">
               
-              {/* Left: India SVG Map with Telangana Highlight */}
-              <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-[#E7E5E4] flex flex-col items-center justify-center relative shadow-sm h-[400px]">
-                <svg viewBox="0 0 500 550" className="w-full h-full max-h-[350px] object-contain drop-shadow-sm">
-                  <path 
-                    d="M230,20 L270,40 L310,70 L280,110 L300,150 L340,160 L380,210 L430,220 L480,240 L450,280 L390,300 L340,360 L290,440 L250,520 L220,460 L180,380 L120,310 L80,280 L90,230 L140,200 L180,150 L200,80 Z" 
-                    fill="#F5F5F4" 
-                    stroke="#E7E5E4" 
-                    strokeWidth="2"
-                    strokeLinejoin="round"
-                  />
+              {/* ACCURATE INDIA MAP VECTOR WITH TELANGANA STATE HIGHLIGHT */}
+              <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-[#E7E5E4] flex flex-col items-center justify-center relative shadow-sm h-[420px]">
+                
+                <svg viewBox="0 0 600 700" className="w-full h-full max-h-[360px] object-contain drop-shadow-sm">
+                  {/* Surrounding India States Outline */}
+                  <g fill="#FFF7ED" stroke="#FDBA74" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round">
+                    {/* Jammu, Kashmir, Ladakh */}
+                    <path d="M260,35 L280,20 L310,30 L320,60 L290,90 L260,95 L245,70 Z" />
+                    {/* Himachal, Punjab, Haryana */}
+                    <path d="M245,70 L260,95 L290,90 L285,120 L250,130 L230,110 Z" />
+                    {/* Rajasthan */}
+                    <path d="M150,160 L230,130 L250,190 L210,250 L140,230 L130,180 Z" />
+                    {/* Gujarat */}
+                    <path d="M120,240 L190,240 L195,290 L140,310 L100,270 Z" />
+                    {/* Maharashtra */}
+                    <path d="M190,290 L290,280 L295,350 L220,380 L180,330 Z" />
+                    {/* Madhya Pradesh */}
+                    <path d="M210,220 L320,200 L330,280 L220,280 Z" />
+                    {/* Uttar Pradesh */}
+                    <path d="M285,120 L370,140 L360,210 L280,200 Z" />
+                    {/* Bihar, Jharkhand, West Bengal */}
+                    <path d="M370,140 L440,160 L410,240 L350,230 Z" />
+                    {/* Odisha */}
+                    <path d="M330,280 L390,260 L380,340 L320,340 Z" />
+                    {/* Karnataka */}
+                    <path d="M200,380 L260,380 L250,480 L190,450 Z" />
+                    {/* Andhra Pradesh */}
+                    <path d="M270,360 L320,340 L310,470 L260,470 L270,410 Z" />
+                    {/* Tamil Nadu, Kerala */}
+                    <path d="M220,470 L280,470 L250,570 L220,530 Z" />
+                    {/* North East Cluster */}
+                    <path d="M440,160 L520,150 L530,220 L450,220 Z" />
+                  </g>
+
+                  {/* ACCURATELY HIGHLIGHTED TELANGANA STATE (IN WARM TEAK) */}
                   <g className="cursor-pointer group">
                     <path 
-                      d="M230,300 C250,290 270,300 280,320 C285,340 275,360 260,370 C240,375 225,355 220,330 Z" 
+                      d="M235,320 L290,300 L310,340 L285,385 L240,370 Z" 
                       fill="#B45309" 
+                      stroke="#78350F" 
+                      strokeWidth="2.5"
+                      className="transition-all hover:fill-[#92400E]"
                     />
-                    <circle cx="250" cy="335" r="5" fill="#FFFFFF" />
-                    <circle cx="250" cy="335" r="12" fill="none" stroke="#B45309" strokeWidth="2" className="animate-ping opacity-75" />
-                    <text x="250" y="315" textAnchor="middle" fill="#B45309" className="text-[12px] font-semibold tracking-wider uppercase" style={{ fontSize: '13px', fontWeight: 'bold' }}>
-                      Telangana (HQ)
+                    
+                    {/* Hyderabad Glowing Pulsing Radar Pin */}
+                    <circle cx="260" cy="345" r="5" fill="#FFFFFF" />
+                    <circle cx="260" cy="345" r="14" fill="none" stroke="#B45309" strokeWidth="2" className="animate-ping opacity-75" />
+
+                    {/* State Hover Tag */}
+                    <rect x="205" y="270" width="110" height="24" rx="12" fill="#292524" opacity="0.9" />
+                    <text x="260" y="286" textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="600" letterSpacing="1">
+                      TELANGANA
                     </text>
                   </g>
                 </svg>
 
-                <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-amber-200/60">
+                <div className="flex items-center gap-2 mt-2 text-xs font-semibold text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-amber-200/60">
                   <MapPin className="w-4 h-4" />
-                  <span>Hyderabad • Primary Execution Hub</span>
+                  <span>Hyderabad • Primary Execution Stronghold</span>
                 </div>
               </div>
 
-              {/* Right: Interactive Story Selector */}
+              {/* Right: Interactive Story Cards */}
               <div className="lg:col-span-7 space-y-4">
                 <div className="flex flex-wrap gap-2 mb-6">
                   <button
@@ -536,7 +567,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Methodology Section */}
             <div className="pt-12 border-t border-[#E7E5E4]">
               <div className="mb-10">
                 <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Methodology</span>
