@@ -287,7 +287,7 @@ export default function App() {
           </div>
         )}
 
-        {/* STORIES OF TELANGANA PAGE (DIRECT SIMPLEMAPS VECTOR SVG EMBED) */}
+        {/* STORIES OF TELANGANA PAGE */}
         {currentPage === 'stories' && (
           <div className="py-4 space-y-12">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
@@ -300,24 +300,70 @@ export default function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8">
+            {/* ADJUSTED GRID: 6 columns left (bigger map), 6 columns right */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start pt-8">
               
-              {/* CLEAN SIMPLEMAPS VECTOR SVG */}
-              <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
-                <img 
-                  src="/india.svg" 
-                  alt="India Vector Map - Telangana Stronghold" 
-                  className="w-full h-auto max-h-[460px] object-contain drop-shadow-sm"
-                />
+              {/* ENLARGED MAP & PHOTO GALLERY */}
+              <div className="lg:col-span-6 flex flex-col relative space-y-10">
+                
+                {/* CSS to Highlight Telangana - Make sure your india.svg has an ID like id="IN-TG" on the Telangana path */}
+                <style dangerouslySetInnerHTML={{__html: `
+                  .highlight-telangana path#IN-TG, 
+                  .highlight-telangana path[title="Telangana"], 
+                  .highlight-telangana path[data-id="IN-TG"] { 
+                    fill: #C65C17 !important; 
+                    transition: fill 0.3s ease; 
+                  }
+                  .highlight-telangana path#IN-TG:hover,
+                  .highlight-telangana path[title="Telangana"]:hover { 
+                    fill: #A04A12 !important; 
+                  }
+                `}} />
 
-                <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#B45309] bg-amber-50 px-5 py-2.5 rounded-full border border-amber-200/60">
-                  <MapPin className="w-4 h-4" />
-                  <span>Hyderabad • Active Execution Stronghold</span>
+                <div className="flex flex-col items-center justify-center">
+                  {/* Replaced <img> with <object> to allow external SVG styling to work */}
+                  <object 
+                    type="image/svg+xml" 
+                    data="/india.svg" 
+                    className="w-full h-auto max-h-[550px] object-contain drop-shadow-sm highlight-telangana transform scale-110"
+                    aria-label="India Vector Map - Telangana Highlighted"
+                  >
+                    {/* Fallback image just in case */}
+                    <img src="/india.svg" alt="India Vector Map" className="w-full h-auto max-h-[550px]" />
+                  </object>
+
+                  <div className="flex items-center gap-2 mt-10 text-xs font-semibold text-[#B45309] bg-amber-50 px-5 py-2.5 rounded-full border border-amber-200/60 z-10">
+                    <MapPin className="w-4 h-4" />
+                    <span>Hyderabad • Active Execution Stronghold</span>
+                  </div>
+                </div>
+
+                {/* NEW PROJECT PHOTO GALLERY */}
+                <div className="pt-8 border-t border-[#E7E5E4]">
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-xs font-semibold text-[#292524] uppercase tracking-wider block">
+                      Execution Footprints
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="h-40 rounded-xl overflow-hidden relative group cursor-pointer shadow-sm border border-[#E7E5E4]">
+                      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Commercial Fitout" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center duration-300">
+                        <span className="text-white text-sm tracking-wide font-medium">DivyaSree</span>
+                      </div>
+                    </div>
+                    <div className="h-40 rounded-xl overflow-hidden relative group cursor-pointer shadow-sm border border-[#E7E5E4]">
+                      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Luxury Villa" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center duration-300">
+                        <span className="text-white text-sm tracking-wide font-medium">Monolith Villas</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* STORY CARDS */}
-              <div className="lg:col-span-7 space-y-6">
+              {/* STORY CARDS - Shifted to span 6 columns */}
+              <div className="lg:col-span-6 space-y-6 lg:mt-8">
                 <div className="flex flex-wrap gap-2">
                   <button
                     onClick={() => setSelectedStory('dodla')}
@@ -377,7 +423,6 @@ export default function App() {
                     </button>
                   </div>
                 </div>
-
               </div>
 
             </div>
