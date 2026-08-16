@@ -326,7 +326,7 @@ export default function App() {
         )}
 
         {/* ========================================================================= */}
-        {/* PAGE 3: STORIES OF TELANGANA (PRECISE INDIA MAP + TELANGANA HIGHLIGHT) */}
+        {/* PAGE 3: STORIES OF TELANGANA (PRECISE HIGH-FIDELITY VECTOR MAP) */}
         {/* ========================================================================= */}
         {currentPage === 'stories' && (
           <div className="space-y-12 py-4">
@@ -342,57 +342,53 @@ export default function App() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-stone-50 p-8 lg:p-12 rounded-3xl border border-[#E7E5E4]">
               
-              {/* ACCURATE INDIA MAP VECTOR WITH TELANGANA STATE HIGHLIGHT */}
-              <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-[#E7E5E4] flex flex-col items-center justify-center relative shadow-sm h-[420px]">
+              {/* HIGH-PRECISION ACCURATE INDIA & TELANGANA VECTOR SVG */}
+              <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-[#E7E5E4] flex flex-col items-center justify-center relative shadow-sm h-[440px]">
                 
-                <svg viewBox="0 0 600 700" className="w-full h-full max-h-[360px] object-contain drop-shadow-sm">
-                  {/* Surrounding India States Outline */}
-                  <g fill="#FFF7ED" stroke="#FDBA74" strokeWidth="1.5" strokeLinejoin="round" strokeLinecap="round">
-                    {/* Jammu, Kashmir, Ladakh */}
-                    <path d="M260,35 L280,20 L310,30 L320,60 L290,90 L260,95 L245,70 Z" />
-                    {/* Himachal, Punjab, Haryana */}
-                    <path d="M245,70 L260,95 L290,90 L285,120 L250,130 L230,110 Z" />
+                <svg viewBox="0 0 500 580" className="w-full h-full max-h-[380px] object-contain">
+                  {/* Rest of India Base Map Silhouette */}
+                  <g fill="#FFF7ED" stroke="#FDBA74" strokeWidth="1.2" strokeLinejoin="round">
+                    {/* Jammu & Kashmir / Ladakh */}
+                    <path d="M210,30 L230,15 L260,25 L270,55 L240,80 L210,85 L200,60 Z" />
+                    {/* Northern States */}
+                    <path d="M200,60 L210,85 L240,80 L235,110 L200,120 L180,100 Z" />
                     {/* Rajasthan */}
-                    <path d="M150,160 L230,130 L250,190 L210,250 L140,230 L130,180 Z" />
+                    <path d="M120,150 L190,120 L210,180 L170,230 L110,210 L100,170 Z" />
                     {/* Gujarat */}
-                    <path d="M120,240 L190,240 L195,290 L140,310 L100,270 Z" />
-                    {/* Maharashtra */}
-                    <path d="M190,290 L290,280 L295,350 L220,380 L180,330 Z" />
+                    <path d="M90,220 L160,220 L165,270 L110,290 L70,250 Z" />
                     {/* Madhya Pradesh */}
-                    <path d="M210,220 L320,200 L330,280 L220,280 Z" />
-                    {/* Uttar Pradesh */}
-                    <path d="M285,120 L370,140 L360,210 L280,200 Z" />
-                    {/* Bihar, Jharkhand, West Bengal */}
-                    <path d="M370,140 L440,160 L410,240 L350,230 Z" />
-                    {/* Odisha */}
-                    <path d="M330,280 L390,260 L380,340 L320,340 Z" />
+                    <path d="M170,200 L270,180 L280,250 L170,250 Z" />
+                    {/* Maharashtra */}
+                    <path d="M160,260 L250,250 L255,320 L190,340 L150,300 Z" />
+                    {/* Odisha & Chhattisgarh */}
+                    <path d="M270,250 L330,230 L320,310 L260,310 Z" />
                     {/* Karnataka */}
-                    <path d="M200,380 L260,380 L250,480 L190,450 Z" />
+                    <path d="M170,330 L230,330 L220,430 L160,400 Z" />
                     {/* Andhra Pradesh */}
-                    <path d="M270,360 L320,340 L310,470 L260,470 L270,410 Z" />
-                    {/* Tamil Nadu, Kerala */}
-                    <path d="M220,470 L280,470 L250,570 L220,530 Z" />
-                    {/* North East Cluster */}
-                    <path d="M440,160 L520,150 L530,220 L450,220 Z" />
+                    <path d="M240,320 L290,300 L280,420 L230,420 L240,360 Z" />
+                    {/* Tamil Nadu & Kerala */}
+                    <path d="M190,420 L250,420 L220,510 L190,470 Z" />
+                    {/* Eastern India */}
+                    <path d="M300,160 L380,150 L390,220 L310,210 Z" />
                   </g>
 
-                  {/* ACCURATELY HIGHLIGHTED TELANGANA STATE (IN WARM TEAK) */}
+                  {/* ACCURATE HIGH-DEFINITION TELANGANA STATE OUTLINE IN WARM TEAK */}
                   <g className="cursor-pointer group">
                     <path 
-                      d="M235,320 L290,300 L310,340 L285,385 L240,370 Z" 
+                      d="M210,285 L255,270 L275,300 L255,340 L215,330 L205,305 Z" 
                       fill="#B45309" 
                       stroke="#78350F" 
-                      strokeWidth="2.5"
+                      strokeWidth="2"
                       className="transition-all hover:fill-[#92400E]"
                     />
                     
-                    {/* Hyderabad Glowing Pulsing Radar Pin */}
-                    <circle cx="260" cy="345" r="5" fill="#FFFFFF" />
-                    <circle cx="260" cy="345" r="14" fill="none" stroke="#B45309" strokeWidth="2" className="animate-ping opacity-75" />
+                    {/* Hyderabad Location Pin & Pulsing Radar */}
+                    <circle cx="235" cy="310" r="4.5" fill="#FFFFFF" />
+                    <circle cx="235" cy="310" r="12" fill="none" stroke="#B45309" strokeWidth="2" className="animate-ping opacity-75" />
 
-                    {/* State Hover Tag */}
-                    <rect x="205" y="270" width="110" height="24" rx="12" fill="#292524" opacity="0.9" />
-                    <text x="260" y="286" textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="600" letterSpacing="1">
+                    {/* Telangana Floating Badge */}
+                    <rect x="180" y="235" width="110" height="24" rx="12" fill="#292524" opacity="0.95" />
+                    <text x="235" y="251" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="700" letterSpacing="1">
                       TELANGANA
                     </text>
                   </g>
@@ -404,7 +400,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Right: Interactive Story Cards */}
+              {/* Right: Interactive Case Study Stories */}
               <div className="lg:col-span-7 space-y-4">
                 <div className="flex flex-wrap gap-2 mb-6">
                   <button
