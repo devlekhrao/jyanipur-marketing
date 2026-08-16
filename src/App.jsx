@@ -3,8 +3,7 @@ import { saveMarketingLead } from './db';
 import { 
   ArrowUpRight, CheckCircle2, Phone, Mail, MapPin, 
   X, Building, ArrowRight, Compass, Paintbrush, 
-  ShieldCheck, LayoutGrid, Briefcase, Contact, User,
-  CalendarPlus
+  ShieldCheck, LayoutGrid, Briefcase, Contact, User
 } from 'lucide-react';
 
 export default function App() {
@@ -98,11 +97,8 @@ export default function App() {
   const teakTintFilter = 'brightness(0) saturate(100%) invert(36%) sepia(61%) saturate(2251%) hue-rotate(5deg) brightness(95%) contrast(92%)';
 
   return (
-    <div className="min-h-screen bg-white text-[#292524] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#B45309] selection:text-white flex flex-col antialiased relative">
+    <div className="min-h-screen bg-white text-[#292524] font-sans selection:bg-[#B45309] selection:text-white flex flex-col antialiased relative" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       
-      {/* Google Fonts Import for Plus Jakarta Sans */}
-      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
       {/* --- ICON-ONLY FLOATING LEFT-CENTER DOCK --- */}
       <aside className="w-full lg:w-16 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-6 bg-white text-[#B45309] rounded-full py-4 flex lg:flex-col items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.08)] z-40 border border-[#E7E5E4]">
         
@@ -138,7 +134,7 @@ export default function App() {
             title="Book Consultation"
             className="w-12 h-12 bg-[#B45309] text-white hover:bg-[#92400E] rounded-full transition-all shadow-sm flex items-center justify-center"
           >
-            <CalendarPlus className="w-5 h-5" strokeWidth={2} />
+            <ArrowUpRight className="w-5 h-5" strokeWidth={2} />
           </button>
         </div>
       </aside>
@@ -155,17 +151,17 @@ export default function App() {
           }}
         ></div>
 
-        {/* --- BRAND HEADER (MASSIVE TEAK LOGO + JYANIPUR TEXT) --- */}
-        <header className="relative z-10 mb-8 flex items-center gap-6 lg:gap-10">
-          <div className="h-24 sm:h-32 lg:h-40 w-auto flex items-center justify-start shrink-0 lg:-ml-2">
+        {/* --- BRAND HEADER (LOGO + TEXT EXACTLY AS REQUESTED) --- */}
+        <header className="relative z-10 mb-10 flex items-center gap-4 lg:gap-6 pt-4">
+          <div className="h-20 sm:h-24 lg:h-28 w-auto flex items-center justify-start shrink-0">
             <img 
               src="/jyanipur.png" 
               alt="Jyanipur Symbol" 
-              className="h-full w-auto object-contain object-left" 
+              className="h-full w-auto object-contain" 
               style={{ filter: teakTintFilter }} 
             />
           </div>
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-light tracking-[0.25em] text-[#B45309] uppercase">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-[0.2em] text-[#B45309] uppercase mt-2">
             Jyanipur
           </h1>
         </header>
@@ -312,8 +308,8 @@ export default function App() {
         <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-2xl p-8 lg:p-12 shadow-sm border border-[#E7E5E4] mb-8">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#E7E5E4]">
             <div>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="h-16 lg:h-20 w-auto flex items-center justify-start shrink-0 lg:-ml-2">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-10 w-auto flex items-center justify-start shrink-0">
                   <img 
                     src="/jyanipur.png" 
                     alt="Jyanipur Logo" 
@@ -321,7 +317,7 @@ export default function App() {
                     style={{ filter: teakTintFilter }} 
                   />
                 </div>
-                <span className="text-3xl font-light tracking-[0.2em] uppercase text-[#1C1917]">Jyanipur</span>
+                <span className="text-2xl font-light tracking-[0.15em] uppercase text-[#1C1917] mt-1">Jyanipur</span>
               </div>
               <p className="text-xs text-[#57534E] font-light max-w-sm leading-relaxed">
                 Turnkey Construction & Bespoke Luxury Interiors. Building high-end architectural residences in Hyderabad.
