@@ -326,7 +326,7 @@ export default function App() {
         )}
 
         {/* ========================================================================= */}
-        {/* PAGE 3: STORIES OF TELANGANA (PRECISE HIGH-FIDELITY VECTOR MAP) */}
+        {/* PAGE 3: STORIES OF TELANGANA (AUTHENTIC HIGH-RES INDIA VECTOR MAP WITH TELANGANA HIGHLIGHTED) */}
         {/* ========================================================================= */}
         {currentPage === 'stories' && (
           <div className="space-y-12 py-4">
@@ -342,61 +342,26 @@ export default function App() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-stone-50 p-8 lg:p-12 rounded-3xl border border-[#E7E5E4]">
               
-              {/* HIGH-PRECISION ACCURATE INDIA & TELANGANA VECTOR SVG */}
-              <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-[#E7E5E4] flex flex-col items-center justify-center relative shadow-sm h-[440px]">
+              {/* AUTHENTIC OFFICIAL WIKIMEDIA VECTOR MAP (INDIA GREYED OUT, TELANGANA HIGHLIGHTED) */}
+              <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-[#E7E5E4] flex flex-col items-center justify-center relative shadow-sm h-[480px]">
                 
-                <svg viewBox="0 0 500 580" className="w-full h-full max-h-[380px] object-contain">
-                  {/* Rest of India Base Map Silhouette */}
-                  <g fill="#FFF7ED" stroke="#FDBA74" strokeWidth="1.2" strokeLinejoin="round">
-                    {/* Jammu & Kashmir / Ladakh */}
-                    <path d="M210,30 L230,15 L260,25 L270,55 L240,80 L210,85 L200,60 Z" />
-                    {/* Northern States */}
-                    <path d="M200,60 L210,85 L240,80 L235,110 L200,120 L180,100 Z" />
-                    {/* Rajasthan */}
-                    <path d="M120,150 L190,120 L210,180 L170,230 L110,210 L100,170 Z" />
-                    {/* Gujarat */}
-                    <path d="M90,220 L160,220 L165,270 L110,290 L70,250 Z" />
-                    {/* Madhya Pradesh */}
-                    <path d="M170,200 L270,180 L280,250 L170,250 Z" />
-                    {/* Maharashtra */}
-                    <path d="M160,260 L250,250 L255,320 L190,340 L150,300 Z" />
-                    {/* Odisha & Chhattisgarh */}
-                    <path d="M270,250 L330,230 L320,310 L260,310 Z" />
-                    {/* Karnataka */}
-                    <path d="M170,330 L230,330 L220,430 L160,400 Z" />
-                    {/* Andhra Pradesh */}
-                    <path d="M240,320 L290,300 L280,420 L230,420 L240,360 Z" />
-                    {/* Tamil Nadu & Kerala */}
-                    <path d="M190,420 L250,420 L220,510 L190,470 Z" />
-                    {/* Eastern India */}
-                    <path d="M300,160 L380,150 L390,220 L310,210 Z" />
-                  </g>
+                <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                  <img 
+                    src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Telangana_in_India.svg" 
+                    alt="Map of India highlighting Telangana" 
+                    className="w-full h-full max-h-[400px] object-contain filter contrast-[1.05]"
+                  />
 
-                  {/* ACCURATE HIGH-DEFINITION TELANGANA STATE OUTLINE IN WARM TEAK */}
-                  <g className="cursor-pointer group">
-                    <path 
-                      d="M210,285 L255,270 L275,300 L255,340 L215,330 L205,305 Z" 
-                      fill="#B45309" 
-                      stroke="#78350F" 
-                      strokeWidth="2"
-                      className="transition-all hover:fill-[#92400E]"
-                    />
-                    
-                    {/* Hyderabad Location Pin & Pulsing Radar */}
-                    <circle cx="235" cy="310" r="4.5" fill="#FFFFFF" />
-                    <circle cx="235" cy="310" r="12" fill="none" stroke="#B45309" strokeWidth="2" className="animate-ping opacity-75" />
+                  {/* Hyderabad Pulsing Location Callout */}
+                  <div className="absolute top-[58%] left-[45%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                    <span className="w-3 h-3 bg-[#B45309] rounded-full relative z-10 shadow-md"></span>
+                    <span className="w-8 h-8 border-2 border-[#B45309] rounded-full absolute animate-ping opacity-75"></span>
+                  </div>
+                </div>
 
-                    {/* Telangana Floating Badge */}
-                    <rect x="180" y="235" width="110" height="24" rx="12" fill="#292524" opacity="0.95" />
-                    <text x="235" y="251" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="700" letterSpacing="1">
-                      TELANGANA
-                    </text>
-                  </g>
-                </svg>
-
-                <div className="flex items-center gap-2 mt-2 text-xs font-semibold text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-amber-200/60">
+                <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-amber-200/60">
                   <MapPin className="w-4 h-4" />
-                  <span>Hyderabad • Primary Execution Stronghold</span>
+                  <span>Hyderabad • Active Execution Stronghold</span>
                 </div>
               </div>
 
