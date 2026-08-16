@@ -5,14 +5,13 @@
     <link rel="icon" type="image/png" href="/jyanipur.png" id="dynamic-favicon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Updated Title -->
     <title>Jyanipur</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- Script to dynamically scale the logo, tint it white, and add the Teak background -->
+    <!-- Script to dynamically scale the logo, tint it Teak, and add a White background -->
     <script>
       window.onload = function() {
         const canvas = document.createElement('canvas');
@@ -23,22 +22,20 @@
         
         img.src = '/jyanipur.png';
         img.onload = function() {
-          // 1. Draw the logo larger (filling the circle better)
-          ctx.drawImage(img, 20, 20, 88, 88); 
+          // 1. Draw the logo very large to match the "N" size (minimal padding)
+          ctx.drawImage(img, 4, 4, 120, 120); 
           
-          // 2. Tint the logo pure white
+          // 2. Tint the logo Teak
           ctx.globalCompositeOperation = 'source-in';
+          ctx.fillStyle = '#B45309';
+          ctx.fillRect(0, 0, 128, 128);
+          
+          // 3. Draw the solid White square background behind it
+          ctx.globalCompositeOperation = 'destination-over';
           ctx.fillStyle = '#FFFFFF';
           ctx.fillRect(0, 0, 128, 128);
           
-          // 3. Draw the solid Teak background circle behind it
-          ctx.globalCompositeOperation = 'destination-over';
-          ctx.fillStyle = '#B45309';
-          ctx.beginPath();
-          ctx.arc(64, 64, 64, 0, Math.PI * 2);
-          ctx.fill();
-          
-          // 4. Inject the new Teak pill favicon into the browser tab
+          // 4. Inject the new favicon into the browser tab
           const link = document.getElementById('dynamic-favicon');
           link.href = canvas.toDataURL('image/png');
         };
