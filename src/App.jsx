@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
+import React, { useState } from 'react';
 import { saveMarketingLead } from './db';
 import { 
   Grid, Briefcase, Phone, User, ArrowRight, 
   Check, Mail, MapPin, X, Building, Shield, PenTool,
   Layers, Globe, Home
 } from 'lucide-react';
-
-// Custom Hyderabad Teak Pin Icon for Leaflet
-const teakPinIcon = new L.DivIcon({
-  className: 'custom-leaflet-pin',
-  html: `<div style="background-color: #B45309; width: 16px; height: 16px; border-radius: 50%; border: 3px solid #FFFFFF; box-shadow: 0 0 10px rgba(180,83,9,0.8);"></div>`,
-  iconSize: [16, 16],
-  iconAnchor: [8, 8]
-});
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('stories');
@@ -24,7 +14,6 @@ export default function App() {
   const [isLeadSaved, setIsLeadSaved] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedStory, setSelectedStory] = useState('dodla');
-  const [telanganaGeoJson, setTelanganaGeoJson] = useState(null);
 
   const [leadData, setLeadData] = useState({
     clientName: '',
@@ -32,14 +21,6 @@ export default function App() {
     projectType: 'Turnkey Residential Construction',
     notes: ''
   });
-
-  // Load official Telangana GeoJSON
-  useEffect(() => {
-    fetch('/telangana.json')
-      .then(res => res.json())
-      .then(data => setTelanganaGeoJson(data))
-      .catch(err => console.error("Error loading Telangana GeoJSON:", err));
-  }, []);
 
   const clients = [
     { name: 'Dodla Dairy', role: 'Corporate Headquarters & Outlets', location: 'Greater Hyderabad' },
@@ -306,7 +287,7 @@ export default function App() {
           </div>
         )}
 
-        {/* STORIES OF TELANGANA PAGE (LEAFLET INTERACTIVE MAP) */}
+        {/* STORIES OF TELANGANA PAGE (DIRECT SIMPLEMAPS VECTOR SVG EMBED) */}
         {currentPage === 'stories' && (
           <div className="py-4 space-y-12">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
@@ -319,47 +300,23 @@ export default function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-4">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8">
               
-              {/* LEAFLET MAP CONTAINER */}
-              <div className="lg:col-span-5 h-[450px] rounded-3xl overflow-hidden border border-[#E7E5E4] shadow-sm relative z-10">
-                <MapContainer 
-                  center={[17.8748, 78.1000]} 
-                  zoom={7} 
-                  scrollWheelZoom={false} 
-                  className="w-full h-full"
-                >
-                  <TileLayer
-                    url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-                    attribution='&copy; <a href="https://carto.com/">CARTO</a>'
-                  />
-                  
-                  {/* TELANGANA GEOJSON OVERLAY */}
-                  {telanganaGeoJson && (
-                    <GeoJSON 
-                      data={telanganaGeoJson} 
-                      style={{
-                        fillColor: '#B45309',
-                        fillOpacity: 0.35,
-                        color: '#B45309',
-                        weight: 2
-                      }}
-                    />
-                  )}
+              {/* CLEAN SIMPLEMAPS VECTOR SVG */}
+              <div className="lg:col-span-5 flex flex-col items-center justify-center relative">
+                <img 
+                  src="/india.svg" 
+                  alt="India Vector Map - Telangana Stronghold" 
+                  className="w-full h-auto max-h-[460px] object-contain drop-shadow-sm"
+                />
 
-                  {/* HYDERABAD MARKER */}
-                  <Marker position={[17.3850, 78.4867]} icon={teakPinIcon}>
-                    <Popup>
-                      <div className="text-xs font-sans">
-                        <strong className="text-[#B45309] block mb-1">Jyanipur Hyderabad HQ</strong>
-                        <span>350,000+ Sq.Ft Delivered</span>
-                      </div>
-                    </Popup>
-                  </Marker>
-                </MapContainer>
+                <div className="flex items-center gap-2 mt-4 text-xs font-semibold text-[#B45309] bg-amber-50 px-5 py-2.5 rounded-full border border-amber-200/60">
+                  <MapPin className="w-4 h-4" />
+                  <span>Hyderabad • Active Execution Stronghold</span>
+                </div>
               </div>
 
-              {/* STORY CONTENT CARDS */}
+              {/* STORY CARDS */}
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex flex-wrap gap-2">
                   <button
