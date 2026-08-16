@@ -98,17 +98,20 @@ export default function App() {
     : projects.filter(p => p.category === activeFilter);
 
   return (
-    <div className="min-h-screen bg-white text-[#292524] font-sans selection:bg-[#B45309] selection:text-white flex flex-col lg:flex-row">
+    <div className="min-h-screen bg-white text-[#292524] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#B45309] selection:text-white flex flex-col lg:flex-row antialiased">
       
+      {/* Google Fonts Import for Plus Jakarta Sans */}
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
       {/* --- SLIM COMPACT SIDEBAR --- */}
       <aside className="w-full lg:w-20 lg:fixed lg:h-[calc(100vh-2rem)] lg:m-4 bg-[#B45309] text-white rounded-3xl p-4 flex lg:flex-col justify-between items-center shadow-2xl z-40 border border-amber-600/30">
         
         {/* Compact Logo */}
-        <a href="#" className="w-12 h-12 bg-white text-[#B45309] font-black rounded-2xl flex items-center justify-center text-xl shadow-md shrink-0">
+        <a href="#" className="w-12 h-12 bg-white text-[#B45309] font-semibold rounded-2xl flex items-center justify-center text-xl shadow-md shrink-0">
           J
         </a>
 
-        {/* Compact Navigation Icons with Hover Labels */}
+        {/* Compact Navigation Icons */}
         <nav className="flex lg:flex-col items-center gap-4">
           <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center bg-amber-800/40 hover:bg-white hover:text-[#B45309] rounded-2xl transition-all">
             <LayoutGrid className="w-5 h-5" />
@@ -148,7 +151,7 @@ export default function App() {
       {/* --- MAIN CONTENT AREA --- */}
       <main className="flex-1 lg:ml-28 p-6 lg:p-12 relative overflow-hidden">
         
-        {/* Subtle Architectural Carpet Grid Effect */}
+        {/* Subtle Architectural Grid Effect */}
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
@@ -160,15 +163,15 @@ export default function App() {
         {/* HERO SHOWCASE */}
         <section className="relative z-10 mb-20">
           <div className="max-w-4xl space-y-6 mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-amber-200">
-              <Compass className="w-4 h-4 text-[#B45309]" /> Architectural Portfolio Studio
+            <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-amber-200/80">
+              <Compass className="w-3.5 h-3.5 text-[#B45309]" /> Architectural Portfolio Studio
             </div>
 
-            <h1 className="text-4xl lg:text-6xl font-black text-[#292524] leading-[1.1] tracking-tight">
-              Bespoke Spaces. <br /><span className="text-[#B45309]">Uncompromising Precision.</span>
+            <h1 className="text-4xl lg:text-6xl font-light text-[#1C1917] leading-[1.15] tracking-tight">
+              Bespoke Spaces. <br /><span className="font-semibold text-[#B45309]">Uncompromising Precision.</span>
             </h1>
 
-            <p className="text-[#57534E] text-base lg:text-lg leading-relaxed max-w-2xl">
+            <p className="text-[#57534E] text-base lg:text-lg font-normal leading-relaxed max-w-2xl">
               Jyanipur is a premier turnkey construction and luxury interior studio based in Hyderabad. We turn structural blueprints into living architectural artwork.
             </p>
           </div>
@@ -182,11 +185,11 @@ export default function App() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#B45309]/95 via-[#B45309]/30 to-transparent flex items-end p-8 lg:p-12">
               <div className="text-white max-w-2xl">
-                <span className="bg-white text-[#B45309] text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block shadow-sm">
+                <span className="bg-white text-[#B45309] text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block shadow-sm tracking-wide">
                   Featured Masterpiece
                 </span>
-                <h2 className="text-3xl lg:text-4xl font-black">The Glass Monolith Villa</h2>
-                <p className="text-amber-100 mt-2 text-sm lg:text-base">Kondapur, Hyderabad • 3,400 Sq.Ft. Structural Glazing & Modern Interiors</p>
+                <h2 className="text-3xl lg:text-4xl font-normal tracking-tight">The Glass Monolith Villa</h2>
+                <p className="text-amber-100 mt-2 text-sm lg:text-base font-light">Kondapur, Hyderabad • 3,400 Sq.Ft. Structural Glazing & Modern Interiors</p>
               </div>
             </div>
           </div>
@@ -196,8 +199,8 @@ export default function App() {
         <section id="portfolio" className="relative z-10 mb-20 pt-8 border-t border-amber-100">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8">
             <div>
-              <span className="text-[#B45309] font-bold text-sm tracking-widest uppercase mb-2 block">Curated Works</span>
-              <h2 className="text-3xl lg:text-4xl font-black text-[#292524] tracking-tight">Recent Projects</h2>
+              <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Curated Works</span>
+              <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">Recent Projects</h2>
             </div>
 
             <div className="flex flex-wrap gap-2">
@@ -205,7 +208,7 @@ export default function App() {
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
-                  className={`px-5 py-2.5 text-sm font-bold rounded-full transition-all border ${
+                  className={`px-5 py-2.5 text-xs font-semibold tracking-wider rounded-full transition-all border ${
                     activeFilter === filter ? 'bg-[#B45309] text-white border-[#B45309] shadow-md' : 'bg-white text-[#57534E] border-amber-200 hover:bg-amber-50'
                   }`}
                 >
@@ -224,7 +227,7 @@ export default function App() {
               >
                 <div className="h-72 overflow-hidden relative">
                   <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute top-4 left-4 z-20 bg-white text-[#B45309] text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                  <div className="absolute top-4 left-4 z-20 bg-white text-[#B45309] text-xs font-semibold px-3 py-1.5 rounded-full shadow-md tracking-wide">
                     {p.category}
                   </div>
                 </div>
@@ -232,15 +235,15 @@ export default function App() {
                 <div className="p-8">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-2xl font-black text-white mb-2">{p.title}</h3>
-                      <p className="text-sm text-amber-200 font-bold flex items-center gap-1"><MapPin className="w-4 h-4 text-white" /> {p.location}</p>
+                      <h3 className="text-2xl font-normal text-white mb-2 tracking-tight">{p.title}</h3>
+                      <p className="text-xs text-amber-200 font-medium flex items-center gap-1 tracking-wide"><MapPin className="w-3.5 h-3.5 text-white" /> {p.location}</p>
                     </div>
-                    <span className="bg-amber-800/60 border border-amber-600 text-amber-100 text-xs font-bold px-3 py-1 rounded-full">
+                    <span className="bg-amber-800/60 border border-amber-600 text-amber-100 text-xs font-medium px-3 py-1 rounded-full">
                       {p.area}
                     </span>
                   </div>
-                  <p className="text-amber-100/90 mb-6 line-clamp-2">{p.description}</p>
-                  <div className="flex items-center text-white font-bold text-sm group-hover:translate-x-2 transition-transform">
+                  <p className="text-amber-100/90 text-sm font-light mb-6 line-clamp-2 leading-relaxed">{p.description}</p>
+                  <div className="flex items-center text-white font-semibold text-xs tracking-wider uppercase group-hover:translate-x-2 transition-transform">
                     View Case Study <ArrowRight className="w-4 h-4 ml-2" />
                   </div>
                 </div>
@@ -252,33 +255,33 @@ export default function App() {
         {/* CAPABILITIES SECTION */}
         <section id="services" className="relative z-10 mb-20 pt-8 border-t border-amber-100">
           <div className="mb-12">
-            <span className="text-[#B45309] font-bold text-sm tracking-widest uppercase mb-2 block">Our Capabilities</span>
-            <h2 className="text-3xl lg:text-4xl font-black text-[#292524] tracking-tight">End-to-End Execution</h2>
+            <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Our Capabilities</span>
+            <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">End-to-End Execution</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-[#B45309] text-white p-8 rounded-3xl border border-amber-600/30 shadow-xl">
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
-                <Building className="w-8 h-8 text-[#B45309]" />
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
+                <Building className="w-7 h-7 text-[#B45309]" />
               </div>
-              <h3 className="text-xl font-black mb-3">Civil Construction</h3>
-              <p className="text-amber-100 leading-relaxed">Structural RCC framing, masonry, and civil engineering built to last generations.</p>
+              <h3 className="text-xl font-normal mb-3 tracking-tight">Civil Construction</h3>
+              <p className="text-amber-100 text-sm font-light leading-relaxed">Structural RCC framing, masonry, and civil engineering built to last generations.</p>
             </div>
 
             <div className="bg-[#B45309] text-white p-8 rounded-3xl border border-amber-600/30 shadow-xl">
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
-                <Paintbrush className="w-8 h-8 text-[#B45309]" />
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
+                <Paintbrush className="w-7 h-7 text-[#B45309]" />
               </div>
-              <h3 className="text-xl font-black mb-3">Bespoke Interiors</h3>
-              <p className="text-amber-100 leading-relaxed">Factory-finished modular woodwork, marble flooring, and custom furniture fitting.</p>
+              <h3 className="text-xl font-normal mb-3 tracking-tight">Bespoke Interiors</h3>
+              <p className="text-amber-100 text-sm font-light leading-relaxed">Factory-finished modular woodwork, marble flooring, and custom furniture fitting.</p>
             </div>
 
             <div className="bg-[#B45309] text-white p-8 rounded-3xl border border-amber-600/30 shadow-xl">
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
-                <ShieldCheck className="w-8 h-8 text-[#B45309]" />
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
+                <ShieldCheck className="w-7 h-7 text-[#B45309]" />
               </div>
-              <h3 className="text-xl font-black mb-3">Turnkey Management</h3>
-              <p className="text-amber-100 leading-relaxed">Single point of accountability coordinating labor, vendors, and precise handovers.</p>
+              <h3 className="text-xl font-normal mb-3 tracking-tight">Turnkey Management</h3>
+              <p className="text-amber-100 text-sm font-light leading-relaxed">Single point of accountability coordinating labor, vendors, and precise handovers.</p>
             </div>
           </div>
         </section>
@@ -286,16 +289,16 @@ export default function App() {
         {/* METHODOLOGY / PROCESS */}
         <section id="process" className="relative z-10 mb-20 pt-8 border-t border-amber-100">
           <div className="mb-12">
-            <span className="text-[#B45309] font-bold text-sm tracking-widest uppercase mb-2 block">Methodology</span>
-            <h2 className="text-3xl lg:text-4xl font-black text-[#292524] tracking-tight">How We Build</h2>
+            <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Methodology</span>
+            <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">How We Build</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {processSteps.map((s, i) => (
               <div key={i} className="bg-white p-8 rounded-3xl border border-amber-200/80 shadow-sm relative">
-                <span className="text-4xl font-black text-[#B45309] block mb-4">{s.num}</span>
-                <h3 className="text-lg font-black text-[#292524] mb-2">{s.title}</h3>
-                <p className="text-sm text-[#57534E] leading-relaxed">{s.desc}</p>
+                <span className="text-3xl font-light text-[#B45309] block mb-4 tracking-tight">{s.num}</span>
+                <h3 className="text-base font-semibold text-[#292524] mb-2">{s.title}</h3>
+                <p className="text-xs text-[#57534E] font-normal leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -306,24 +309,24 @@ export default function App() {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-amber-700/50">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-white text-[#B45309] font-black rounded-2xl flex items-center justify-center text-xl shadow-md">
+                <div className="w-10 h-10 bg-white text-[#B45309] font-semibold rounded-2xl flex items-center justify-center text-xl shadow-md">
                   J
                 </div>
-                <span className="text-2xl font-black tracking-wider uppercase">Jyanipur</span>
+                <span className="text-2xl font-semibold tracking-wider uppercase">Jyanipur</span>
               </div>
-              <p className="text-sm text-amber-100 max-w-sm leading-relaxed">
+              <p className="text-xs text-amber-100 font-light max-w-sm leading-relaxed">
                 Turnkey Construction & Bespoke Luxury Interiors. Building high-end architectural residences in Hyderabad.
               </p>
             </div>
 
-            <div className="flex flex-col gap-4 text-sm font-semibold text-amber-100">
+            <div className="flex flex-col gap-3 text-xs font-medium text-amber-100">
               <span className="flex items-center gap-3"><MapPin className="w-4 h-4 text-white" /> 302 Amrutha Lakshmi Residency, Kondapur, Hyderabad, 500084</span>
               <span className="flex items-center gap-3"><Mail className="w-4 h-4 text-white" /> accounts@jyanipur.in</span>
               <span className="flex items-center gap-3"><Phone className="w-4 h-4 text-white" /> +91 9246546742</span>
             </div>
           </div>
 
-          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-semibold text-amber-200">
+          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-light text-amber-200">
             <span>© 2026 Jyanipur Construction & Interiors. All rights reserved.</span>
             <div className="flex gap-4">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
@@ -349,40 +352,40 @@ export default function App() {
               <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#B45309]/90 via-transparent to-transparent flex items-end p-8">
                 <div className="text-white">
-                  <span className="bg-white text-[#B45309] text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block shadow-sm">
+                  <span className="bg-white text-[#B45309] text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block shadow-sm">
                     {selectedProject.status}
                   </span>
-                  <h2 className="text-3xl sm:text-4xl font-black">{selectedProject.title}</h2>
-                  <p className="text-amber-100 font-semibold mt-2 flex items-center gap-2"><MapPin className="w-4 h-4" /> {selectedProject.location} • {selectedProject.area}</p>
+                  <h2 className="text-3xl sm:text-4xl font-normal tracking-tight">{selectedProject.title}</h2>
+                  <p className="text-amber-100 font-light text-sm mt-2 flex items-center gap-2"><MapPin className="w-4 h-4" /> {selectedProject.location} • {selectedProject.area}</p>
                 </div>
               </div>
             </div>
 
             <div className="p-8 overflow-y-auto flex-1">
-              <h3 className="text-xl font-black text-[#292524] mb-3">Project Overview</h3>
-              <p className="text-[#57534E] leading-relaxed mb-8">{selectedProject.description}</p>
+              <h3 className="text-lg font-semibold text-[#292524] mb-3">Project Overview</h3>
+              <p className="text-[#57534E] text-sm leading-relaxed mb-8 font-light">{selectedProject.description}</p>
 
-              <h3 className="text-xl font-black text-[#292524] mb-4">Key Specifications</h3>
+              <h3 className="text-lg font-semibold text-[#292524] mb-4">Key Specifications</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {selectedProject.features.map((feat, i) => (
                   <div key={i} className="flex items-center gap-3 bg-amber-50/50 p-4 rounded-xl border border-amber-200/60">
-                    <CheckCircle2 className="w-5 h-5 text-[#B45309] shrink-0" />
-                    <span className="text-sm font-bold text-[#292524]">{feat}</span>
+                    <CheckCircle2 className="w-4 h-4 text-[#B45309] shrink-0" />
+                    <span className="text-xs font-semibold text-[#292524]">{feat}</span>
                   </div>
                 ))}
               </div>
 
               <div className="bg-[#B45309] p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 text-white">
                 <div>
-                  <h4 className="font-black">Interested in a similar project?</h4>
-                  <p className="text-sm text-amber-100 mt-1">Book an architectural meeting with our team.</p>
+                  <h4 className="font-semibold text-base">Interested in a similar project?</h4>
+                  <p className="text-xs text-amber-100 font-light mt-1">Book an architectural meeting with our team.</p>
                 </div>
                 <button 
                   onClick={() => {
                     setSelectedProject(null);
                     setIsEstimateModalOpen(true);
                   }}
-                  className="w-full sm:w-auto bg-white text-[#B45309] hover:bg-amber-50 px-6 py-3 rounded-full text-sm font-black transition-all whitespace-nowrap shadow-md"
+                  className="w-full sm:w-auto bg-white text-[#B45309] hover:bg-amber-50 px-6 py-3 rounded-full text-xs font-semibold transition-all whitespace-nowrap shadow-md tracking-wider uppercase"
                 >
                   Schedule Meeting
                 </button>
@@ -405,30 +408,30 @@ export default function App() {
             
             {!isLeadSaved ? (
               <>
-                <h3 className="text-2xl font-black text-[#292524] tracking-tight mb-2">Book Consultation</h3>
-                <p className="text-sm text-[#78716C] font-medium mb-8">Share your site details and our principal architect will contact you directly.</p>
+                <h3 className="text-2xl font-normal text-[#292524] tracking-tight mb-2">Book Consultation</h3>
+                <p className="text-xs text-[#78716C] font-light mb-8">Share your site details and our principal architect will contact you directly.</p>
 
                 <form onSubmit={handleConsultSubmit} className="space-y-5">
                   <div>
-                    <label className="block text-xs font-black text-[#292524] uppercase mb-2 ml-1">Full Name</label>
-                    <input type="text" required value={leadData.clientName} onChange={e => setLeadData({...leadData, clientName: e.target.value})} placeholder="e.g. Ramesh Varma" className="w-full px-5 py-4 bg-amber-50/30 border border-amber-200 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all font-bold" />
+                    <label className="block text-xs font-semibold text-[#292524] uppercase tracking-wider mb-2 ml-1">Full Name</label>
+                    <input type="text" required value={leadData.clientName} onChange={e => setLeadData({...leadData, clientName: e.target.value})} placeholder="e.g. Ramesh Varma" className="w-full px-5 py-3.5 bg-amber-50/30 border border-amber-200 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all text-sm font-normal" />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black text-[#292524] uppercase mb-2 ml-1">Phone Number</label>
-                    <input type="tel" required value={leadData.phone} onChange={e => setLeadData({...leadData, phone: e.target.value})} placeholder="+91 98765..." className="w-full px-5 py-4 bg-amber-50/30 border border-amber-200 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all font-bold" />
+                    <label className="block text-xs font-semibold text-[#292524] uppercase tracking-wider mb-2 ml-1">Phone Number</label>
+                    <input type="tel" required value={leadData.phone} onChange={e => setLeadData({...leadData, phone: e.target.value})} placeholder="+91 98765..." className="w-full px-5 py-3.5 bg-amber-50/30 border border-amber-200 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all text-sm font-normal" />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-black text-[#292524] uppercase mb-2 ml-1">Project Scope</label>
-                    <select value={leadData.projectType} onChange={e => setLeadData({...leadData, projectType: e.target.value})} className="w-full px-5 py-4 bg-amber-50/30 border border-amber-200 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all cursor-pointer font-bold">
+                    <label className="block text-xs font-semibold text-[#292524] uppercase tracking-wider mb-2 ml-1">Project Scope</label>
+                    <select value={leadData.projectType} onChange={e => setLeadData({...leadData, projectType: e.target.value})} className="w-full px-5 py-3.5 bg-amber-50/30 border border-amber-200 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all cursor-pointer text-sm font-normal">
                       <option value="Turnkey Residential Construction">Turnkey Construction (Structure + Interiors)</option>
                       <option value="Civil Structural Execution">Civil Structural Execution</option>
                       <option value="Turnkey Interior Fit-Out">Turnkey Luxury Interiors</option>
                     </select>
                   </div>
 
-                  <button type="submit" disabled={loading} className="w-full py-4 bg-[#B45309] hover:bg-amber-700 text-white font-black rounded-full transition-all mt-4 shadow-md">
+                  <button type="submit" disabled={loading} className="w-full py-4 bg-[#B45309] hover:bg-amber-700 text-white font-semibold rounded-full transition-all mt-4 text-xs tracking-wider uppercase shadow-md">
                     {loading ? 'Submitting...' : 'Request Architectural Meeting'}
                   </button>
                 </form>
@@ -438,9 +441,9 @@ export default function App() {
                 <div className="w-16 h-16 bg-[#B45309] text-white flex items-center justify-center mx-auto rounded-full mb-6 shadow-md">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-black text-[#292524]">Consultation Requested</h3>
-                <p className="text-[#57534E] font-medium">
-                  Thank you, <span className="font-black text-[#292524]">{leadData.clientName}</span>. Our project planning team will call {leadData.phone} within 24 hours.
+                <h3 className="text-2xl font-normal text-[#292524]">Consultation Requested</h3>
+                <p className="text-[#57534E] text-sm font-light">
+                  Thank you, <span className="font-semibold text-[#292524]">{leadData.clientName}</span>. Our project planning team will call {leadData.phone} within 24 hours.
                 </p>
               </div>
             )}
