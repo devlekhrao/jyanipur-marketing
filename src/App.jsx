@@ -149,19 +149,24 @@ export default function App() {
           }}
         ></div>
 
-        {/* --- BRAND HEADER (PULLED ALL THE WAY TO THE FAR-LEFT CORNER WITH JYANIPUR TEXT) --- */}
-        <header className="relative z-10 mb-8 pt-2 flex items-center gap-6 lg:gap-8 lg:-ml-20">
-          <div className="h-24 sm:h-32 lg:h-36 w-auto flex items-center justify-start shrink-0">
-            <img 
-              src="/jyanipur.png" 
-              alt="Jyanipur Symbol" 
-              className="h-full w-auto object-contain object-left" 
-              style={{ filter: teakTintFilter }} 
-            />
+        {/* --- BRAND HEADER (LOGO PUSHED FAR LEFT, TEXT ALIGNED WITH HERO IMAGE EDGE) --- */}
+        <header className="relative z-10 mb-8 pt-2 flex items-center justify-start">
+          <div className="relative flex items-center w-full">
+            {/* Logo Mark pushed into the far-left space */}
+            <div className="h-24 sm:h-32 lg:h-36 w-auto flex items-center shrink-0 lg:-ml-28 pr-6">
+              <img 
+                src="/jyanipur.png" 
+                alt="Jyanipur Symbol" 
+                className="h-full w-auto object-contain object-left" 
+                style={{ filter: teakTintFilter }} 
+              />
+            </div>
+            
+            {/* Jyanipur Name starts right at the edge of the hero photo below */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-[0.3em] text-[#B45309] uppercase">
+              Jyanipur
+            </h1>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-[0.3em] text-[#B45309] uppercase">
-            Jyanipur
-          </h1>
         </header>
 
         {/* --- HERO SHOWCASE --- */}
