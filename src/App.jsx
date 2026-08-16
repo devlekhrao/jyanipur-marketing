@@ -103,47 +103,47 @@ export default function App() {
       {/* Google Fonts Import for Plus Jakarta Sans */}
       <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-      {/* --- SLIM COMPACT SIDEBAR --- */}
-      <aside className="w-full lg:w-20 lg:fixed lg:h-[calc(100vh-2rem)] lg:m-4 bg-[#B45309] text-white rounded-3xl p-4 flex lg:flex-col justify-between items-center shadow-2xl z-40 border border-amber-600/30">
+      {/* --- FLOATING COMPACT SIDEBAR DOCK (COMPACT HEIGHT) --- */}
+      <aside className="w-full lg:w-16 lg:fixed lg:top-1/2 lg:-translate-y-1/2 lg:left-5 bg-white text-[#B45309] rounded-3xl p-3 flex lg:flex-col justify-between items-center shadow-xl z-40 border-2 border-[#B45309]">
         
         {/* Compact Logo */}
-        <a href="#" className="w-12 h-12 bg-white text-[#B45309] font-semibold rounded-2xl flex items-center justify-center text-xl shadow-md shrink-0">
+        <a href="#" className="w-10 h-10 bg-[#B45309] text-white font-semibold rounded-2xl flex items-center justify-center text-lg shadow-sm shrink-0">
           J
         </a>
 
         {/* Compact Navigation Icons */}
-        <nav className="flex lg:flex-col items-center gap-4">
-          <a href="#portfolio" title="Portfolio" className="w-12 h-12 flex items-center justify-center bg-amber-800/40 hover:bg-white hover:text-[#B45309] rounded-2xl transition-all">
-            <LayoutGrid className="w-5 h-5" />
+        <nav className="flex lg:flex-col items-center gap-3 my-4">
+          <a href="#portfolio" title="Portfolio" className="w-10 h-10 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-xl transition-all border border-transparent hover:border-[#B45309]/30">
+            <LayoutGrid className="w-4 h-4" />
           </a>
-          <a href="#services" title="Capabilities" className="w-12 h-12 flex items-center justify-center hover:bg-amber-800/40 text-amber-100 hover:text-white rounded-2xl transition-all">
-            <Briefcase className="w-5 h-5" />
+          <a href="#services" title="Capabilities" className="w-10 h-10 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-xl transition-all border border-transparent hover:border-[#B45309]/30">
+            <Briefcase className="w-4 h-4" />
           </a>
-          <a href="#process" title="Methodology" className="w-12 h-12 flex items-center justify-center hover:bg-amber-800/40 text-amber-100 hover:text-white rounded-2xl transition-all">
-            <Compass className="w-5 h-5" />
+          <a href="#process" title="Methodology" className="w-10 h-10 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-xl transition-all border border-transparent hover:border-[#B45309]/30">
+            <Compass className="w-4 h-4" />
           </a>
-          <a href="#contact" title="Contact" className="w-12 h-12 flex items-center justify-center hover:bg-amber-800/40 text-amber-100 hover:text-white rounded-2xl transition-all">
-            <Contact className="w-5 h-5" />
+          <a href="#contact" title="Contact" className="w-10 h-10 flex items-center justify-center hover:bg-amber-50 text-[#B45309] rounded-xl transition-all border border-transparent hover:border-[#B45309]/30">
+            <Contact className="w-4 h-4" />
           </a>
         </nav>
 
         {/* Compact Actions */}
-        <div className="flex lg:flex-col items-center gap-3 shrink-0">
+        <div className="flex lg:flex-col items-center gap-2 shrink-0">
           <a 
             href="https://www.jyanipur.org.in" 
             target="_blank" 
             rel="noreferrer"
             title="Client Login"
-            className="w-10 h-10 flex items-center justify-center text-amber-200 hover:text-white transition-colors"
+            className="w-9 h-9 flex items-center justify-center text-[#B45309] hover:opacity-70 transition-opacity"
           >
-            <User className="w-5 h-5" />
+            <User className="w-4 h-4" />
           </a>
           <button 
             onClick={() => setIsEstimateModalOpen(true)}
             title="Book Consultation"
-            className="w-12 h-12 bg-white text-[#B45309] hover:bg-amber-50 rounded-2xl transition-all shadow-md flex items-center justify-center"
+            className="w-10 h-10 bg-[#B45309] text-white hover:bg-amber-700 rounded-xl transition-all shadow-sm flex items-center justify-center"
           >
-            <ArrowUpRight className="w-5 h-5" />
+            <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
       </aside>
@@ -163,7 +163,7 @@ export default function App() {
         {/* HERO SHOWCASE */}
         <section className="relative z-10 mb-20">
           <div className="max-w-4xl space-y-6 mb-12">
-            <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-amber-200/80">
+            <div className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B45309] bg-amber-50 px-4 py-2 rounded-full border border-[#B45309]/30">
               <Compass className="w-3.5 h-3.5 text-[#B45309]" /> Architectural Portfolio Studio
             </div>
 
@@ -177,7 +177,7 @@ export default function App() {
           </div>
 
           {/* Featured Project Banner Box */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-amber-100 h-[450px] lg:h-[550px] group">
+          <div className="relative rounded-3xl overflow-hidden shadow-xl border-2 border-[#B45309] h-[450px] lg:h-[550px] group">
             <img 
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" 
               alt="Featured Architecture" 
@@ -196,7 +196,7 @@ export default function App() {
         </section>
 
         {/* PORTFOLIO GALLERY */}
-        <section id="portfolio" className="relative z-10 mb-20 pt-8 border-t border-amber-100">
+        <section id="portfolio" className="relative z-10 mb-20 pt-8 border-t border-[#B45309]/20">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8">
             <div>
               <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Curated Works</span>
@@ -209,7 +209,7 @@ export default function App() {
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
                   className={`px-5 py-2.5 text-xs font-semibold tracking-wider rounded-full transition-all border ${
-                    activeFilter === filter ? 'bg-[#B45309] text-white border-[#B45309] shadow-md' : 'bg-white text-[#57534E] border-amber-200 hover:bg-amber-50'
+                    activeFilter === filter ? 'bg-[#B45309] text-white border-[#B45309] shadow-md' : 'bg-white text-[#57534E] border-[#B45309]/30 hover:bg-amber-50'
                   }`}
                 >
                   {filter}
@@ -222,12 +222,12 @@ export default function App() {
             {filteredProjects.map((p) => (
               <div 
                 key={p.id} 
-                className="group bg-[#B45309] text-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer border border-amber-600/30"
+                className="group bg-white text-[#292524] rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer border-2 border-[#B45309]"
                 onClick={() => setSelectedProject(p)}
               >
-                <div className="h-72 overflow-hidden relative">
+                <div className="h-72 overflow-hidden relative border-b-2 border-[#B45309]">
                   <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute top-4 left-4 z-20 bg-white text-[#B45309] text-xs font-semibold px-3 py-1.5 rounded-full shadow-md tracking-wide">
+                  <div className="absolute top-4 left-4 z-20 bg-white text-[#B45309] border border-[#B45309]/30 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm tracking-wide">
                     {p.category}
                   </div>
                 </div>
@@ -235,15 +235,15 @@ export default function App() {
                 <div className="p-8">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <h3 className="text-2xl font-normal text-white mb-2 tracking-tight">{p.title}</h3>
-                      <p className="text-xs text-amber-200 font-medium flex items-center gap-1 tracking-wide"><MapPin className="w-3.5 h-3.5 text-white" /> {p.location}</p>
+                      <h3 className="text-2xl font-normal text-[#1C1917] mb-2 tracking-tight group-hover:text-[#B45309] transition-colors">{p.title}</h3>
+                      <p className="text-xs text-[#78716C] font-medium flex items-center gap-1 tracking-wide"><MapPin className="w-3.5 h-3.5 text-[#B45309]" /> {p.location}</p>
                     </div>
-                    <span className="bg-amber-800/60 border border-amber-600 text-amber-100 text-xs font-medium px-3 py-1 rounded-full">
+                    <span className="bg-amber-50 border border-[#B45309]/30 text-[#B45309] text-xs font-medium px-3 py-1 rounded-full">
                       {p.area}
                     </span>
                   </div>
-                  <p className="text-amber-100/90 text-sm font-light mb-6 line-clamp-2 leading-relaxed">{p.description}</p>
-                  <div className="flex items-center text-white font-semibold text-xs tracking-wider uppercase group-hover:translate-x-2 transition-transform">
+                  <p className="text-[#57534E] text-sm font-light mb-6 line-clamp-2 leading-relaxed">{p.description}</p>
+                  <div className="flex items-center text-[#B45309] font-semibold text-xs tracking-wider uppercase group-hover:translate-x-2 transition-transform">
                     View Case Study <ArrowRight className="w-4 h-4 ml-2" />
                   </div>
                 </div>
@@ -252,42 +252,42 @@ export default function App() {
           </div>
         </section>
 
-        {/* CAPABILITIES SECTION */}
-        <section id="services" className="relative z-10 mb-20 pt-8 border-t border-amber-100">
+        {/* CAPABILITIES SECTION (TEAK BORDER OUTLINE CARDS) */}
+        <section id="services" className="relative z-10 mb-20 pt-8 border-t border-[#B45309]/20">
           <div className="mb-12">
             <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Our Capabilities</span>
             <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">End-to-End Execution</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[#B45309] text-white p-8 rounded-3xl border border-amber-600/30 shadow-xl">
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
+            <div className="bg-white text-[#292524] p-8 rounded-3xl border-2 border-[#B45309] shadow-sm hover:shadow-md transition-all">
+              <div className="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 border border-[#B45309]/30">
                 <Building className="w-7 h-7 text-[#B45309]" />
               </div>
-              <h3 className="text-xl font-normal mb-3 tracking-tight">Civil Construction</h3>
-              <p className="text-amber-100 text-sm font-light leading-relaxed">Structural RCC framing, masonry, and civil engineering built to last generations.</p>
+              <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Civil Construction</h3>
+              <p className="text-[#57534E] text-sm font-light leading-relaxed">Structural RCC framing, masonry, and civil engineering built to last generations.</p>
             </div>
 
-            <div className="bg-[#B45309] text-white p-8 rounded-3xl border border-amber-600/30 shadow-xl">
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
+            <div className="bg-white text-[#292524] p-8 rounded-3xl border-2 border-[#B45309] shadow-sm hover:shadow-md transition-all">
+              <div className="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 border border-[#B45309]/30">
                 <Paintbrush className="w-7 h-7 text-[#B45309]" />
               </div>
-              <h3 className="text-xl font-normal mb-3 tracking-tight">Bespoke Interiors</h3>
-              <p className="text-amber-100 text-sm font-light leading-relaxed">Factory-finished modular woodwork, marble flooring, and custom furniture fitting.</p>
+              <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Bespoke Interiors</h3>
+              <p className="text-[#57534E] text-sm font-light leading-relaxed">Factory-finished modular woodwork, marble flooring, and custom furniture fitting.</p>
             </div>
 
-            <div className="bg-[#B45309] text-white p-8 rounded-3xl border border-amber-600/30 shadow-xl">
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-md">
+            <div className="bg-white text-[#292524] p-8 rounded-3xl border-2 border-[#B45309] shadow-sm hover:shadow-md transition-all">
+              <div className="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mb-6 border border-[#B45309]/30">
                 <ShieldCheck className="w-7 h-7 text-[#B45309]" />
               </div>
-              <h3 className="text-xl font-normal mb-3 tracking-tight">Turnkey Management</h3>
-              <p className="text-amber-100 text-sm font-light leading-relaxed">Single point of accountability coordinating labor, vendors, and precise handovers.</p>
+              <h3 className="text-xl font-normal mb-3 tracking-tight text-[#1C1917]">Turnkey Management</h3>
+              <p className="text-[#57534E] text-sm font-light leading-relaxed">Single point of accountability coordinating labor, vendors, and precise handovers.</p>
             </div>
           </div>
         </section>
 
         {/* METHODOLOGY / PROCESS */}
-        <section id="process" className="relative z-10 mb-20 pt-8 border-t border-amber-100">
+        <section id="process" className="relative z-10 mb-20 pt-8 border-t border-[#B45309]/20">
           <div className="mb-12">
             <span className="text-[#B45309] font-semibold text-xs tracking-[0.2em] uppercase mb-2 block">Methodology</span>
             <h2 className="text-3xl lg:text-4xl font-light text-[#292524] tracking-tight">How We Build</h2>
@@ -295,7 +295,7 @@ export default function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {processSteps.map((s, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl border border-amber-200/80 shadow-sm relative">
+              <div key={i} className="bg-white p-8 rounded-3xl border-2 border-[#B45309] shadow-sm relative">
                 <span className="text-3xl font-light text-[#B45309] block mb-4 tracking-tight">{s.num}</span>
                 <h3 className="text-base font-semibold text-[#292524] mb-2">{s.title}</h3>
                 <p className="text-xs text-[#57534E] font-normal leading-relaxed">{s.desc}</p>
@@ -304,33 +304,33 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- TEAK FOOTER --- */}
-        <footer id="contact" className="relative z-10 bg-[#B45309] text-white rounded-3xl p-10 lg:p-12 shadow-2xl border border-amber-600/30">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-amber-700/50">
+        {/* --- FOOTER (TEAK OUTLINE BOX) --- */}
+        <footer id="contact" className="relative z-10 bg-white text-[#292524] rounded-3xl p-10 lg:p-12 shadow-md border-2 border-[#B45309]">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 pb-12 border-b border-[#B45309]/20">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-white text-[#B45309] font-semibold rounded-2xl flex items-center justify-center text-xl shadow-md">
+                <div className="w-10 h-10 bg-[#B45309] text-white font-semibold rounded-2xl flex items-center justify-center text-xl shadow-sm">
                   J
                 </div>
-                <span className="text-2xl font-semibold tracking-wider uppercase">Jyanipur</span>
+                <span className="text-2xl font-semibold tracking-wider uppercase text-[#1C1917]">Jyanipur</span>
               </div>
-              <p className="text-xs text-amber-100 font-light max-w-sm leading-relaxed">
+              <p className="text-xs text-[#57534E] font-light max-w-sm leading-relaxed">
                 Turnkey Construction & Bespoke Luxury Interiors. Building high-end architectural residences in Hyderabad.
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 text-xs font-medium text-amber-100">
-              <span className="flex items-center gap-3"><MapPin className="w-4 h-4 text-white" /> 302 Amrutha Lakshmi Residency, Kondapur, Hyderabad, 500084</span>
-              <span className="flex items-center gap-3"><Mail className="w-4 h-4 text-white" /> accounts@jyanipur.in</span>
-              <span className="flex items-center gap-3"><Phone className="w-4 h-4 text-white" /> +91 9246546742</span>
+            <div className="flex flex-col gap-3 text-xs font-medium text-[#292524]">
+              <span className="flex items-center gap-3"><MapPin className="w-4 h-4 text-[#B45309]" /> 302 Amrutha Lakshmi Residency, Kondapur, Hyderabad, 500084</span>
+              <span className="flex items-center gap-3"><Mail className="w-4 h-4 text-[#B45309]" /> accounts@jyanipur.in</span>
+              <span className="flex items-center gap-3"><Phone className="w-4 h-4 text-[#B45309]" /> +91 9246546742</span>
             </div>
           </div>
 
-          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-light text-amber-200">
+          <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-light text-[#78716C]">
             <span>© 2026 Jyanipur Construction & Interiors. All rights reserved.</span>
             <div className="flex gap-4">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-[#B45309] transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-[#B45309] transition-colors">Terms of Service</a>
             </div>
           </div>
         </footer>
@@ -340,17 +340,17 @@ export default function App() {
       {/* --- PROJECT DETAILS MODAL --- */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex justify-center items-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-hidden flex flex-col relative shadow-2xl border border-amber-200">
+          <div className="bg-white w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-hidden flex flex-col relative shadow-2xl border-2 border-[#B45309]">
             <button 
               onClick={() => setSelectedProject(null)} 
-              className="absolute top-4 right-4 z-10 bg-white text-[#B45309] p-2 rounded-full shadow-md hover:bg-[#B45309] hover:text-white transition-colors"
+              className="absolute top-4 right-4 z-10 bg-white text-[#B45309] p-2 rounded-full shadow-md border border-[#B45309]/30 hover:bg-[#B45309] hover:text-white transition-colors"
             >
               <X className="w-6 h-6" />
             </button>
 
             <div className="h-64 sm:h-80 relative shrink-0">
               <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#B45309]/90 via-transparent to-transparent flex items-end p-8">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#B45309]/95 via-transparent to-transparent flex items-end p-8">
                 <div className="text-white">
                   <span className="bg-white text-[#B45309] text-xs font-semibold px-3 py-1 rounded-full mb-3 inline-block shadow-sm">
                     {selectedProject.status}
@@ -368,7 +368,7 @@ export default function App() {
               <h3 className="text-lg font-semibold text-[#292524] mb-4">Key Specifications</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {selectedProject.features.map((feat, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-amber-50/50 p-4 rounded-xl border border-amber-200/60">
+                  <div key={i} className="flex items-center gap-3 bg-amber-50/50 p-4 rounded-xl border border-[#B45309]/30">
                     <CheckCircle2 className="w-4 h-4 text-[#B45309] shrink-0" />
                     <span className="text-xs font-semibold text-[#292524]">{feat}</span>
                   </div>
@@ -398,7 +398,7 @@ export default function App() {
       {/* --- CONSULTATION MODAL --- */}
       {isConsultModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white w-full max-w-md p-8 rounded-3xl relative shadow-2xl border border-amber-200">
+          <div className="bg-white w-full max-w-md p-8 rounded-3xl relative shadow-2xl border-2 border-[#B45309]">
             <button 
               onClick={() => { setIsEstimateModalOpen(false); setIsLeadSaved(false); }} 
               className="absolute top-6 right-6 text-[#78716C] hover:text-[#292524] transition-colors"
@@ -414,17 +414,17 @@ export default function App() {
                 <form onSubmit={handleConsultSubmit} className="space-y-5">
                   <div>
                     <label className="block text-xs font-semibold text-[#292524] uppercase tracking-wider mb-2 ml-1">Full Name</label>
-                    <input type="text" required value={leadData.clientName} onChange={e => setLeadData({...leadData, clientName: e.target.value})} placeholder="e.g. Ramesh Varma" className="w-full px-5 py-3.5 bg-amber-50/30 border border-amber-200 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all text-sm font-normal" />
+                    <input type="text" required value={leadData.clientName} onChange={e => setLeadData({...leadData, clientName: e.target.value})} placeholder="e.g. Ramesh Varma" className="w-full px-5 py-3.5 bg-amber-50/30 border border-[#B45309]/30 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all text-sm font-normal" />
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-[#292524] uppercase tracking-wider mb-2 ml-1">Phone Number</label>
-                    <input type="tel" required value={leadData.phone} onChange={e => setLeadData({...leadData, phone: e.target.value})} placeholder="+91 98765..." className="w-full px-5 py-3.5 bg-amber-50/30 border border-amber-200 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all text-sm font-normal" />
+                    <input type="tel" required value={leadData.phone} onChange={e => setLeadData({...leadData, phone: e.target.value})} placeholder="+91 98765..." className="w-full px-5 py-3.5 bg-amber-50/30 border border-[#B45309]/30 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all text-sm font-normal" />
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-[#292524] uppercase tracking-wider mb-2 ml-1">Project Scope</label>
-                    <select value={leadData.projectType} onChange={e => setLeadData({...leadData, projectType: e.target.value})} className="w-full px-5 py-3.5 bg-amber-50/30 border border-amber-200 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all cursor-pointer text-sm font-normal">
+                    <select value={leadData.projectType} onChange={e => setLeadData({...leadData, projectType: e.target.value})} className="w-full px-5 py-3.5 bg-amber-50/30 border border-[#B45309]/30 text-[#292524] rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#B45309] transition-all cursor-pointer text-sm font-normal">
                       <option value="Turnkey Residential Construction">Turnkey Construction (Structure + Interiors)</option>
                       <option value="Civil Structural Execution">Civil Structural Execution</option>
                       <option value="Turnkey Interior Fit-Out">Turnkey Luxury Interiors</option>
