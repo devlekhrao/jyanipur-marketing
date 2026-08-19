@@ -156,14 +156,34 @@ export default function App() {
         <AnimatePresence mode="wait">
           <motion.div key={currentPage} variants={pageTransition} initial="initial" animate="animate" exit="exit">
             
-            {/* HOME PAGE WITH 3D SPLINE HERO */}
+           {/* HOME PAGE WITH HERO */}
             {currentPage === 'home' && (
               <div className="space-y-24">
-                <section className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E7E5E4] h-[600px] lg:h-[750px] w-full bg-[#1C1917]">
-                  {/* Interactive Spline 3D Model */}
-                  <div className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing">
-                    <Spline scene="https://prod.spline.design/6Wq1Q7YGyM3J3A8E/scene.splcode" />
+                <section className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#E7E5E4] h-[600px] lg:h-[750px] w-full bg-[#1C1917] group">
+                  
+                  {/* High-End Architectural Fallback Image with Motion */}
+                  <motion.img 
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2400&q=80" 
+                    alt="Luxury Architectural Facade" 
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out opacity-80" 
+                  />
+                  
+                  {/* Overlay Text */}
+                  <div className="absolute bottom-0 left-0 right-0 p-10 lg:p-16 bg-gradient-to-t from-[#1C1917] via-[#1C1917]/80 to-transparent pointer-events-none">
+                    <span className="text-amber-400 font-semibold text-xs tracking-[0.3em] uppercase mb-4 block">Architectural Execution</span>
+                    <h2 className="text-4xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight mb-6">
+                      Interact with space <br/>before we build it.
+                    </h2>
+                    <button onClick={() => setCurrentPage('projects')} className="pointer-events-auto inline-flex items-center gap-3 bg-white text-[#B45309] px-8 py-4 rounded-full text-xs font-semibold tracking-wider uppercase hover:bg-amber-50 transition-all duration-300">
+                      View Execution Portfolio <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
+                </section>
+              </div>
+            )}
                   
                   {/* Overlay Text */}
                   <div className="absolute bottom-0 left-0 right-0 p-10 lg:p-16 bg-gradient-to-t from-[#1C1917] to-transparent pointer-events-none">
